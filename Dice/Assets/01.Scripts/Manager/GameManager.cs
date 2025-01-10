@@ -1,8 +1,6 @@
 using UnityEngine;
 public class GameManager : MonoBehaviour
 {
-
-
     #region Singleton Init
     public static GameManager Instance { get; private set; }
     private void Awake()
