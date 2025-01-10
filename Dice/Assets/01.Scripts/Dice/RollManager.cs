@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class DiceController : MonoBehaviour
+public class RollManager : MonoBehaviour
 {
     public List<string> CheckCombinations(List<int> dice)
     {
@@ -85,7 +85,7 @@ public class DiceController : MonoBehaviour
     private int[] dice = {1, 2, 3, 4, 5, 6};
     private List<string> diceCombinations;
 
-    private void Start()
+    private void Enable()
     {
         diceNum = new List<int>();
         diceCombinations = new List<string>();
