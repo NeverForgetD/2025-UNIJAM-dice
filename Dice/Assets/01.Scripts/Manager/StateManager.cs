@@ -57,8 +57,11 @@ public class StateManager : MonoBehaviour
 
     IEnumerator TaskStateBattle()
     {
-        Debug.Log("battle");
-        yield return new WaitForSeconds(2);
+        Debug.Log("battl");
+
+        PoolManager.Instance.ActivateObject("Battle");
+        yield return new WaitForSeconds(3);
+        PoolManager.Instance.DeactivateObject("Battle");
         AdvanceToNextState();
     }
 
