@@ -8,11 +8,12 @@ public class DiceButton : MonoBehaviour
     public Image image;
     public int rollCount;
     public RollManager manager;
-    void Awake()
+    void OnEnable()
     {
         manager = GameObject.Find("RollManager").GetComponent<RollManager>();
         image = gameObject.GetComponent<Image>();
         clicked = false;
+        image.color = new Color(1, 1, 1, 1);
     }
     // Update is called once per frame
     private void Update()
