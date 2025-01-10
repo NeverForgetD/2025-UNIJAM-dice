@@ -41,6 +41,8 @@ public class DiceController : MonoBehaviour
         
         else if(countValues.SequenceEqual(new List<int>{2,2,1}))
             combinations.Add("Two Pair");
+        else if(countValues.SequenceEqual(new List<int>{3,1,1}))
+            combinations.Add("Triple");
         else if (countValues.SequenceEqual(new List<int> { 2, 1, 1, 1 }))
         {
             combinations.Add("Pair");
@@ -49,6 +51,8 @@ public class DiceController : MonoBehaviour
             combinations.Add("Odd");
         if(dice.All(x=>x%2==0))
             combinations.Add("Even");
+        if(combinations==null||combinations.Count==0)
+            combinations.Add("None");
         return combinations;
     }
 
@@ -70,8 +74,12 @@ public class DiceController : MonoBehaviour
             score *= 4;
         else if (combinations.Contains("Two Pair"))
             score *= 3;
+        else if (combinations.Contains("Triple"))
+            score *= 3;
         else if (combinations.Contains("Pair"))
             score *= 2;
+        else if (combinations.Contains("None"))
+            score *= 1;
         if (combinations.Contains("Odd"))
             score *= 2;
         if (combinations.Contains("Even"))
