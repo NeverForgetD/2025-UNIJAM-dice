@@ -19,17 +19,30 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region Util
+    #region Unity LifeCycle
+    private void Start()
+    {
+        InitializeGame();
+    }
+    #endregion
 
+    #region Util
     public void InitializeGame()
     {
         //초기화 로직
+        StateManager.Instance.InitState(); // state Roll
     }
 
     public void EndGame()
     {
         //강제 종료 로직
     }
-
     #endregion
+
+    public void StartGameLoop()
+    {
+
+    }
+
+
 }
