@@ -6,7 +6,7 @@ public class SoundData : ScriptableObject
     /// <summary>
     /// 사운드 이름
     /// </summary>
-    public string soundName { private set; get; }
+    [HideInInspector] public string soundName;
 
     /// <summary>
     /// 재생할 AudioClip
@@ -30,4 +30,14 @@ public class SoundData : ScriptableObject
             soundName = name;
         }
     }
+    
+    [ContextMenu("Renew Name")]
+    private void PrintDebugMessage()
+    {
+        if (string.IsNullOrEmpty(soundName))
+        {
+            soundName = name;
+        }
+    }
+    
 }

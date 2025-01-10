@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aa64f42bdb7afd46a2a1437f09901d2, type: 3}
-  m_Name: SoundData
+  m_Name: DiceRoll01
   m_EditorClassIdentifier: 
+  soundName: DiceRoll01
   audioClip: {fileID: 8300000, guid: a6bd6a1249ef4eb4da1090fedbd2e9e0, type: 3}
   volume: 1
   pitch: 1

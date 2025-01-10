@@ -129,6 +129,7 @@ public class RollManager : MonoBehaviour
     
     public IEnumerator Roll()
     {
+        SoundManager.Instance.PlaySFX("DiceRoll01");
         yield return StartCoroutine(RollDiceForDuration(0.6f)); // 0.6초 동안 주사위를 굴림
     }
     

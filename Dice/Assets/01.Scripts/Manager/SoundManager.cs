@@ -35,7 +35,6 @@ public class SoundManager : MonoBehaviour
     #region Privates
     AudioSource bgmSource;
     AudioSource sfxSource;
-    AudioSource sfxSourceSpare;
 
     bool isBGMPlaying = false;
     #endregion
@@ -85,7 +84,7 @@ public class SoundManager : MonoBehaviour
     /// SFX 재생
     /// </summary>
     /// <param name="sfxName"></param>
-    public void PlaySFX(string sfxName, bool playWithSpare = false)
+    public void PlaySFX(string sfxName, float pitch = 0)
     {
         SoundData sfx = FindSound(soundDB.sfxList, sfxName); // 검색
         if (sfx == null)
@@ -94,8 +93,14 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-
-            sfxSource.pitch = sfx.pitch;
+            if (pitch == 0)
+            {
+                sfxSource.pitch = sfx.pitch;
+            }
+            else
+            {
+                sfxSource.pitch = pitch;
+            }
             sfxSource.volume = sfx.volume;
             sfxSource.PlayOneShot(sfx.audioClip);
 
