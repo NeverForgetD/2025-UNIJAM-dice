@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,8 @@ public class StateManager : MonoBehaviour
     }
     #endregion
 
+    #region Variables
+
     public enum GameState
     {
         Roll = 0,
@@ -31,14 +34,15 @@ public class StateManager : MonoBehaviour
 
     private bool isGameOver;
 
-
+    public static event Action OnCurrentStateCompleted;
+    private bool isCurrentStateDone = false;
+    #endregion
 
     #region State Management
     public void StartGame()
     {
         currentState = GameState.Roll;
         isGameOver = false;
-        //StartCoroutine(MainSequence());
         StartCoroutine(TaskStateRoll());
     }
 
@@ -51,29 +55,42 @@ public class StateManager : MonoBehaviour
     IEnumerator TaskStateRoll()
     {
         Debug.Log("roll");
-        yield return new WaitForSeconds(2);
-        AdvanceToNextState();
+        yield return StartCoroutine(WaitForStateCompletion());
+
+        RunNextState();
     }
 
     IEnumerator TaskStateBattle()
     {
-        Debug.Log("battl");
+        Debug.Log("battle");
 
         PoolManager.Instance.ActivateObject("Battle");
-        yield return new WaitForSeconds(3);
+
+        yield return StartCoroutine(WaitForStateCompletion());
+
         PoolManager.Instance.DeactivateObject("Battle");
-        AdvanceToNextState();
+        RunNextState();
     }
 
     IEnumerator TaskStateUpGrade()
     {
         Debug.Log("Upgrade");
-        yield return new WaitForSeconds(2);
-        AdvanceToNextState();
+        yield return StartCoroutine(WaitForStateCompletion());
+        RunNextState();
     }
 
+    IEnumerator WaitForStateCompletion()
+    {
+        isCurrentStateDone = false; // init
+        OnCurrentStateCompleted += () => isCurrentStateDone = true;
 
-    public void AdvanceToNextState()
+        yield return new WaitUntil(() => isCurrentStateDone);
+
+        // 이벤트 정리 (메모리 누수 방지)
+        OnCurrentStateCompleted -= () => isCurrentStateDone = true;
+    }
+
+    private void RunNextState()
     {
         currentState = (GameState)(((int)currentState + 1) % System.Enum.GetValues(typeof(GameState)).Length);
         Debug.Log($"다음 페이즈로 진행: {currentState}");
@@ -90,6 +107,12 @@ public class StateManager : MonoBehaviour
                 StartCoroutine(TaskStateUpGrade());
                 break;
         }
+    }
+
+
+    public void AdvanceToNextState()
+    {
+        isCurrentStateDone = true;
     }
     #endregion
 
