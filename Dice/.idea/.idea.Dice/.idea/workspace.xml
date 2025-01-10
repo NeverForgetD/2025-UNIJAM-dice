@@ -5,22 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/Dice.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/meLarm (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/meLarm (1).png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/meRarm (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/meRarm (1).png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/mebody (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/mebody (1).png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/mehead (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/mehead (1).png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/potential_activate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/potential_activate.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/potential_frame.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/potential_frame.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/Roll.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/Roll.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/meLarm (1).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/meLarm (1).png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/meRarm (1).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/meRarm (1).png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/mebody (1).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/mebody (1).png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/mehead (1).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/mehead (1).png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/potential_activate.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/potential_activate.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/potential_frame.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/potential_frame.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

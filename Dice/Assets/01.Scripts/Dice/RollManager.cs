@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -84,6 +86,46 @@ public class RollManager : MonoBehaviour
     public List<int> diceNum;
     private int[] dice = {1, 2, 3, 4, 5, 6};
     private List<string> diceCombinations;
+    public TextMeshProUGUI[] diceImages;
+    public bool isRolling = false;
+
+    public void OnRollButton()
+    {
+        StartCoroutine(Roll());
+    }
+    
+    
+    public IEnumerator Roll()
+    {
+        if (!isRolling) // 굴리는 중이 아닐 때만 실행
+        {
+            yield return StartCoroutine(RollDiceForDuration(2f)); // 2초 동안 주사위를 굴림
+        }
+    }
+    
+    private IEnumerator RollDiceForDuration(float duration)
+    {
+        isRolling = true; // 굴리기 시작
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            RollDice(); // 주사위 숫자 갱신
+            elapsedTime += Time.deltaTime; // 경과 시간 업데이트
+            yield return null; // 다음 프레임까지 대기
+        }
+
+        isRolling = false; // 굴리기 종료
+    }
+
+    private void RollDice()
+    {
+        for (int i = 0; i < diceImages.Length; i++)
+        {
+            int randomValue = Random.Range(1, 7); // 1부터 6까지 랜덤 숫자 생성
+            diceImages[i].text = randomValue.ToString(); // UI 텍스트 업데이트
+        }
+    }
 
     private void OnEnable()
     {
