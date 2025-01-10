@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InitializeGame();
+
+
+        StateManager.Instance.StartGame();
     }
     #endregion
 
@@ -30,7 +33,6 @@ public class GameManager : MonoBehaviour
     public void InitializeGame()
     {
         //초기화 로직
-        StateManager.Instance.InitState(); // state Roll
     }
 
     public void EndGame()
@@ -39,10 +41,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public void StartGameLoop()
-    {
-
-    }
 
 
 }

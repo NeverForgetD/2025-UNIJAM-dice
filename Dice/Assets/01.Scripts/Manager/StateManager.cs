@@ -34,52 +34,60 @@ public class StateManager : MonoBehaviour
 
 
     #region State Management
-    public void InitState()
-    {
-        currentState = GameState.Roll;
-    }
-
-
     public void StartGame()
     {
+        currentState = GameState.Roll;
         isGameOver = false;
-        StartCoroutine(MainSequence());
+        //StartCoroutine(MainSequence());
+        StartCoroutine(TaskStateRoll());
     }
 
     private IEnumerator MainSequence()
     {
         yield return StartCoroutine(TaskStateRoll());
-
-        yield return StartCoroutine(TaskStateBattle());
-
-        yield return StartCoroutine(TaskStateUpGrade());
     }
 
     
     IEnumerator TaskStateRoll()
     {
+        Debug.Log("roll");
         yield return new WaitForSeconds(2);
+        AdvanceToNextState();
     }
 
     IEnumerator TaskStateBattle()
     {
+        Debug.Log("battle");
         yield return new WaitForSeconds(2);
+        AdvanceToNextState();
     }
 
     IEnumerator TaskStateUpGrade()
     {
+        Debug.Log("Upgrade");
         yield return new WaitForSeconds(2);
+        AdvanceToNextState();
     }
 
 
-    public void AdvanceToNextPhase()
+    public void AdvanceToNextState()
     {
         currentState = (GameState)(((int)currentState + 1) % System.Enum.GetValues(typeof(GameState)).Length);
-        //Debug.Log($"다음 페이즈로 진행: {currentState}");
-        //StartPhase();
+        Debug.Log($"다음 페이즈로 진행: {currentState}");
+
+        switch (currentState)
+        {
+            case GameState.Roll:
+                StartCoroutine(TaskStateRoll());
+                break;
+            case GameState.Battle:
+                StartCoroutine(TaskStateBattle());
+                break;
+            case GameState.Upgrade:
+                StartCoroutine(TaskStateUpGrade());
+                break;
+        }
     }
-
-
     #endregion
 
 }
