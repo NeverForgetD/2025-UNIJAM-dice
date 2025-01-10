@@ -95,16 +95,41 @@ public class RollManager : MonoBehaviour
 
     public void OnRollButton()
     {
-        if (!isRolling && rollCount<4)
+        if (!isRolling && rollCount<3)
         {
+            if (rollCount == 0)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    diceNum.Add(PlayerManager.Instance.dices[i].GetEye());
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    diceNum[i]=PlayerManager.Instance.dices[i].GetEye();
+                }
+            }
+            for (int i = 0; i < diceNum.Count; i++)
+            {
+                Debug.Log("Dice: "+diceNum[i]);
+            }
+            diceCombinations=CheckCombinations(diceNum);
+            for (int i = 0; i < diceCombinations.Count; i++)
+            {
+                Debug.Log(diceCombinations[i]);
+            }
+            Debug.Log(GetScore(diceNum, diceCombinations));
             StartCoroutine(Roll());
             rollCount += 1;
+            
         }
     }
     
     public IEnumerator Roll()
     {
-        yield return StartCoroutine(RollDiceForDuration(2f)); // 2초 동안 주사위를 굴림
+        yield return StartCoroutine(RollDiceForDuration(0.6f)); // 0.6초 동안 주사위를 굴림
     }
     
     private IEnumerator RollDiceForDuration(float duration)
@@ -120,6 +145,10 @@ public class RollManager : MonoBehaviour
         }
 
         isRolling = false; // 굴리기 종료
+        for (int i = 0; i < curDice.Length; i++)
+        {
+            curDice[i].sprite = diceImages[diceNum[i] - 1];
+        }
     }
 
     private void RollDice()
@@ -136,32 +165,14 @@ public class RollManager : MonoBehaviour
 
     private void OnEnable()
     {
-        diceNum = new List<int>();
-        diceCombinations = new List<string>();
-
-        for (int i = 0; i < 5; i++)
-        {
-            diceNum.Add(PlayerManager.Instance.dices[i].GetEye());
-        }
-        for (int i = 0; i < diceNum.Count; i++)
-        {
-            Debug.Log("Dice: "+diceNum[i]);
-        }
-        diceCombinations=CheckCombinations(diceNum);
-        for (int i = 0; i < diceCombinations.Count; i++)
-        {
-            Debug.Log(diceCombinations[i]);
-        }
-        Debug.Log(GetScore(diceNum, diceCombinations));
-        diceNum.Clear();
-        diceCombinations.Clear();
-    }
-
-    private void Awake()
-    {
         rollCount=0;
         isRolling = false;
+        List<int> diceNum = new List<int>();
+        diceCombinations = new List<string>();
+        diceCombinations.Clear();
+        diceNum.Clear();
     }
+    
 
     void Update()
     {
