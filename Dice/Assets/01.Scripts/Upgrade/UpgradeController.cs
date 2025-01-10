@@ -13,7 +13,6 @@ public class UpgradeController : MonoBehaviour
     [SerializeField] private UpgradeType upgradeType;
     #endregion
 
-
     #region privates
 
     #endregion
@@ -39,7 +38,4 @@ public class UpgradeController : MonoBehaviour
 
 
     #endregion
-
-
-
 }
