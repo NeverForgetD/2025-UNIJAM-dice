@@ -22,7 +22,7 @@ public class BattleManager : MonoBehaviour
         Enemy.Init();
     }
 
-    private void Awake(){
+    private void OnEnable(){
         Init();
     }
 

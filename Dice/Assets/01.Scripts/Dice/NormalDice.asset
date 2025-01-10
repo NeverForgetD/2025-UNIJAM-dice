@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df8ddab0bc955e429c664777dbaa544, type: 3}
   m_Name: NormalDice
   m_EditorClassIdentifier: 
-  eyes: 
+  eyes: 010000000200000003000000040000000500000006000000

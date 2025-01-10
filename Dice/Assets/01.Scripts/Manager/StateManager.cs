@@ -8,15 +8,15 @@ public class StateManager : MonoBehaviour
     public static StateManager Instance { get; private set; }
     private void Awake()
     {
-        // ½Ì±ÛÅæ ÆĞÅÏ ±¸Çö
+        // ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // ±âÁ¸ ÀÎ½ºÅÏ½º°¡ ÀÖÀ» °æ¿ì »õ ÀÎ½ºÅÏ½º¸¦ »èÁ¦
+            Destroy(gameObject); // ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // ¾À ÀüÈ¯ ½Ã ÆÄ±«µÇÁö ¾ÊÀ½
+        DontDestroyOnLoad(gameObject); // ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
     #endregion
 
@@ -55,8 +55,12 @@ public class StateManager : MonoBehaviour
     IEnumerator TaskStateRoll()
     {
         Debug.Log("roll");
+
+        PoolManager.Instance.ActivateObject("Roll");
+
         yield return StartCoroutine(WaitForStateCompletion());
 
+        PoolManager.Instance.DeactivateObject("Roll");
         RunNextState();
     }
 
@@ -86,14 +90,14 @@ public class StateManager : MonoBehaviour
 
         yield return new WaitUntil(() => isCurrentStateDone);
 
-        // ÀÌº¥Æ® Á¤¸® (¸Ş¸ğ¸® ´©¼ö ¹æÁö)
+        // ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ (ï¿½Ş¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         OnCurrentStateCompleted -= () => isCurrentStateDone = true;
     }
 
     private void RunNextState()
     {
         currentState = (GameState)(((int)currentState + 1) % System.Enum.GetValues(typeof(GameState)).Length);
-        Debug.Log($"´ÙÀ½ ÆäÀÌÁî·Î ÁøÇà: {currentState}");
+        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: {currentState}");
 
         switch (currentState)
         {

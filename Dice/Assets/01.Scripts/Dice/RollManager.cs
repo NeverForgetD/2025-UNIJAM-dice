@@ -85,7 +85,7 @@ public class RollManager : MonoBehaviour
     private int[] dice = {1, 2, 3, 4, 5, 6};
     private List<string> diceCombinations;
 
-    private void Enable()
+    private void OnEnable()
     {
         diceNum = new List<int>();
         diceCombinations = new List<string>();
