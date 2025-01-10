@@ -37,6 +37,8 @@ public class BattleManager : MonoBehaviour
         T_Edef.text = "Enemy DEF = " + Enemy.def.ToString();
         T_Epot.text = "Enemy POT = " + Enemy.pot.ToString();
         T_Ebonus.text = "Enemy BONUS = " + Enemy.bonus.ToString();
+        if (StateManager.Instance.IsGameOver)
+            return;
     }
 
     public void Attack(){
@@ -97,7 +99,16 @@ public class BattleManager : MonoBehaviour
     }
 
     public void CheckDead(){
-        if(Player.hp <= 0) Debug.Log("Player Dead");
-        if(Enemy.hp <= 0) Debug.Log("Enemy Dead");
+        if (Player.hp <= 0)
+        {
+            // 게임종료
+            StateManager.Instance.EndGame();
+            Debug.Log("Player Dead");
+        }
+        if (Enemy.hp <= 0)
+        {
+            StateManager.Instance.AdvanceToNextState(); // Battle Win
+            Debug.Log("Enemy Dead");
+        }
     }
 }

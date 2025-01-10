@@ -34,6 +34,7 @@ public class StateManager : MonoBehaviour
     public GameState CurrentState { get { return currentState; } }
 
     private bool isGameOver;
+    public bool IsGameOver { get { return isGameOver; } }
 
     public static event Action OnCurrentStateCompleted;
     private bool isCurrentStateDone = false;
@@ -46,12 +47,6 @@ public class StateManager : MonoBehaviour
         isGameOver = false;
         StartCoroutine(TaskStateRoll());
     }
-
-    private IEnumerator MainSequence()
-    {
-        yield return StartCoroutine(TaskStateRoll());
-    }
-
     
     IEnumerator TaskStateRoll()
     {
@@ -125,11 +120,28 @@ public class StateManager : MonoBehaviour
                 break;
         }
     }
+    #endregion
 
+    #region Public State Method
     public void AdvanceToNextState()
     {
         isCurrentStateDone = true;
     }
+
+    public void EndGame()
+    {
+        isGameOver = true;
+        PoolManager.Instance.ActivateObject("Gameover");
+    }
+
+    public void StartNewGame()
+    {
+        PoolManager.Instance.DeactivateAllObjects();
+        StartGame();
+        Debug.Log("new Game Start");
+    }
+
+
     #endregion
 
 }

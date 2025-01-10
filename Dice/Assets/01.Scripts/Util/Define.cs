@@ -4,7 +4,7 @@ public class Define
 {
     public enum BonusType
     {
-    
+        
     }
 
 
