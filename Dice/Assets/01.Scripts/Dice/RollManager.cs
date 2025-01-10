@@ -108,7 +108,10 @@ public class RollManager : MonoBehaviour
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    diceNum[i]=PlayerManager.Instance.dices[i].GetEye();
+                    if (!diceState[i].clicked)
+                    {
+                        diceNum[i]=PlayerManager.Instance.dices[i].GetEye();
+                    }
                 }
             }
             for (int i = 0; i < diceNum.Count; i++)
@@ -162,15 +165,19 @@ public class RollManager : MonoBehaviour
             }
         }
     }
-
+    
     private void OnEnable()
     {
         rollCount=0;
         isRolling = false;
-        List<int> diceNum = new List<int>();
+        diceNum = new List<int>();
         diceCombinations = new List<string>();
         diceCombinations.Clear();
         diceNum.Clear();
+        for (int i = 0; i < curDice.Length; i++)
+        {
+            curDice[i].sprite = diceImages[i];
+        }
     }
     
 
