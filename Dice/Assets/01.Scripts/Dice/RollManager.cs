@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class RollManager : MonoBehaviour
@@ -86,7 +87,8 @@ public class RollManager : MonoBehaviour
     public List<int> diceNum;
     private int[] dice = {1, 2, 3, 4, 5, 6};
     private List<string> diceCombinations;
-    public TextMeshProUGUI[] diceImages;
+    public Sprite[] diceImages;
+    public Image[] curDice;
     public bool isRolling = false;
 
     public void OnRollButton()
@@ -120,10 +122,10 @@ public class RollManager : MonoBehaviour
 
     private void RollDice()
     {
-        for (int i = 0; i < diceImages.Length; i++)
+        for (int i = 0; i < curDice.Length; i++)
         {
-            int randomValue = Random.Range(1, 7); // 1부터 6까지 랜덤 숫자 생성
-            diceImages[i].text = randomValue.ToString(); // UI 텍스트 업데이트
+            int rand = Random.Range(0, diceImages.Length);
+            curDice[i].sprite = diceImages[rand];
         }
     }
 
