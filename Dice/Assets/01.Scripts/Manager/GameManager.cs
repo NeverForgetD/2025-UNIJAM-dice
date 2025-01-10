@@ -19,8 +19,17 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region Util
+    #region Unity LifeCycle
+    private void Start()
+    {
+        InitializeGame();
 
+
+        StateManager.Instance.StartGame();
+    }
+    #endregion
+
+    #region Util
     public void InitializeGame()
     {
         //초기화 로직
@@ -30,6 +39,8 @@ public class GameManager : MonoBehaviour
     {
         //강제 종료 로직
     }
-
     #endregion
+
+
+
 }
