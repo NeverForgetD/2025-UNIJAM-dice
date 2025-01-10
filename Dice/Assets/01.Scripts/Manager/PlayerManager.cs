@@ -18,5 +18,11 @@ public class PlayerManager : MonoBehaviour
     }
     #endregion
 
+    // 플레이어 정보 영구적으로 가지고있는 싱글톤 매니저
 
+    #region Properites
+    
+
+
+    #endregion
 }
