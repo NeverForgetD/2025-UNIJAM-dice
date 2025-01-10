@@ -7,12 +7,6 @@ using Random = UnityEngine.Random;
 
 public class DiceController : MonoBehaviour
 {
-    public int GetDiceNum(int[] diceNums)
-    {
-        int temp=Random.Range(0, 6);
-        return diceNums[temp];
-    }
-
     public List<string> CheckCombinations(List<int> dice)
     {
         for (int i = 0; i < dice.Count; i++)
@@ -24,35 +18,35 @@ public class DiceController : MonoBehaviour
         var countValues = counts.Values.OrderByDescending(v => v).ToList();
         var uniqueNumbers = counts.Keys.OrderBy(x => x).ToList();
         if(countValues.SequenceEqual(new List<int>{5}))
-            combinations.Add("Yahtzee");
+            combinations.Add("YZ");
         else if (uniqueNumbers.SequenceEqual(new List<int> { 1, 2, 3, 4, 5 }) ||
                   uniqueNumbers.SequenceEqual(new List<int> { 2, 3, 4, 5, 6 }))
         {
-            combinations.Add("Large Straight");
+            combinations.Add("LS");
         }
         else if(uniqueNumbers.SequenceEqual(new List<int>{1,2,3,4}) ||
                 uniqueNumbers.SequenceEqual(new List<int>{2,3,4,5}) ||
                 uniqueNumbers.SequenceEqual(new List<int>{3,4,5,6}))
-            combinations.Add("Small Straight");
+            combinations.Add("SS");
         else if(countValues.SequenceEqual(new List<int>{4,1}))
-            combinations.Add("Four of a Kind");
+            combinations.Add("FK");
         else if(countValues.SequenceEqual(new List<int>{3,2}))
-            combinations.Add("Full House");
+            combinations.Add("FH");
         
         else if(countValues.SequenceEqual(new List<int>{2,2,1}))
-            combinations.Add("Two Pair");
+            combinations.Add("TP");
         else if(countValues.SequenceEqual(new List<int>{3,1,1}))
-            combinations.Add("Triple");
+            combinations.Add("T");
         else if (countValues.SequenceEqual(new List<int> { 2, 1, 1, 1 }))
         {
-            combinations.Add("Pair");
+            combinations.Add("P");
         }
         if(dice.All(x=>x%2!=0))
-            combinations.Add("Odd");
+            combinations.Add("O");
         if(dice.All(x=>x%2==0))
-            combinations.Add("Even");
+            combinations.Add("E");
         if(combinations==null||combinations.Count==0)
-            combinations.Add("None");
+            combinations.Add("N");
         return combinations;
     }
 
@@ -62,27 +56,27 @@ public class DiceController : MonoBehaviour
         for (int i = 0; i < dice.Count; i++)
             score += dice[i];
         //배율은 나중에 수정
-        if (combinations.Contains("Yahtzee"))
+        if (combinations.Contains("YZ"))
             score *= 7;
-        else if (combinations.Contains("Large Straight"))
+        else if (combinations.Contains("LS"))
             score *= 6;
-        else if (combinations.Contains("Small Straight"))
+        else if (combinations.Contains("SS"))
             score *= 5;
-        else if (combinations.Contains("Four of a Kind"))
+        else if (combinations.Contains("FK"))
             score *= 5;
-        else if (combinations.Contains("Full House"))
+        else if (combinations.Contains("FH"))
             score *= 4;
-        else if (combinations.Contains("Two Pair"))
+        else if (combinations.Contains("TP"))
             score *= 3;
-        else if (combinations.Contains("Triple"))
+        else if (combinations.Contains("T"))
             score *= 3;
-        else if (combinations.Contains("Pair"))
+        else if (combinations.Contains("P"))
             score *= 2;
-        else if (combinations.Contains("None"))
+        else if (combinations.Contains("N"))
             score *= 1;
-        if (combinations.Contains("Odd"))
+        if (combinations.Contains("O"))
             score *= 2;
-        if (combinations.Contains("Even"))
+        if (combinations.Contains("E"))
             score *= 2;
         return score;
     }
@@ -95,13 +89,10 @@ public class DiceController : MonoBehaviour
     {
         diceNum = new List<int>();
         diceCombinations = new List<string>();
-    }
 
-    void Update()
-    {
         for (int i = 0; i < 5; i++)
         {
-            diceNum.Add(GetDiceNum(dice));
+            diceNum.Add(PlayerManager.Instance.dices[i].GetEye());
         }
         for (int i = 0; i < diceNum.Count; i++)
         {
@@ -115,5 +106,10 @@ public class DiceController : MonoBehaviour
         Debug.Log(GetScore(diceNum, diceCombinations));
         diceNum.Clear();
         diceCombinations.Clear();
+    }
+
+    void Update()
+    {
+        
     }
 }
