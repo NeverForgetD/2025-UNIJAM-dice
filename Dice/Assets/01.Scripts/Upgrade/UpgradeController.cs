@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class UpgradeController : MonoBehaviour
 {
+
     #region Upgrade Type
     private enum UpgradeType
     {
         Dice,
         Bonus,
     }
-
     [SerializeField] private UpgradeType upgradeType;
     #endregion
 
