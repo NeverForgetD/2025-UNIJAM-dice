@@ -11,9 +11,11 @@ public class Dice
     
 
     public List<int> eyes;
+    public Type type;
 
     public void Init(int round = 0){
         eyes = DiceGenerator.Generate();
+        type = DiceGenerator.type;
 
         Debug.Log(eyes[0].ToString()+
         eyes[1].ToString()+
