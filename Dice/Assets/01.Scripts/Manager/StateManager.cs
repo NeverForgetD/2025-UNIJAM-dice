@@ -136,6 +136,7 @@ public class StateManager : MonoBehaviour
 
     public void StartNewGame()
     {
+        PoolManager.Instance.DeactivateAllObjects();
         StartGame();
         Debug.Log("new Game Start");
     }

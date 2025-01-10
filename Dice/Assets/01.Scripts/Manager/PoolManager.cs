@@ -106,6 +106,36 @@ public class PoolManager : MonoBehaviour
             Debug.LogWarning("삭제하려는 오브젝트가 null입니다.");
         }
     }
+
+    /// <summary>
+    /// 저장된 모든 오브젝트를 활성화합니다.
+    /// </summary>
+    public void ActivateAllObjects()
+    {
+        foreach (GameObject obj in poolableObjects)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(true);
+                Debug.Log($"모든 오브젝트 활성화: {obj.name}");
+            }
+        }
+    }
+
+    /// <summary>
+    /// 저장된 모든 오브젝트를 비활성화합니다.
+    /// </summary>
+    public void DeactivateAllObjects()
+    {
+        foreach (GameObject obj in poolableObjects)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(false);
+                Debug.Log($"모든 오브젝트 비활성화: {obj.name}");
+            }
+        }
+    }
     #endregion
 
     #region Helper Methods
