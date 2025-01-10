@@ -1,16 +1,29 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-[CreateAssetMenu(fileName = "Dice",
-menuName = "Scriptable Object/Dice",
-order = int.MaxValue)]
-public class Dice : ScriptableObject
+
+
+public class Dice
 {
+    
+
     public List<int> eyes;
 
-    public void Init(){
-        eyes = new List<int>(){1,2,3,4,5,6};
+    public void Init(int round = 0){
+        eyes = DiceGenerator.Generate();
+
+        Debug.Log(eyes[0].ToString()+
+        eyes[1].ToString()+
+        eyes[2].ToString()+
+        eyes[3].ToString()+
+        eyes[4].ToString()+
+        eyes[5].ToString());
     }
+
+    
 
     public int GetEye(){
         return eyes[Random.Range(0,eyes.Count)];

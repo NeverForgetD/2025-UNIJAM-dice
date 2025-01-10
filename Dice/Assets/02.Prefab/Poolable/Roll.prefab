@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 7465184524142207286}
   - component: {fileID: 5588953094155263922}
   - component: {fileID: 2690175968564950238}
+  - component: {fileID: 4182575787157574249}
   m_Layer: 0
   m_Name: Dice 4
   m_TagString: Untagged
@@ -226,7 +227,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5588953094155263922}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4182575787157574249}
+        m_TargetAssemblyTypeName: DiceButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4182575787157574249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862404291522854855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e8b295fec5c814ba8bb2c5dbf596f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
+  image: {fileID: 0}
 --- !u!1 &1093845542113234195
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +266,7 @@ GameObject:
   - component: {fileID: 2159874121097452008}
   - component: {fileID: 6144202693478537877}
   - component: {fileID: 4611252693056854440}
+  - component: {fileID: 8600223174125046000}
   m_Layer: 0
   m_Name: Dice 1
   m_TagString: Untagged
@@ -286,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.49803922}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -346,7 +374,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6144202693478537877}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8600223174125046000}
+        m_TargetAssemblyTypeName: DiceButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8600223174125046000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093845542113234195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e8b295fec5c814ba8bb2c5dbf596f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
+  image: {fileID: 0}
 --- !u!1 &2077531800340504083
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +459,12 @@ MonoBehaviour:
   - {fileID: 4283888626305427053}
   - {fileID: 5588953094155263922}
   - {fileID: 8661776125285655383}
+  diceState:
+  - {fileID: 8600223174125046000}
+  - {fileID: 3996913661418336444}
+  - {fileID: 3122290639189480070}
+  - {fileID: 4182575787157574249}
+  - {fileID: 2891318201259937717}
   isRolling: 0
 --- !u!1 &4322557429107245251
 GameObject:
@@ -418,6 +478,7 @@ GameObject:
   - component: {fileID: 4523711048021541880}
   - component: {fileID: 8661776125285655383}
   - component: {fileID: 8631103263387298014}
+  - component: {fileID: 2891318201259937717}
   m_Layer: 0
   m_Name: Dice 5
   m_TagString: Untagged
@@ -525,7 +586,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8661776125285655383}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2891318201259937717}
+        m_TargetAssemblyTypeName: DiceButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2891318201259937717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322557429107245251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e8b295fec5c814ba8bb2c5dbf596f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
+  image: {fileID: 0}
 --- !u!1 &4613504638773127120
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +625,7 @@ GameObject:
   - component: {fileID: 1768071384859085224}
   - component: {fileID: 4283888626305427053}
   - component: {fileID: 9117693372621132781}
+  - component: {fileID: 3122290639189480070}
   m_Layer: 0
   m_Name: Dice 3
   m_TagString: Untagged
@@ -645,7 +733,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4283888626305427053}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3122290639189480070}
+        m_TargetAssemblyTypeName: DiceButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3122290639189480070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613504638773127120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e8b295fec5c814ba8bb2c5dbf596f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
+  image: {fileID: 0}
 --- !u!1 &4970123854363699841
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +938,7 @@ GameObject:
   - component: {fileID: 7979776365758275736}
   - component: {fileID: 6470636818771421816}
   - component: {fileID: 6421376503404088020}
+  - component: {fileID: 3996913661418336444}
   m_Layer: 0
   m_Name: Dice 2
   m_TagString: Untagged
@@ -931,7 +1046,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6470636818771421816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3996913661418336444}
+        m_TargetAssemblyTypeName: DiceButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3996913661418336444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870232418243306126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e8b295fec5c814ba8bb2c5dbf596f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicked: 0
+  image: {fileID: 0}
 --- !u!1 &8890334530385985662
 GameObject:
   m_ObjectHideFlags: 0

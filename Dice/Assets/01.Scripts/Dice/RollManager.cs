@@ -89,20 +89,22 @@ public class RollManager : MonoBehaviour
     private List<string> diceCombinations;
     public Sprite[] diceImages;
     public Image[] curDice;
-    public bool isRolling = false;
+    public DiceButton[] diceState;
+    public bool isRolling;
+    public int rollCount;
 
     public void OnRollButton()
     {
-        StartCoroutine(Roll());
+        if (!isRolling && rollCount<4)
+        {
+            StartCoroutine(Roll());
+            rollCount += 1;
+        }
     }
-    
     
     public IEnumerator Roll()
     {
-        if (!isRolling) // 굴리는 중이 아닐 때만 실행
-        {
-            yield return StartCoroutine(RollDiceForDuration(2f)); // 2초 동안 주사위를 굴림
-        }
+        yield return StartCoroutine(RollDiceForDuration(2f)); // 2초 동안 주사위를 굴림
     }
     
     private IEnumerator RollDiceForDuration(float duration)
@@ -124,8 +126,11 @@ public class RollManager : MonoBehaviour
     {
         for (int i = 0; i < curDice.Length; i++)
         {
-            int rand = Random.Range(0, diceImages.Length);
-            curDice[i].sprite = diceImages[rand];
+            if (!diceState[i].clicked)
+            {
+                int rand = Random.Range(0, diceImages.Length);
+                curDice[i].sprite = diceImages[rand];
+            }
         }
     }
 
@@ -150,6 +155,12 @@ public class RollManager : MonoBehaviour
         Debug.Log(GetScore(diceNum, diceCombinations));
         diceNum.Clear();
         diceCombinations.Clear();
+    }
+
+    private void Awake()
+    {
+        rollCount=0;
+        isRolling = false;
     }
 
     void Update()

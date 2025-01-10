@@ -1881,6 +1881,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1093845542113234195, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
+      propertyPath: m_Name
+      value: Dice 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1509289324109831835, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -2035,7 +2039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4970123854363699841, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5404048429062593790, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2081,6 +2085,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -5191096547196297412, guid: 032c389f82e0a084e94a4459086e693a, type: 3}
+    - target: {fileID: 6144202693478537877, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7267608333257322751, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
       propertyPath: m_fontAsset
       value: 
