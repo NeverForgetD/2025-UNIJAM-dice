@@ -23,6 +23,8 @@ public class Dice
         eyes[3].ToString()+
         eyes[4].ToString()+
         eyes[5].ToString());
+
+        Debug.Log($"init dice eyes {eyes[0]}, {eyes[1]}, {eyes[2]}, {eyes[3]}, {eyes[4]}, {eyes[5]}");
     }
 
     

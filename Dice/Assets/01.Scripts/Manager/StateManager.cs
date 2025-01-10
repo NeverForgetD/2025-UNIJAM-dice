@@ -38,11 +38,15 @@ public class StateManager : MonoBehaviour
 
     public static event Action OnCurrentStateCompleted;
     private bool isCurrentStateDone = false;
+
+    private int round;
+    public int Round { get { return round; } }
     #endregion
 
     #region State Management
     public void StartGame()
     {
+        round = 0;
         currentState = GameState.Roll;
         isGameOver = false;
         StartCoroutine(TaskStateRoll());
@@ -69,13 +73,13 @@ public class StateManager : MonoBehaviour
         yield return StartCoroutine(WaitForStateCompletion());
 
         PoolManager.Instance.DeactivateObject("Battle");
+        round++;
         RunNextState();
     }
 
     IEnumerator TaskStateUpGradeDice()
     {
-        // 주사위 강화
-        // 족보 강화
+        PoolManager.Instance.ActivateObject("Upgradedice");
         yield return StartCoroutine(WaitForStateCompletion());
         RunNextState();
     }
