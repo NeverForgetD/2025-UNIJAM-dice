@@ -26,7 +26,8 @@ public class StateManager : MonoBehaviour
     {
         Roll = 0,
         Battle = 1,
-        Upgrade = 2
+        UpgradeDice = 2,
+        UpgradeBonus = 3,
     }
 
     private GameState currentState;
@@ -72,9 +73,18 @@ public class StateManager : MonoBehaviour
         RunNextState();
     }
 
-    IEnumerator TaskStateUpGrade()
+    IEnumerator TaskStateUpGradeDice()
     {
-        Debug.Log("Upgrade");
+        // 주사위 강화
+        // 족보 강화
+        yield return StartCoroutine(WaitForStateCompletion());
+        RunNextState();
+    }
+
+    IEnumerator TaskStateUpGradeBonus()
+    {
+        // 주사위 강화
+        // 족보 강화
         yield return StartCoroutine(WaitForStateCompletion());
         RunNextState();
     }
@@ -103,12 +113,14 @@ public class StateManager : MonoBehaviour
             case GameState.Battle:
                 StartCoroutine(TaskStateBattle());
                 break;
-            case GameState.Upgrade:
-                StartCoroutine(TaskStateUpGrade());
+            case GameState.UpgradeDice:
+                StartCoroutine(TaskStateUpGradeDice());
+                break;
+            case GameState.UpgradeBonus:
+                StartCoroutine(TaskStateUpGradeBonus());
                 break;
         }
     }
-
 
     public void AdvanceToNextState()
     {
