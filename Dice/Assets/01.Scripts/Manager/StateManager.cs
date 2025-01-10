@@ -11,7 +11,7 @@ public class StateManager : MonoBehaviour
         // �̱��� ���� ����
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // ���� �ν��Ͻ��� ���� ��� �� �ν��Ͻ��� ����
+            Destroy(gameObject); // ���� �ν��Ͻ��� ���� ���?�� �ν��Ͻ��� ����
             return;
         }
 
@@ -107,7 +107,7 @@ public class StateManager : MonoBehaviour
     private void RunNextState()
     {
         currentState = (GameState)(((int)currentState + 1) % System.Enum.GetValues(typeof(GameState)).Length);
-        Debug.Log($"���� ������� ����: {currentState}");
+        Debug.Log($"���� �������?����: {currentState}");
 
         switch (currentState)
         {
