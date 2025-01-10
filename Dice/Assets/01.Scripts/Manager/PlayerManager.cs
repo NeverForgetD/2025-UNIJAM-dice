@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     public void Init(){
         dices = new List<Dice>();
         for(int i=0;i<5;i++) {
-            dices.Add(ScriptableObject.CreateInstance<Dice>());
+            dices.Add(new Dice());
             dices[i].Init();
         }
 
