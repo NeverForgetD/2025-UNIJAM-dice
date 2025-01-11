@@ -1,17 +1,142 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
+    #region SerializedField
+    [SerializeField] Sprite[] enemyDiceSprite;
+    [SerializeField] Image[] attackContainer;
+    [SerializeField] Image[] defenceContainer;
+    [SerializeField] Image[] chargeContainer;
+
+    [SerializeField] Image enemyDice;
+
+    #endregion
+
+    #region Enemy Dice Visualize
+    private void Start()
+    {
+        ResetContainers(); // 컨테이너 초기화
+        AssignDiceToContainers(); // 주사위 배치
+    }
+
+    /// <summary>
+    /// 모든 컨테이너를 초기화(비활성화).
+    /// </summary>
+    private void ResetContainers()
+    {
+        ResetContainer(attackContainer);
+        ResetContainer(defenceContainer);
+        ResetContainer(chargeContainer);
+    }
+
+    /// <summary>
+    /// 특정 컨테이너의 모든 이미지를 초기화(비활성화).
+    /// </summary>
+    private void ResetContainer(Image[] container)
+    {
+        foreach (Image image in container)
+        {
+            image.sprite = null; // Sprite 초기화
+            image.gameObject.SetActive(false); // 비활성화
+        }
+    }
+
+    /// <summary>
+    /// 숫자를 랜덤하게 컨테이너에 배정하고 나머지는 비활성화.
+    /// </summary>
+    public void AssignDiceToContainers()
+    {
+        ResetContainers(); // 실행 시 컨테이너 초기화
+
+        // 1부터 6까지의 숫자 생성
+        int[] numbers = { 1, 2, 3, 4, 5, 6 };
+
+        // 각 숫자를 랜덤하게 하나의 컨테이너에 배정
+        foreach (int number in numbers)
+        {
+            AssignToRandomContainer(number);
+        }
+    }
+
+    /// <summary>
+    /// 숫자를 랜덤한 컨테이너에 배정.
+    /// </summary>
+    private void AssignToRandomContainer(int number)
+    {
+        int randomContainer = Random.Range(0, 3); // 0: attack, 1: defence, 2: charge
+        Image[] targetContainer = randomContainer switch
+        {
+            0 => attackContainer,
+            1 => defenceContainer,
+            2 => chargeContainer,
+            _ => null
+        };
+
+        // 비어 있는 슬롯을 찾아 Sprite 배정
+        foreach (Image image in targetContainer)
+        {
+            if (image.sprite == null) // Sprite가 비어 있는 슬롯
+            {
+                image.sprite = enemyDiceSprite[number - 1]; // 1~6에 맞는 Sprite 설정
+                image.gameObject.SetActive(true); // 활성화
+                return;
+            }
+        }
+    }
+    #endregion
+
+    #region Enemy Dice Roll
 
 
 
+    public void EnemyRoll()
+    {
+        int enemyDiceIndex = Random.Range(0, 6);
+        int enemyMoveIndex = GetContainerForNumber(enemyDiceIndex);
+
+        enemyDice.sprite = enemyDiceSprite[enemyDiceIndex];
+        Debug.Log($"{enemyMoveIndex}");
+    }
 
 
+    private int GetContainerForNumber(int number)
+    {
+        // 숫자에 해당하는 Sprite 가져오기
+        Sprite targetSprite = enemyDiceSprite[number];
+
+        // 각 컨테이너에서 해당 Sprite를 검색
+        if (ContainsSprite(attackContainer, targetSprite)) return 0; // attack
+        if (ContainsSprite(defenceContainer, targetSprite)) return 1; // defence
+        if (ContainsSprite(chargeContainer, targetSprite)) return 2; // charge
+
+        // 해당 숫자가 어느 컨테이너에도 없는 경우
+        return -1; // not found
+    }
+
+    /// <summary>
+    /// 컨테이너가 특정 Sprite를 포함하고 있는지 확인.
+    /// </summary>
+    private bool ContainsSprite(Image[] container, Sprite sprite)
+    {
+        foreach (Image image in container)
+        {
+            if (image.sprite == sprite) return true;
+        }
+        return false;
+    }
+    #endregion
 
 
+    #region Test
+    public void OnBtn()
+    {
+        ResetContainers(); // 컨테이너 초기화
+        AssignDiceToContainers(); // 주사위 배치
 
-
-
+        EnemyRoll();
+    }
+    #endregion
 }
 
 

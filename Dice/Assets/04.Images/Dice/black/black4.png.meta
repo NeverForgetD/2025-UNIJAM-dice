@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 819490e322198864a89af549945267c2
+guid: 4759d05ca400e0f4285778da1152f56e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2810356016040377531
-    second: dicehouse_0
+      213: 3473264072437542331
+    second: enemyactpredict-61_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dicehouse_0
+      name: enemyactpredict-61_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1273
-        height: 817
+        width: 87
+        height: 87
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bbcf77c18e3600720800000000000000
-      internalID: 2810356016040377531
+      spriteID: bbd24c09543833030800000000000000
+      internalID: 3473264072437542331
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dicehouse_0: 2810356016040377531
+      enemyactpredict-61_0: 3473264072437542331
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
