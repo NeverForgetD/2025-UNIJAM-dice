@@ -29,6 +29,7 @@ public class BattleManager : MonoBehaviour
     public int playerCharge { get; private set; }
     public int enemyCharge {  get; private set; }
     public int enemyNum {  get; private set; }
+    public bool isActing {  get; private set; }
     #endregion
 
     #region Charge Visulaize
@@ -158,6 +159,7 @@ public class BattleManager : MonoBehaviour
     {
         playerCharge = 0;
         enemyCharge = 0;
+        isActing = false;
 
         DeactivateAllCharges(playerCharges);
         DeactivateAllCharges(enemyCharges);
@@ -166,6 +168,8 @@ public class BattleManager : MonoBehaviour
 
     public void OnPlayerMove(int playerIndex) // ��ư Ŭ������ �ߵ�
     {
+        if(isActing) return;
+        isActing = true;
         ResetEnemytable();
         StartCoroutine(ExecuteBattle(playerIndex));
     }
@@ -283,12 +287,20 @@ public class BattleManager : MonoBehaviour
         playerSprite.sprite = playerSpriteContainer[spriteType];
         yield return new WaitForSeconds(1f);
         playerSprite.sprite = playerSpriteContainer[0];
+        isActing = false;
     }
 
     private IEnumerator EnemySpriteChange(int spriteType){
         enemySprite.sprite = enemySpriteContainer[enemyNum * 4 + spriteType];
         yield return new WaitForSeconds(1f);
+
+        if(StatusManager.Instance.enemyStatus._hp < 0){
+            enemySprite.color = Color.clear;
+            enemyNum = (enemyNum + 1) % 3;
+        }
+  
         enemySprite.sprite = enemySpriteContainer[enemyNum * 4];
+        isActing = false;
     }
 
     private IEnumerator CheckBattleEnd()
@@ -299,11 +311,9 @@ public class BattleManager : MonoBehaviour
         }
         else if (StatusManager.Instance.enemyStatus._hp < 0)
         {
+            isActing = true;
             yield return new WaitForSeconds(2f); // 2�� ���
-            enemyNum = (enemyNum + 1) % 3;
-            enemySprite.sprite = enemySpriteContainer[enemyNum * 4];
 
-            Debug.Log("have to stop every button until go to next");
             StateManager.Instance.AdvanceToNextState();
         }
     }

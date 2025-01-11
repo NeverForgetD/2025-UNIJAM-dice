@@ -12,6 +12,8 @@ public class RollManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI rollBtnText;
 
+    [SerializeField] Image enemySprite;
+
     private int GetMaxConsecutiveCount(List<int> numbers)
     {
         int maxCount = 1; // 최소 연속 길이는 1
@@ -350,6 +352,8 @@ public class RollManager : MonoBehaviour
         diceCombinations.Clear();
         diceNum.Clear();
         actualDiceNum = new List<int> {0,0,0,0,0};
+        enemySprite.color = Color.white;
+        
         for (int i = 0; i < curDice.Length; i++)
         {
             curDice[i].sprite = randomDice;
