@@ -57,7 +57,7 @@ public class StateManager : MonoBehaviour
     {
         Debug.Log("roll");
         
-        SoundManager.Instance.PlayBGM("BGM1");
+        SoundManager.Instance.PlayBGM("BGM3");
         StatusManager.Instance.UpdateCurrentEnemyStatus();
         PoolManager.Instance.ActivateObject("Roll");
 
@@ -72,7 +72,7 @@ public class StateManager : MonoBehaviour
     {
         Debug.Log("battle");
 
-        SoundManager.Instance.PlayBGM("BGM2");
+        SoundManager.Instance.PlayBGM("BGM4");
         PoolManager.Instance.ActivateObject("Battle");
 
         yield return StartCoroutine(WaitForStateCompletion());

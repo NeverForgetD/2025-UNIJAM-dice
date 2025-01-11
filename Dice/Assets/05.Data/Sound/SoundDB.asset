@@ -15,5 +15,7 @@ MonoBehaviour:
   bgmList:
   - {fileID: 11400000, guid: 6047215177be24dddaf19df875a67fbc, type: 2}
   - {fileID: 11400000, guid: 144d7c4fd2ea94a00808f1ff1f586da7, type: 2}
+  - {fileID: 11400000, guid: 59d21db7b8ed04014a8d0f5305471f88, type: 2}
+  - {fileID: 11400000, guid: baabe75587b104982b42a8d569c8a237, type: 2}
   sfxList:
   - {fileID: 11400000, guid: d710d1339f524c54e80733d26a4844a7, type: 2}
