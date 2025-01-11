@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c54f13d4279fa4c4887652542dbc2b0d
+guid: 3314bab56e8c1b340867a84aea21d043
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4394490801693564089
-    second: reinforce_board_0
+      213: -1654213251011269035
+    second: reinforce_glow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: reinforce_board_0
+      name: reinforce_glow_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 14
-        width: 254
-        height: 411
+        x: 0
+        y: 0
+        width: 282
+        height: 438
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 743655c16e1a303c0800000000000000
-      internalID: -4394490801693564089
+      spriteID: 55eaab600dd0b09e0800000000000000
+      internalID: -1654213251011269035
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      reinforce_board_0: -4394490801693564089
+      reinforce_glow_0: -1654213251011269035
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

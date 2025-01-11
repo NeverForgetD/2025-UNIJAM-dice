@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
         dices = new List<Dice>();
         for(int i=0;i<5;i++) {
             dices.Add(new Dice());
-            dices[i].Init();
+            dices[i].PlayerInit();
         }
         
         handsLevel = new Dictionary<string, int>(){{"YZ", 10}, 

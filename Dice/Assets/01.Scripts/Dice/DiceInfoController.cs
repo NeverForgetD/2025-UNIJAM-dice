@@ -16,7 +16,28 @@ public class DiceInfoController : MonoBehaviour
     {
         for (int i = 0; i < diceEyes.Length; i++)
         {
-            diceEyes[i].sprite = diceNums[eyes[i]-1];
+            switch (eyes[0]/10)
+            {
+                case 0:
+                    diceEyes[i].sprite = diceNums[eyes[i]-1];
+                    break;
+                case 1:
+                    diceEyes[i].sprite = diceNums10[eyes[i] - 11];
+                    break;
+                case 2:
+                    diceEyes[i].sprite = diceNums20[eyes[i] - 21];
+                    break;
+                case 3:
+                    diceEyes[i].sprite = diceNums30[eyes[i] - 31];
+                    break;
+                case 4:
+                    diceEyes[i].sprite = diceNums40[eyes[i] - 41];
+                    break;
+                case 5:
+                    diceEyes[i].sprite = diceNums50[eyes[i] - 51];
+                    break;
+            }
+            
         }
     }
 }

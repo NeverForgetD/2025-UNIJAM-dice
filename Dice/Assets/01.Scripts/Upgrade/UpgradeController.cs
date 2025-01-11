@@ -34,6 +34,33 @@ public class UpgradeController : MonoBehaviour
         combinationText[9].text="x"+PlayerManager.Instance.handsLevel["N"].ToString();
         upgradeClicked = false;
         options = new List<string>();
+        eyes = new List<int>();
+        eyes.Clear();
+        for (int i = 0; i < curDice.Length; i++)
+        {
+            eyes.Add(PlayerManager.Instance.dices[i].GetEyes()[i]);
+            switch (eyes[i]/10)
+            {
+                case 0:
+                    curDice[i].sprite = diceImages[eyes[i] - 1];
+                    break;
+                case 1:
+                    curDice[i].sprite = diceImages10[eyes[i] - 11];
+                    break;
+                case 2:
+                    curDice[i].sprite = diceImages20[eyes[i] - 21];
+                    break;
+                case 3:
+                    curDice[i].sprite = diceImages30[eyes[i] - 31];
+                    break;
+                case 4:
+                    curDice[i].sprite = diceImages40[eyes[i] - 41];
+                    break;
+                case 5:
+                    curDice[i].sprite = diceImages50[eyes[i] - 51];
+                    break;
+            }
+        }
         options.Clear();
         GenerateOption();
     }
@@ -50,7 +77,15 @@ public class UpgradeController : MonoBehaviour
     
     [SerializeField] TextMeshProUGUI[] combinationText;
     [SerializeField] BonusButton[] upgradeState;
+    [SerializeField] public Sprite[] diceImages;
+    [SerializeField] public Sprite[] diceImages10;
+    [SerializeField] public Sprite[] diceImages20;
+    [SerializeField] public Sprite[] diceImages30;
+    [SerializeField] public Sprite[] diceImages40;
+    [SerializeField] public Sprite[] diceImages50;
+    [SerializeField] Image[] curDice;
     #endregion
+    private List<int> eyes;
 
     #region Generate Options
 

@@ -27,7 +27,27 @@ public class DiceUpgradeController : MonoBehaviour
         for (int i = 0; i < curDice.Length; i++)
         {
             diceState[i].eyes = PlayerManager.Instance.dices[i].GetEyes();
-            curDice[i].sprite = diceImages[diceState[i].eyes[0] - 1];
+            switch (diceState[i].eyes[0]/10)
+            {
+                case 0:
+                    curDice[i].sprite = diceImages[diceState[i].eyes[0] - 1];
+                    break;
+                case 1:
+                    curDice[i].sprite = diceImages10[diceState[i].eyes[0] - 11];
+                    break;
+                case 2:
+                    curDice[i].sprite = diceImages20[diceState[i].eyes[0] - 21];
+                    break;
+                case 3:
+                    curDice[i].sprite = diceImages30[diceState[i].eyes[0] - 31];
+                    break;
+                case 4:
+                    curDice[i].sprite = diceImages40[diceState[i].eyes[0] - 41];
+                    break;
+                case 5:
+                    curDice[i].sprite = diceImages50[diceState[i].eyes[0] - 51];
+                    break;
+            }
         }
         combinationText[0].text="x"+PlayerManager.Instance.handsLevel["YZ"].ToString();
         combinationText[1].text="x"+PlayerManager.Instance.handsLevel["LS"].ToString();
@@ -96,17 +116,88 @@ public class DiceUpgradeController : MonoBehaviour
             eyes = diceOptions[i].GetEyes();
             for (int j = 0; j < 6; j++)
             {
-                if (i == 0)
+                switch (eyes[j]/10)
                 {
-                    diceOptionImage1[j].sprite = diceImages[eyes[j] - 1];
-                }else if (i == 1)
-                {
-                    diceOptionImage2[j].sprite = diceImages[eyes[j] - 1];
+                    case 0:
+                        if (i == 0)
+                        {
+                            diceOptionImage1[j].sprite = diceImages[eyes[j] - 1];
+                        }else if (i == 1)
+                        {
+                            diceOptionImage2[j].sprite = diceImages[eyes[j] - 1];
+                        }
+                        else
+                        {
+                            diceOptionImage3[j].sprite = diceImages[eyes[j] - 1];
+                        }
+                        break;
+                    case 1:
+                        if (i == 0)
+                        {
+                            diceOptionImage1[j].sprite = diceImages10[eyes[j] - 11];
+                        }else if (i == 1)
+                        {
+                            diceOptionImage2[j].sprite = diceImages10[eyes[j] - 11];
+                        }
+                        else
+                        {
+                            diceOptionImage3[j].sprite = diceImages10[eyes[j] - 11];
+                        }
+                        break;
+                    case 2:
+                        if (i == 0)
+                        {
+                            diceOptionImage1[j].sprite = diceImages20[eyes[j] - 21];
+                        }else if (i == 1)
+                        {
+                            diceOptionImage2[j].sprite = diceImages20[eyes[j] - 21];
+                        }
+                        else
+                        {
+                            diceOptionImage3[j].sprite = diceImages20[eyes[j] - 21];
+                        }
+                        break;
+                    case 3:
+                        if (i == 0)
+                        {
+                            diceOptionImage1[j].sprite = diceImages30[eyes[j] - 31];
+                        }else if (i == 1)
+                        {
+                            diceOptionImage2[j].sprite = diceImages30[eyes[j] - 31];
+                        }
+                        else
+                        {
+                            diceOptionImage3[j].sprite = diceImages30[eyes[j] - 31];
+                        }
+                        break;
+                    case 4:
+                        if (i == 0)
+                        {
+                            diceOptionImage1[j].sprite = diceImages40[eyes[j] - 41];
+                        }else if (i == 1)
+                        {
+                            diceOptionImage2[j].sprite = diceImages40[eyes[j] - 41];
+                        }
+                        else
+                        {
+                            diceOptionImage3[j].sprite = diceImages40[eyes[j] - 41];
+                        }
+                        break;
+                    case 5:
+                        if (i == 0)
+                        {
+                            diceOptionImage1[j].sprite = diceImages50[eyes[j] - 51];
+                        }else if (i == 1)
+                        {
+                            diceOptionImage2[j].sprite = diceImages50[eyes[j] - 51];
+                        }
+                        else
+                        {
+                            diceOptionImage3[j].sprite = diceImages50[eyes[j] - 51];
+                        }
+                        break;
                 }
-                else
-                {
-                    diceOptionImage3[j].sprite = diceImages[eyes[j] - 1];
-                }
+                
             }
         }
     }
