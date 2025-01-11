@@ -36,7 +36,7 @@ public class PlayerManager : MonoBehaviour
         handsLevel = new Dictionary<string, int>(){{"YZ", 7}, 
         {"LS", 6}, {"SS", 3}, {"FK", 5}, 
         {"FH", 4}, {"TP", 3}, {"T", 3}, 
-        {"P", 2}, {"O", 2}, {"E", 2}, {"N", 1}};
+        {"P", 2}, {"O", 2}, {"N", 1}};
     }
 
     #endregion

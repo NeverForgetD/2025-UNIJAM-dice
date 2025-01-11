@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
@@ -28,7 +29,16 @@ public class DiceUpgradeController : MonoBehaviour
             diceState[i].eyes = PlayerManager.Instance.dices[i].GetEyes();
             curDice[i].sprite = diceImages[diceState[i].eyes[0] - 1];
         }
-
+        combinationText[0].text="x"+PlayerManager.Instance.handsLevel["YZ"].ToString();
+        combinationText[1].text="x"+PlayerManager.Instance.handsLevel["LS"].ToString();
+        combinationText[2].text="x"+PlayerManager.Instance.handsLevel["SS"].ToString();
+        combinationText[3].text="x"+PlayerManager.Instance.handsLevel["FK"].ToString();
+        combinationText[4].text="x"+PlayerManager.Instance.handsLevel["FH"].ToString();
+        combinationText[5].text="x"+PlayerManager.Instance.handsLevel["TP"].ToString();
+        combinationText[6].text="x"+PlayerManager.Instance.handsLevel["T"].ToString();
+        combinationText[7].text="x"+PlayerManager.Instance.handsLevel["P"].ToString();
+        combinationText[8].text="x"+PlayerManager.Instance.handsLevel["O"].ToString();
+        combinationText[9].text="x"+PlayerManager.Instance.handsLevel["N"].ToString();
         anyClicked = false;
         upgradeClicked = false;
     }
@@ -47,8 +57,7 @@ public class DiceUpgradeController : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI text1;
     //[SerializeField] private TextMeshProUGUI text2;
     //[SerializeField] private TextMeshProUGUI text3;
-
-    [SerializeField] TextMeshProUGUI[] texts;
+    
     [SerializeField] TextMeshProUGUI[] combinationText;
     [SerializeField] public Sprite[] diceImages;
     [SerializeField] public Sprite[] diceImages10;
@@ -59,6 +68,9 @@ public class DiceUpgradeController : MonoBehaviour
     [SerializeField] Image[] curDice;
     [SerializeField] DiceButtonUpgrade[] diceState;
     [SerializeField] UpdrageButton[] upgradeState;
+    [SerializeField] Image[] diceOptionImage1;
+    [SerializeField] Image[] diceOptionImage2;
+    [SerializeField] Image[] diceOptionImage3;
     #endregion
 
     #region Generate Options
@@ -69,12 +81,27 @@ public class DiceUpgradeController : MonoBehaviour
 
     private void GenerateDiceOption()
     {
+        List<int> eyes=new List<int>();
         diceOptions = new Dice[3];
         for (int i = 0; i < 3; i++)
         {
             diceOptions[i] = new Dice();
             diceOptions[i].Init(StateManager.Instance.Round);
-            texts[i].text = $"{diceOptions[i].eyes[0]}, {diceOptions[i].eyes[1]}, {diceOptions[i].eyes[2]}, {diceOptions[i].eyes[3]}, {diceOptions[i].eyes[4]}, {diceOptions[i].eyes[5]}";
+            eyes = diceOptions[i].GetEyes();
+            for (int j = 0; j < 6; j++)
+            {
+                if (i == 0)
+                {
+                    diceOptionImage1[j].sprite = diceImages[eyes[j] - 1];
+                }else if (i == 1)
+                {
+                    diceOptionImage2[j].sprite = diceImages[eyes[j] - 1];
+                }
+                else
+                {
+                    diceOptionImage3[j].sprite = diceImages[eyes[j] - 1];
+                }
+            }
         }
     }
 
@@ -118,15 +145,45 @@ public class DiceUpgradeController : MonoBehaviour
 
     public void CheckUpgradeClicked()
     {
-        for (int i = 0; i < texts.Length; i++)
+        for (int i = 0; i < diceOptions.Length; i++)
         {
             if (upgradeState[i].clicked)
             {
                 upgradeClicked = true;
+                for (int j = 0; j < diceImages.Length; j++)
+                {
+                    if (i == 0)
+                    {
+                        diceOptionImage1[j].color=new Color(1, 1, 1, 0.5f);
+                    }
+                    else if (i == 1)
+                    {
+                        diceOptionImage2[j].color=new Color(1, 1, 1, 0.5f);
+                    }
+                    else
+                    {
+                        diceOptionImage3[j].color=new Color(1, 1, 1, 0.5f);
+                    }
+                }
                 break;
             }
             else
             {
+                for (int j = 0; j < diceImages.Length; j++)
+                {
+                    if (i == 0)
+                    {
+                        diceOptionImage1[j].color=new Color(1, 1, 1);
+                    }
+                    else if (i == 1)
+                    {
+                        diceOptionImage2[j].color=new Color(1, 1, 1);
+                    }
+                    else
+                    {
+                        diceOptionImage3[j].color=new Color(1, 1, 1);
+                    }
+                }
                 upgradeClicked = false;
             }
         }
