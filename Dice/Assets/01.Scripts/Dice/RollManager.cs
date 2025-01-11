@@ -157,6 +157,7 @@ public class RollManager : MonoBehaviour
     public GameObject statControlSet;
     public int score;
     public StatButton[] statButtons;
+    public bool statAllCliked;
     
 
     public void CheckAllClicked()
@@ -290,6 +291,7 @@ public class RollManager : MonoBehaviour
             statButtons[i].isClicked = false;
         }
         scoreText.text = "";
+        statAllCliked = false;
         Init();
     }
 
@@ -323,5 +325,21 @@ public class RollManager : MonoBehaviour
             diceState[i].eyes = PlayerManager.Instance.dices[i].GetEyes();
             diceState[i].type = PlayerManager.Instance.dices[i].GetType();
         }
+
+        for (int i = 0; i < statButtons.Length; i++)
+        {
+            if (!statButtons[i].isClicked)
+            {
+                statAllCliked = false;
+                break;
+            }
+            else
+            {
+                statAllCliked = true;
+            }
+        }
+        
+        if(statAllCliked)
+            StateManager.Instance.AdvanceToNextState();
     }
 }
