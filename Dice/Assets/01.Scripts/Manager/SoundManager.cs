@@ -84,7 +84,7 @@ public class SoundManager : MonoBehaviour
     /// SFX 재생
     /// </summary>
     /// <param name="sfxName"></param>
-    public void PlaySFX(string sfxName, float pitch = 0)
+    public void PlaySFX(string sfxName)
     {
         SoundData sfx = FindSound(soundDB.sfxList, sfxName); // 검색
         if (sfx == null)
@@ -93,14 +93,22 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            if (pitch == 0)
-            {
-                sfxSource.pitch = sfx.pitch;
-            }
-            else
-            {
-                sfxSource.pitch = pitch;
-            }
+            sfxSource.pitch = sfx.pitch;
+            sfxSource.volume = sfx.volume;
+            sfxSource.PlayOneShot(sfx.audioClip);
+
+        }
+    }
+    public void PlaySFX_RandomPitch(string sfxName, float minPitch, float maxPitch)
+    {
+        SoundData sfx = FindSound(soundDB.sfxList, sfxName); // 검색
+        if (sfx == null)
+        {
+            Debug.Log($"Failed to find sound data_SFX : {sfxName}");
+        }
+        else
+        {
+            sfxSource.pitch = Random.Range(minPitch, maxPitch);
             sfxSource.volume = sfx.volume;
             sfxSource.PlayOneShot(sfx.audioClip);
 
