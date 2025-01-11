@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
@@ -127,16 +129,61 @@ public class BattleManager : MonoBehaviour
     }
     #endregion
 
+    #region Battle Loop
+    public void OnBattleStart()
+    {
+        ResetContainers(); // 컨테이너 초기화
+        AssignDiceToContainers(); // 주사위 배치
+    }
+
+    public void OnPlayerMove(int index)
+    {
+        StartCoroutine(ExecuteBattle());
+
+            
+
+    }
+    public IEnumerator ExecuteBattle()
+    {
+        yield return StartCoroutine(RollDiceForDuration(0.6f)); // 0.6초 동안 주사위를 굴림
+        EnemyRoll();
+    }
+
+    public void DetermineResult(int index)
+    {
+        if (index == 0)
+        {
+
+        }
+    }
+
+    #endregion
+
+    #region Util
+
+    private IEnumerator RollDiceForDuration(float duration)
+    {
+        float elapsedTime = 0f;
+        int i = 0;
+        while (elapsedTime < duration)
+        {
+            enemyDice.sprite = enemyDiceSprite[i % enemyDiceSprite.Length];
+            i++;
+            elapsedTime += Time.deltaTime; // 경과 시간 업데이트
+            //yield return new WaitForSeconds(0.02f);
+            yield return null; // 다음 프레임까지 대기
+        }
+    }
+    #endregion
 
     #region Test
     public void OnBtn()
     {
-        ResetContainers(); // 컨테이너 초기화
-        AssignDiceToContainers(); // 주사위 배치
-
-        EnemyRoll();
+        OnBattleStart();
     }
     #endregion
+
+
 }
 
 

@@ -147,8 +147,6 @@ public class StateManager : MonoBehaviour
         StartGame();
         Debug.Log("new Game Start");
     }
-
-
     #endregion
 
 }
