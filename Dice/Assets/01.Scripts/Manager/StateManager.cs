@@ -50,6 +50,7 @@ public class StateManager : MonoBehaviour
         currentState = GameState.Roll;
         isGameOver = false;
         StartCoroutine(TaskStateRoll());
+        StatusManager.Instance.playerStatus.ChangeStatusAtOnce(100, 0, 0, 0);
     }
     
     IEnumerator TaskStateRoll()
