@@ -90,9 +90,9 @@ public class StateManager : MonoBehaviour
 
     IEnumerator TaskStateUpGradeBonus()
     {
-        // 주사위 강화
-        // 족보 강화
+        PoolManager.Instance.ActivateObject("UpgradeBonus");
         yield return StartCoroutine(WaitForStateCompletion());
+        PoolManager.Instance.DeactivateAllObjects();
         RunNextState();
     }
 

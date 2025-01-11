@@ -18,7 +18,7 @@ public class UpdrageButton : MonoBehaviour
     
     private void Update()
     {
-        upgradeClicked = manager.GetUpgradeClicked();
+        //upgradeClicked = manager.GetUpgradeClicked();
         if (clicked)
         {
             image.color = new Color(1, 1, 1, 0.5f);
