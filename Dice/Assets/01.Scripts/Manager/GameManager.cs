@@ -14,7 +14,15 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject); // 씬 전환 시 파괴되지 않음
+
+        Init();
     }
+
+    private void Init()
+    {
+        PlayerManager.Instance.Init();
+    }
+
     #endregion
 
     #region Unity LifeCycle

@@ -1,3 +1,37 @@
+using UnityEngine;
+
+public class BattleManager : MonoBehaviour
+{
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
@@ -112,3 +146,4 @@ public class BattleManager : MonoBehaviour
         }
     }
 }
+*/

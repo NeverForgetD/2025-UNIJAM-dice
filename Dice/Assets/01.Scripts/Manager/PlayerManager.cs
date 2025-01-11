@@ -15,7 +15,6 @@ public class PlayerManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        Init();
     }
     #endregion
 
@@ -24,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     
     public List<Dice> dices;
     public Dictionary<string, int> handsLevel;
+    public Status playerStat;
 
     public void Init(){
         dices = new List<Dice>();
@@ -36,8 +36,10 @@ public class PlayerManager : MonoBehaviour
         {"LS", 1}, {"SS", 1}, {"FK", 1}, 
         {"FH", 1}, {"TP", 1}, {"T", 1}, 
         {"P", 1}, {"O", 1}, {"E", 1}, };
-    }
 
+        playerStat = new Status();
+        playerStat.InitStatus(100, 20, 10, 50);
+    }
 
     #endregion
 }
