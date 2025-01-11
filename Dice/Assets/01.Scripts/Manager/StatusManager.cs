@@ -51,7 +51,7 @@ public class StatusManager : MonoBehaviour
 
     public void InitPlayer()
     {
-        playerStatus.ChangeStatusAtOnce(1000, 10, 10, 10);
+        playerStatus.ChangeStatusAtOnce(0, 0, 0, 0);
     }
     #endregion
 

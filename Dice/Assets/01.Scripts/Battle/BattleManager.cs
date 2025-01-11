@@ -152,7 +152,7 @@ public class BattleManager : MonoBehaviour
     #endregion
 
     #region Battle Loop
-    public void OnBattleStart()
+    public void StartBattle()
     {
         playerCharge = 0;
         enemyCharge = 0;
@@ -174,8 +174,7 @@ public class BattleManager : MonoBehaviour
         EnemyRoll(); // enemy의 Index 결정 및 스프라이트 지정
 
         DetermineResult(playerIndex);
-
-        // enemy나 player 죽는거 확인
+        StartCoroutine(CheckBattleEnd());
     }
 
     public void DetermineResult(int index) // index는 플레이어
@@ -263,6 +262,23 @@ public class BattleManager : MonoBehaviour
             enemyCharge = 0;
             DeactivateAllCharges(enemyCharges);
         }
+
+        
+    }
+
+    private IEnumerator CheckBattleEnd()
+    {
+        if (StatusManager.Instance.playerStatus._hp < 0)
+        {
+            StateManager.Instance.EndGame();
+        }
+        else if (StatusManager.Instance.enemyStatus._hp < 0)
+        {
+            yield return new WaitForSeconds(2f); // 2초 대기
+            Debug.Log("have to stop every button until go to next");
+            StateManager.Instance.AdvanceToNextState();
+
+        }
     }
 
     #endregion
@@ -289,12 +305,14 @@ public class BattleManager : MonoBehaviour
     }
     #endregion
 
-    #region Test
-    public void OnBtn()
+    #region Unity LifeCycle
+    private void OnEnable()
     {
-        OnBattleStart();
+        StartBattle();
     }
+    #endregion
 
+    #region Test
     public void Update()
     {
         

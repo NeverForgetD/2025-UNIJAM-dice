@@ -5398,8 +5398,18 @@ MonoBehaviour:
   - {fileID: 7147235269732455723}
   - {fileID: 2408372933205261143}
   enemyDice: {fileID: 6955592066565452694}
-  playerCharges: []
-  enemyCharges: []
+  playerCharges:
+  - {fileID: 1703316119197922849}
+  - {fileID: 780868459291102403}
+  - {fileID: 3498756966090844836}
+  - {fileID: 4296019413158578650}
+  - {fileID: 673156967796346756}
+  enemyCharges:
+  - {fileID: 2593436586845041647}
+  - {fileID: 7843804178184137496}
+  - {fileID: 898780051879396015}
+  - {fileID: 7355989229163569152}
+  - {fileID: 5179268185336372098}
 --- !u!1 &8675930981743442994
 GameObject:
   m_ObjectHideFlags: 0
