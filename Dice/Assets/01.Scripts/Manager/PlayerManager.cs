@@ -33,8 +33,8 @@ public class PlayerManager : MonoBehaviour
             dices[i].Init();
         }
         
-        handsLevel = new Dictionary<string, int>(){{"YZ", 7}, 
-        {"LS", 6}, {"SS", 3}, {"FK", 5}, 
+        handsLevel = new Dictionary<string, int>(){{"YZ", 10}, 
+        {"LS", 7}, {"SS", 4}, {"FK", 5}, 
         {"FH", 4}, {"TP", 3}, {"T", 3}, 
         {"P", 2}, {"O", 2}, {"N", 1}};
     }
