@@ -262,6 +262,11 @@ public class BattleManager : MonoBehaviour
     {
         OnBattleStart();
     }
+
+    public void Update()
+    {
+        
+    }
     #endregion
 
 

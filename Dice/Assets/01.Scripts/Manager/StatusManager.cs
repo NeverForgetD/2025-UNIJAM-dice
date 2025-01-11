@@ -55,4 +55,23 @@ public class StatusManager : MonoBehaviour
     }
     #endregion
 
+    private void Update()
+    {
+        UpdateStatusText();
+    }
+
+    private void UpdateStatusText()
+    {
+        playerText[0].text = playerStatus._hp.ToString();
+        playerText[1].text = playerStatus._atk.ToString();
+        playerText[2].text = playerStatus._def.ToString();
+        playerText[3].text = playerStatus._pot.ToString();
+
+        enemyText[0].text = enemyStatus._hp.ToString();
+        enemyText[1].text = enemyStatus._atk.ToString();
+        enemyText[2].text = enemyStatus._def.ToString();
+        enemyText[3].text = enemyStatus._pot.ToString();
+
+    }
+
 }

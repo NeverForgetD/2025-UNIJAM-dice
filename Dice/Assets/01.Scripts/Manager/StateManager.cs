@@ -49,6 +49,7 @@ public class StateManager : MonoBehaviour
         round = 0;
         currentState = GameState.Roll;
         isGameOver = false;
+        StatusManager.Instance.InitPlayer();
         StartCoroutine(TaskStateRoll());
     }
     
