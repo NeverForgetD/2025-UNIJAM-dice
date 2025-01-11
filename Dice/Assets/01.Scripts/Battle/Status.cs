@@ -46,6 +46,24 @@ public class Status// : MonoBehaviour
         }
     }
 
+    public void ChangeStatus(string stat, int value)
+    {
+        switch (stat)
+        {
+            case ("hp"):
+                hp = value; break;
+            case ("atk"):
+                atk = value; break;
+            case ("def"):
+                def = value; break;
+            case ("pot"):
+                pot = value; break;
+            default:
+                Debug.Log($"{stat} wrong name : hp, atk, def, pot");
+                break;
+        }
+    }
+
     public void PrintStatus(string stat)
     {
         switch (stat)
