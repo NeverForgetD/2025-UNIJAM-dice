@@ -802,6 +802,7 @@ MonoBehaviour:
   - {fileID: 2891318201259937717}
   isRolling: 0
   rollCount: 0
+  allClicked: 0
 --- !u!1 &2405122083393474970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,12 +1441,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diceEyes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 347510854042866279}
+  - {fileID: 6815135782343083398}
+  - {fileID: 1035411431398274712}
+  - {fileID: 4287129094690133914}
+  - {fileID: 4317897870411493803}
+  - {fileID: 252239108959234384}
   diceNums:
   - {fileID: -5191096547196297412, guid: 032c389f82e0a084e94a4459086e693a, type: 3}
   - {fileID: -3590046770447160464, guid: a70de8d5f574d2f46a5789263fdf8201, type: 3}
@@ -2076,7 +2077,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Roll 3 / 3
+  m_text: 'ReRoll 2 / 2
 
 '
   m_isRightToLeft: 0
