@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -13,6 +14,9 @@ public class BattleManager : MonoBehaviour
     [SerializeField] Image[] chargeContainer;
 
     [SerializeField] Image enemyDice;
+
+    [SerializeField] Image[] playerCharges;
+    [SerializeField] Image[] enemyCharges;
     #endregion
 
     #region Properties
@@ -21,7 +25,20 @@ public class BattleManager : MonoBehaviour
     #endregion
 
     #region Charge Visulaize
-
+    private void ActivateCharges(Image[] charges, int count)
+    {
+        for (int i = 0; i < charges.Length; i++)
+        {
+            charges[i].gameObject.SetActive(i < count); // 지정된 개수만 활성화
+        }
+    }
+    private void DeactivateAllCharges(Image[] charges)
+    {
+        foreach (var charge in charges)
+        {
+            charge.gameObject.SetActive(false); // 모든 charge 비활성화
+        }
+    }
     #endregion
 
     #region Enemy Dice Visualize
@@ -139,7 +156,8 @@ public class BattleManager : MonoBehaviour
     {
         playerCharge = 0;
         enemyCharge = 0;
-        // 차지 게이지 초기화
+        DeactivateAllCharges(playerCharges);
+        DeactivateAllCharges(enemyCharges);
         ResetContainers(); // 컨테이너 초기화
         AssignDiceToContainers(); // 주사위 배치
     }
@@ -168,6 +186,7 @@ public class BattleManager : MonoBehaviour
         int eAtk = StatusManager.Instance.enemyStatus._atk + enemyCharge* StatusManager.Instance.enemyStatus._pot;
         int eDef = StatusManager.Instance.enemyStatus._def;
 
+
         if (index == 0) // 플레이어 공격
         {
             if (enemyIndex == 0)
@@ -176,12 +195,13 @@ public class BattleManager : MonoBehaviour
             }
             else if (enemyIndex == 1)
             {
-                ApplyBattleDamage(pAtk-eDef, 0);
+                ApplyBattleDamage(Mathf.Max(0, pAtk - eDef), 0);
             }
             else if (enemyIndex == 2)
             {
                 ApplyBattleDamage(pAtk, 0);
-                //enemyCharge++;
+                enemyCharge++;
+                ActivateCharges(enemyCharges, enemyCharge);
             }
             else
             {
@@ -192,7 +212,7 @@ public class BattleManager : MonoBehaviour
         {
             if (enemyIndex == 0)
             {
-                ApplyBattleDamage(0, eAtk-pDef);
+                ApplyBattleDamage(0, Mathf.Max(0, eAtk -pDef));
             }
             else if (enemyIndex == 1)
             {
@@ -209,7 +229,8 @@ public class BattleManager : MonoBehaviour
         }
         else if (index == 2) // 플레이어 충전
         {
-            //playerCharge++;
+            playerCharge++;
+            ActivateCharges(playerCharges, playerCharge);
             if (enemyIndex == 0)
             {
                 ApplyBattleDamage(0, eAtk);
@@ -231,6 +252,17 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log($"플레이어의 인덱스가 올바르지 않습니다. {index}");
         }
+
+        if (playerCharge > 0 && index == 0)
+        {
+            playerCharge = 0;
+            DeactivateAllCharges(playerCharges); 
+        }
+        if (enemyCharge > 0 && enemyIndex == 0)
+        {
+            enemyCharge = 0;
+            DeactivateAllCharges(enemyCharges);
+        }
     }
 
     #endregion
@@ -238,8 +270,8 @@ public class BattleManager : MonoBehaviour
     #region Util
     private void ApplyBattleDamage(int playerD, int enemyD)
     {
-        StatusManager.Instance.playerStatus.ModifyStatus("hp", enemyD);
-        StatusManager.Instance.enemyStatus.ModifyStatus("hp", playerD);
+        StatusManager.Instance.playerStatus.ModifyStatus("hp", -enemyD);
+        StatusManager.Instance.enemyStatus.ModifyStatus("hp", -playerD);
     }
 
     private IEnumerator RollDiceForDuration(float duration)
