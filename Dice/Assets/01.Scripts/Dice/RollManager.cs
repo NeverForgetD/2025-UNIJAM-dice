@@ -58,9 +58,10 @@ public class RollManager : MonoBehaviour
     public int GetScore(List<int> dice, List<string> combinations)
     {
         int score = 0;
+        int sum = 0;
         for (int i = 0; i < dice.Count; i++)
             score += dice[i];
-        //배율은 나중에 수정
+        sum = score;
         if (combinations.Contains("YZ"))
             score *= PlayerManager.Instance.handsLevel["YZ"];
         else if (combinations.Contains("LS"))
@@ -79,18 +80,63 @@ public class RollManager : MonoBehaviour
             score *= PlayerManager.Instance.handsLevel["P"];
         else if (combinations.Contains("N"))
             score *= PlayerManager.Instance.handsLevel["N"];
-        if (combinations.Contains("O"))
+        scoreText.text = sum.ToString() + " x " + ((float)score / sum).ToString();
+        if (combinations.Contains("O") || combinations.Contains("E"))
+        {
             score *= PlayerManager.Instance.handsLevel["O"];
-        if (combinations.Contains("E"))
-            score *= PlayerManager.Instance.handsLevel["E"];
+            scoreText.text += " x 2";
+        }
+        scoreText.text += " = " + score.ToString();
         return score;
     }
 
     public void ShowCombination(List<string> combinations)
     {
-        
+        if (combinations.Contains("YZ"))
+        {
+            combinationImage[0].enabled = true;
+        }
+        else if (combinations.Contains("LS"))
+        {
+            combinationImage[1].enabled = true;
+        }
+        else if (combinations.Contains("SS"))
+        {
+            combinationImage[2].enabled = true;
+        }
+        else if (combinations.Contains("FK"))
+        {
+            combinationImage[3].enabled = true;
+        }
+        else if (combinations.Contains("FH"))
+        {
+            combinationImage[4].enabled = true;
+        }
+        else if (combinations.Contains("TP"))
+        {
+            combinationImage[5].enabled = true;
+        }
+        else if (combinations.Contains("T"))
+        {
+            combinationImage[6].enabled = true;
+        }
+        else if (combinations.Contains("P"))
+        {
+            combinationImage[7].enabled = true;
+        }
+        else if (combinations.Contains("N"))
+        {
+            combinationImage[9].enabled = true;
+        }
+
+        if (combinations.Contains("O")||combinations.Contains("E"))
+        {
+            combinationImage[8].enabled = true;
+        }
     }
 
+    public TextMeshProUGUI[] combinationText;
+    public Image[] combinationImage;
     public List<int> diceNum;
     public List<int> actualDiceNum;
     private List<string> diceCombinations;
@@ -106,6 +152,7 @@ public class RollManager : MonoBehaviour
     public bool isRolling;
     public int rollCount;
     public bool allClicked;
+    public TextMeshProUGUI scoreText;
     
 
     public void CheckAllClicked()
@@ -128,6 +175,10 @@ public class RollManager : MonoBehaviour
         CheckAllClicked();
         if (!isRolling && rollCount<3 && !allClicked) // can Roll
         {
+            for (int i = 0; i < combinationImage.Length; i++)
+            {
+                combinationImage[i].enabled = false;
+            }
             SoundManager.Instance.PlaySFX_RandomPitch("DiceRoll01", 0.6f, 1.4f);
             SetDice();
             rollCount += 1;
@@ -182,6 +233,7 @@ public class RollManager : MonoBehaviour
             curDice[i].sprite = diceImages[diceNum[i] - 1];
         }
         GetScore(actualDiceNum, diceCombinations);
+        ShowCombination(diceCombinations);
     }
 
     private void RollDice()
@@ -212,6 +264,21 @@ public class RollManager : MonoBehaviour
             curDice[i].sprite = randomDice;
         }
         rollBtnText.text = "Roll 3 / 3";
+        for (int i = 0; i < combinationImage.Length; i++)
+        {
+            combinationImage[i].enabled = false;
+        }
+        combinationText[0].text="x"+PlayerManager.Instance.handsLevel["YZ"].ToString();
+        combinationText[1].text="x"+PlayerManager.Instance.handsLevel["LS"].ToString();
+        combinationText[2].text="x"+PlayerManager.Instance.handsLevel["SS"].ToString();
+        combinationText[3].text="x"+PlayerManager.Instance.handsLevel["FK"].ToString();
+        combinationText[4].text="x"+PlayerManager.Instance.handsLevel["FH"].ToString();
+        combinationText[5].text="x"+PlayerManager.Instance.handsLevel["TP"].ToString();
+        combinationText[6].text="x"+PlayerManager.Instance.handsLevel["T"].ToString();
+        combinationText[7].text="x"+PlayerManager.Instance.handsLevel["P"].ToString();
+        combinationText[8].text="x"+PlayerManager.Instance.handsLevel["O"].ToString();
+        combinationText[9].text="x"+PlayerManager.Instance.handsLevel["N"].ToString();
+        scoreText.text = "";
     }
     
 

@@ -15,6 +15,8 @@ public class DiceButton : MonoBehaviour
     public GameObject infoSet;
     public DiceInfoController info;
     public GameObject scoreBoard;
+    public GameObject combinationL;
+    public GameObject combinationR;
     void OnEnable()
     {
         manager = GameObject.Find("RollManager").GetComponent<RollManager>();
@@ -23,6 +25,8 @@ public class DiceButton : MonoBehaviour
         image.color = new Color(1, 1, 1, 1);
         infoSet.SetActive(false);
         scoreBoard.SetActive(true);
+        combinationR.SetActive(true);
+        combinationL.SetActive(true);
     }
     // Update is called once per frame
     private void Update()
@@ -57,6 +61,8 @@ public class DiceButton : MonoBehaviour
 
     public void OnPointerEnter()
     {
+        combinationL.SetActive(false);
+        combinationR.SetActive(false);
         scoreBoard.SetActive(false);
         infoSet.SetActive(true);
         info.Show(eyes);
@@ -64,6 +70,8 @@ public class DiceButton : MonoBehaviour
 
     public void OnPointerExit()
     {
+        combinationL.SetActive(true);
+        combinationR.SetActive(true);
         scoreBoard.SetActive(true);
         infoSet.SetActive(false);
     }
