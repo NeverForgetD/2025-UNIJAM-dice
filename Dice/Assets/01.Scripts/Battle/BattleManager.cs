@@ -1,19 +1,20 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
-    #region SerializedField
+    #region SerializedField & Dependecies
     [SerializeField] Sprite[] enemyDiceSprite;
     [SerializeField] Image[] attackContainer;
     [SerializeField] Image[] defenceContainer;
     [SerializeField] Image[] chargeContainer;
 
     [SerializeField] Image enemyDice;
-
     #endregion
+
 
     #region Enemy Dice Visualize
     private void Start()
@@ -132,11 +133,10 @@ public class BattleManager : MonoBehaviour
         AssignDiceToContainers(); // 주사위 배치
     }
 
-    public void OnPlayerMove(int index)
+    public void OnPlayerMove(int index) // 버튼 클릭으로 발동
     {
         StartCoroutine(ExecuteBattle());
 
-            
 
     }
     public IEnumerator ExecuteBattle()
@@ -152,6 +152,8 @@ public class BattleManager : MonoBehaviour
             if (enemyIndex == 1)
             {
                 // 적에게 데미지 -방어력
+                //예시
+                StatusManager.Instance.playerStatus.ModifyStatusAtOnce(0, 0, 0, 0);
             }
             else
             {
@@ -163,7 +165,6 @@ public class BattleManager : MonoBehaviour
     #endregion
 
     #region Util
-
     private IEnumerator RollDiceForDuration(float duration)
     {
         float elapsedTime = 0f;

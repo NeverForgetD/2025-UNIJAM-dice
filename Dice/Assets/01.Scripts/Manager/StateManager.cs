@@ -55,8 +55,8 @@ public class StateManager : MonoBehaviour
     IEnumerator TaskStateRoll()
     {
         Debug.Log("roll");
-        //
-
+        
+        StatusManager.Instance.UpdateCurrentEnemyStatus();
         PoolManager.Instance.ActivateObject("Roll");
 
         yield return StartCoroutine(WaitForStateCompletion());

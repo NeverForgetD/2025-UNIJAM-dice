@@ -20,8 +20,14 @@ public class StatButton : MonoBehaviour
         {
             diceSet.SetActive(true);
             statSet.SetActive(false);
-            PlayerManager.Instance.playerStat.UpdateStatus(stat, score);
-            PlayerManager.Instance.playerStat.PrintStatus(stat);
+            if (stat == "hp")
+            {
+                StatusManager.Instance.playerStatus.ModifyStatus(stat, score);
+            }
+            else
+            {
+                StatusManager.Instance.playerStatus.ChangeStatus(stat, score);
+            }
             isClicked = true;
             scoreText.text = "";
         }

@@ -25,7 +25,6 @@ public class PlayerManager : MonoBehaviour
     
     public List<Dice> dices;
     public Dictionary<string, int> handsLevel;
-    public Status playerStat;
 
     public void Init(){
         dices = new List<Dice>();
@@ -33,10 +32,6 @@ public class PlayerManager : MonoBehaviour
             dices.Add(new Dice());
             dices[i].Init();
         }
-        //юс╫ц
-        playerStat = new Status();
-        playerStat.InitStatus(1000, 10, 10, 10);
-        playerStat.PrintAllStstus();
         
         handsLevel = new Dictionary<string, int>(){{"YZ", 7}, 
         {"LS", 6}, {"SS", 3}, {"FK", 5}, 
