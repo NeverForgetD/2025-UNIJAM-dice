@@ -7,9 +7,7 @@
     <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Manager/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Manager/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Manager/StateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Manager/StateManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/DiceUpgradeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/DiceUpgradeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/UpdrageButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/UpdrageButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/UpgradeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/UpgradeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/UpgradeBonus.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/UpgradeBonus.prefab" afterDir="false" />
     </list>
@@ -23,6 +21,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/01.Scripts/Dice/Dice.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/01.Scripts/Upgrade/BonusButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/01.Scripts/Upgrade/UpdrageButton.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">

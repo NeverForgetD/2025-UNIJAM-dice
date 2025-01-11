@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpdrageButton : MonoBehaviour
+public class BonusButton : MonoBehaviour
 {
-    public DiceUpgradeController manager;
+    public UpgradeController manager;
     public bool clicked;
     public bool upgradeClicked;
     public Image image;

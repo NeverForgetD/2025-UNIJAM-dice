@@ -47,7 +47,7 @@ public class UpgradeController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] texts;
     
     [SerializeField] TextMeshProUGUI[] combinationText;
-    [SerializeField] UpdrageButton[] upgradeState;
+    [SerializeField] BonusButton[] upgradeState;
     #endregion
 
     #region Generate Options
@@ -156,7 +156,7 @@ public class UpgradeController : MonoBehaviour
         return option;
     }
 
-    private void Change()
+    public void Upgrade()
     {
         if (upgradeClicked)
         {
@@ -164,6 +164,7 @@ public class UpgradeController : MonoBehaviour
             {
                 if (upgradeState[j].clicked)
                 {
+                    Debug.Log(options[j]);
                     PlayerManager.Instance.handsLevel[options[j]] += 1;
                 }
             }
@@ -174,7 +175,7 @@ public class UpgradeController : MonoBehaviour
 
     public void CheckUpgradeClicked()
     {
-        for (int i = 0; i < options.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
             if (upgradeState[i].clicked)
             {
