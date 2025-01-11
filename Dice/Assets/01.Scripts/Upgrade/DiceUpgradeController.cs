@@ -41,6 +41,12 @@ public class DiceUpgradeController : MonoBehaviour
         combinationText[9].text="x"+PlayerManager.Instance.handsLevel["N"].ToString();
         anyClicked = false;
         upgradeClicked = false;
+        for (int j = 0; j < diceImages.Length; j++)
+        {
+            diceOptionImage1[j].color = new Color(1, 1, 1);
+            diceOptionImage2[j].color = new Color(1, 1, 1);
+            diceOptionImage3[j].color = new Color(1, 1, 1);
+        }
     }
 
     private void OnDisable()

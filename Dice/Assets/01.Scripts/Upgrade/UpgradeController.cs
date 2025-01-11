@@ -31,7 +31,7 @@ public class UpgradeController : MonoBehaviour
         combinationText[6].text="x"+PlayerManager.Instance.handsLevel["T"].ToString();
         combinationText[7].text="x"+PlayerManager.Instance.handsLevel["P"].ToString();
         combinationText[8].text="x"+PlayerManager.Instance.handsLevel["O"].ToString();
-        combinationText[9].text="x"+PlayerManager.Instance.handsLevel["N"].ToString(); 
+        combinationText[9].text="x"+PlayerManager.Instance.handsLevel["N"].ToString();
         upgradeClicked = false;
         options = new List<string>();
         options.Clear();

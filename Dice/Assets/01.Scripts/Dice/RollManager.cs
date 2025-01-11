@@ -12,6 +12,28 @@ public class RollManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI rollBtnText;
 
+    private int GetMaxConsecutiveCount(List<int> numbers)
+    {
+        int maxCount = 1; // 최소 연속 길이는 1
+        int currentCount = 1;
+
+        for (int i = 1; i < numbers.Count; i++)
+        {
+            if (numbers[i] == numbers[i - 1] + 1)
+            {
+                currentCount++;
+                maxCount = Mathf.Max(maxCount, currentCount);
+            }
+            else
+            {
+                currentCount = 1; // 연속되지 않으면 리셋
+            }
+        }
+
+        return maxCount;
+    }
+
+    
     public List<string> CheckCombinations(List<int> dice)
     {
         for (int i = 0; i < dice.Count; i++)
@@ -24,14 +46,11 @@ public class RollManager : MonoBehaviour
         var uniqueNumbers = counts.Keys.OrderBy(x => x).ToList();
         if(countValues.SequenceEqual(new List<int>{5}))
             combinations.Add("YZ");
-        else if (uniqueNumbers.SequenceEqual(new List<int> { 1, 2, 3, 4, 5 }) ||
-                  uniqueNumbers.SequenceEqual(new List<int> { 2, 3, 4, 5, 6 }))
+        else if (GetMaxConsecutiveCount(uniqueNumbers)==5)
         {
             combinations.Add("LS");
         }
-        else if(uniqueNumbers.SequenceEqual(new List<int>{1,2,3,4}) ||
-                uniqueNumbers.SequenceEqual(new List<int>{2,3,4,5}) ||
-                uniqueNumbers.SequenceEqual(new List<int>{3,4,5,6}))
+        else if(GetMaxConsecutiveCount(uniqueNumbers)==4)
             combinations.Add("SS");
         else if(countValues.SequenceEqual(new List<int>{4,1}))
             combinations.Add("FK");
