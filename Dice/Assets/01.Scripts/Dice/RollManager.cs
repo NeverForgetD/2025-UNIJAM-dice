@@ -106,7 +106,7 @@ public class RollManager : MonoBehaviour
         if (combinations.Contains("O") || combinations.Contains("E"))
         {
             score *= PlayerManager.Instance.handsLevel["O"];
-            scoreText.text += " x 2";
+            scoreText.text += " x "+PlayerManager.Instance.handsLevel["O"].ToString();
         }
         scoreText.text += " = " + score.ToString();
         return score;
