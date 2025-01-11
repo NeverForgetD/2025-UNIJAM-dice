@@ -133,22 +133,28 @@ public class BattleManager : MonoBehaviour
         AssignDiceToContainers(); // 주사위 배치
     }
 
-    public void OnPlayerMove(int index) // 버튼 클릭으로 발동
+    public void OnPlayerMove(int playerIndex) // 버튼 클릭으로 발동
     {
-        StartCoroutine(ExecuteBattle());
+        StartCoroutine(ExecuteBattle(playerIndex));
 
 
     }
-    public IEnumerator ExecuteBattle()
+    public IEnumerator ExecuteBattle(int playerIndex)
     {
         yield return StartCoroutine(RollDiceForDuration(0.6f)); // 0.6초 동안 주사위를 굴림
-        EnemyRoll();
+        EnemyRoll(); // enemy의 Index 결정 및 스프라이트 지정
+
+        DetermineResult(playerIndex);
+
+        // enemy나 player 죽는거 확인
     }
 
     public void DetermineResult(int index)
     {
+        Debug.Log($"{index}, {enemyIndex}");
         if (index == 0)
         {
+
             if (enemyIndex == 1)
             {
                 // 적에게 데미지 -방어력
