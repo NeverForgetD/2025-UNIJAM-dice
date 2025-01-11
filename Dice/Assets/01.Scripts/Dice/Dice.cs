@@ -8,8 +8,6 @@ using UnityEngine.UIElements;
 
 public class Dice
 {
-    
-
     public List<int> eyes;
     public Type type;
 

@@ -7,11 +7,8 @@
     <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/Dice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/Dice.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/DiceGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/DiceGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Manager/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Manager/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Battle&amp;Upgrade/reinforce_board.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Battle&amp;Upgrade/reinforce_board.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Battle&amp;Upgrade/reinforce_glow.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Battle&amp;Upgrade/reinforce_glow.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/DiceUpgradeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/DiceUpgradeController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

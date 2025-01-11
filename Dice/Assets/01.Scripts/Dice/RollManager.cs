@@ -202,8 +202,6 @@ public class RollManager : MonoBehaviour
         CheckAllClicked();
         if (!isRolling && rollCount<3 && !allClicked) // can Roll
         {
-            actualDiceNum = new List<int>();
-            actualDiceNum.Clear();
             for (int i = 0; i < combinationImage.Length; i++)
             {
                 combinationImage[i].enabled = false;
@@ -222,6 +220,7 @@ public class RollManager : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 diceNum.Add(PlayerManager.Instance.dices[i].GetEye());
+                actualDiceNum[i]=diceNum[i];
             }
         }
         else
@@ -231,14 +230,11 @@ public class RollManager : MonoBehaviour
                 if (!diceState[i].clicked)
                 {
                     diceNum[i]=PlayerManager.Instance.dices[i].GetEye();
+                    actualDiceNum[i]=diceNum[i];
                 }
             }
         }
-
-        for (int i = 0; i < 5; i++)
-        {
-            actualDiceNum.Add(diceNum[i]);
-        }
+        
         diceCombinations=CheckCombinations(diceNum);
         StartCoroutine(Roll());
     }
@@ -261,6 +257,7 @@ public class RollManager : MonoBehaviour
         }
 
         isRolling = false; // 굴리기 종료
+        Debug.Log($"{actualDiceNum[0]},{actualDiceNum[1]},{actualDiceNum[2]},{actualDiceNum[3]},{actualDiceNum[4]}");
         for (int i = 0; i < curDice.Length; i++)
         {
             switch (actualDiceNum[i]/10)
@@ -352,8 +349,7 @@ public class RollManager : MonoBehaviour
         diceCombinations = new List<string>();
         diceCombinations.Clear();
         diceNum.Clear();
-        actualDiceNum = new List<int>();
-        actualDiceNum.Clear();
+        actualDiceNum = new List<int> {0,0,0,0,0};
         for (int i = 0; i < curDice.Length; i++)
         {
             curDice[i].sprite = randomDice;
