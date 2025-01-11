@@ -6,7 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/StatButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/StatButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/DiceUpgradeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/DiceUpgradeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/Enemy2/enemy2_attackarm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/Enemy2/enemy2_attackarm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/Enemy2/enemy2_basicpose.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/Enemy2/enemy2_basicpose.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/Enemy2/enemy2_body.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/Enemy2/enemy2_body.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/Enemy2/enemy2_chargearm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/Enemy2/enemy2_chargearm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/Enemy2/enemy2_guardarm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/Enemy2/enemy2_guardarm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy1/enemy1_attack.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy1/enemy1_attack.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy1/enemy1_charge.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy1/enemy1_charge.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy1/enemy1_guard.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy1/enemy1_guard.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy3/enemy3_attackarm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy3/enemy3_attackarm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy3/enemy3_basebody.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy3/enemy3_basebody.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy3/enemy3_basicpose.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy3/enemy3_basicpose.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy3/enemy3_chargearm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy3/enemy3_chargearm.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy3/enemy3_guardarm.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Enemy/enemy3/enemy3_guardarm.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

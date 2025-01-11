@@ -45,5 +45,7 @@ public class StatButton : MonoBehaviour
             effect.enabled = true;
             image.color = new Color(1, 1, 1);
         }
+
+        transform.localScale = new Vector3(1, 1, 1);
     }
 }
