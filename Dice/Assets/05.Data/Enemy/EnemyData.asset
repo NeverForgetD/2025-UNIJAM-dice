@@ -13,63 +13,78 @@ MonoBehaviour:
   m_Name: EnemyData
   m_EditorClassIdentifier: 
   EnemyStats:
-  - hp: 60
+  - med: 30
+    hp: 60
     atk: 30
     def: 30
     pot: 30
-  - hp: 100
+  - med: 50
+    hp: 100
     atk: 50
     def: 50
     pot: 50
-  - hp: 140
+  - med: 70
+    hp: 140
     atk: 70
     def: 70
     pot: 70
-  - hp: 180
+  - med: 90
+    hp: 180
     atk: 90
     def: 90
     pot: 90
-  - hp: 220
+  - med: 110
+    hp: 220
     atk: 110
     def: 110
     pot: 110
-  - hp: 260
+  - med: 130
+    hp: 260
     atk: 130
     def: 130
     pot: 130
-  - hp: 300
+  - med: 150
+    hp: 300
     atk: 150
     def: 150
     pot: 150
-  - hp: 0
+  - med: 0
+    hp: 0
     atk: 0
     def: 0
     pot: 0
-  - hp: 0
+  - med: 0
+    hp: 0
     atk: 0
     def: 0
     pot: 0
-  - hp: 0
+  - med: 0
+    hp: 0
     atk: 0
     def: 0
     pot: 0
-  - hp: 0
+  - med: 0
+    hp: 0
     atk: 0
     def: 0
     pot: 0
-  - hp: 0
+  - med: 0
+    hp: 0
     atk: 0
     def: 0
     pot: 0
-  - hp: 0
+  - med: 0
+    hp: 0
     atk: 0
     def: 0
     pot: 0
-  - hp: 0
+  - med: 0
+    hp: 0
     atk: 0
     def: 0
     pot: 0
-  - hp: 0
+  - med: 0
+    hp: 0
     atk: 0
     def: 0
     pot: 0

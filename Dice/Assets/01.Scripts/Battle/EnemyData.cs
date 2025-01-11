@@ -9,6 +9,9 @@ public class EnemyData : ScriptableObject
 [System.Serializable]
 public class EnemyStatus
 {
+    [Header("중앙값 설정")]
+    public int med;
+
     [Header("HP 설정")]
     public int hp;
 

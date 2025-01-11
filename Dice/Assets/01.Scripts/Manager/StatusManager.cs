@@ -43,10 +43,18 @@ public class StatusManager : MonoBehaviour
     public void UpdateCurrentEnemyStatus()
     {
         currentRound = StateManager.Instance.Round;
-        enemyStatus.ChangeStatus("hp", enemyData.EnemyStats[currentRound].hp);
-        enemyStatus.ChangeStatus("atk", enemyData.EnemyStats[currentRound].atk);
-        enemyStatus.ChangeStatus("def", enemyData.EnemyStats[currentRound].def);
-        enemyStatus.ChangeStatus("pot", enemyData.EnemyStats[currentRound].pot);
+        float baseValue = enemyData.EnemyStats[currentRound].med;
+
+        int enemy_hp = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f) * 2);
+        int enemy_atk = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f));
+        int enemy_def = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f));
+        int enemy_pot = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f));
+
+
+        enemyStatus.ChangeStatus("hp", enemy_hp);
+        enemyStatus.ChangeStatus("atk", enemy_atk);
+        enemyStatus.ChangeStatus("def", enemy_def);
+        enemyStatus.ChangeStatus("pot", enemy_pot);
     }
 
     public void InitPlayer()
