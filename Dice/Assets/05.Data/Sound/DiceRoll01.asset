@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DiceRoll01
   m_EditorClassIdentifier: 
   soundName: DiceRoll01
-  audioClip: {fileID: 8300000, guid: a6bd6a1249ef4eb4da1090fedbd2e9e0, type: 3}
+  audioClip: {fileID: 8300000, guid: 206714991b210244090318d43de1482a, type: 3}
   volume: 1
   pitch: 1
