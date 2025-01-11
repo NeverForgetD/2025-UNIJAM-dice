@@ -55,6 +55,7 @@ public class StateManager : MonoBehaviour
     IEnumerator TaskStateRoll()
     {
         Debug.Log("roll");
+        //
 
         PoolManager.Instance.ActivateObject("Roll");
 
@@ -75,7 +76,7 @@ public class StateManager : MonoBehaviour
 
         //PoolManager.Instance.DeactivateObject("Battle");
         PoolManager.Instance.DeactivateAllObjects();
-        round++;
+        round++; // 0라운드에서 시작, 이기면 라운드 넘버 +1
         RunNextState();
     }
 

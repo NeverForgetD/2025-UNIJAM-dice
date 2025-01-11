@@ -20,6 +20,6 @@ public class EnemyData : ScriptableObject
         public int pot;
     }
 
-    public EnemyStatus[] roundStats; // 라운드별 스탯 배열
+    public EnemyStatus[] EnemyStats; // 라운드별 스탯 배열
 
 }
