@@ -74,8 +74,7 @@ public class DiceUpgradeController : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI text1;
     //[SerializeField] private TextMeshProUGUI text2;
     //[SerializeField] private TextMeshProUGUI text3;
-
-    [SerializeField] TextMeshProUGUI[] texts;
+    
     [SerializeField] TextMeshProUGUI[] combinationText;
     [SerializeField] public Sprite[] diceImages;
     [SerializeField] public Sprite[] diceImages10;
@@ -106,7 +105,6 @@ public class DiceUpgradeController : MonoBehaviour
             diceOptions[i] = new Dice();
             diceOptions[i].Init(StateManager.Instance.Round);
             eyes = diceOptions[i].GetEyes();
-            texts[i].text = $"{diceOptions[i].eyes[0]}, {diceOptions[i].eyes[1]}, {diceOptions[i].eyes[2]}, {diceOptions[i].eyes[3]}, {diceOptions[i].eyes[4]}, {diceOptions[i].eyes[5]}";
             for (int j = 0; j < 6; j++)
             {
                 if (i == 0)
@@ -164,15 +162,45 @@ public class DiceUpgradeController : MonoBehaviour
 
     public void CheckUpgradeClicked()
     {
-        for (int i = 0; i < texts.Length; i++)
+        for (int i = 0; i < diceOptions.Length; i++)
         {
             if (upgradeState[i].clicked)
             {
                 upgradeClicked = true;
+                for (int j = 0; j < diceImages.Length; j++)
+                {
+                    if (i == 0)
+                    {
+                        diceOptionImage1[j].color=new Color(1, 1, 1, 0.5f);
+                    }
+                    else if (i == 1)
+                    {
+                        diceOptionImage2[j].color=new Color(1, 1, 1, 0.5f);
+                    }
+                    else
+                    {
+                        diceOptionImage3[j].color=new Color(1, 1, 1, 0.5f);
+                    }
+                }
                 break;
             }
             else
             {
+                for (int j = 0; j < diceImages.Length; j++)
+                {
+                    if (i == 0)
+                    {
+                        diceOptionImage1[j].color=new Color(1, 1, 1);
+                    }
+                    else if (i == 1)
+                    {
+                        diceOptionImage2[j].color=new Color(1, 1, 1);
+                    }
+                    else
+                    {
+                        diceOptionImage3[j].color=new Color(1, 1, 1);
+                    }
+                }
                 upgradeClicked = false;
             }
         }
