@@ -12,4 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f010783f64d202e41acdcfeec033a649, type: 3}
   m_Name: EnemyData
   m_EditorClassIdentifier: 
-  roundStats: []
+  roundStats:
+  - hp: 1
+    attack: 0
+    defence: 0
+    pot: 0
+  - hp: 2
+    attack: 0
+    defence: 0
+    pot: 0
+  - hp: 0
+    attack: 0
+    defence: 0
+    pot: 0
+  - hp: 0
+    attack: 0
+    defence: 0
+    pot: 0
+  - hp: 0
+    attack: 0
+    defence: 0
+    pot: 0
