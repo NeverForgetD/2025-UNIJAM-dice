@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     private void Init()
     {
-        PlayerManager.Instance.Init();
+
     }
 
     #endregion

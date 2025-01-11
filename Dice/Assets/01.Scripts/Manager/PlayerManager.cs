@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        Init();
     }
     #endregion
 
