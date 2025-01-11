@@ -342,6 +342,11 @@ public class BattleManager : MonoBehaviour
     {
         StatusManager.Instance.playerStatus.ModifyStatus("hp", -enemyD);
         StatusManager.Instance.enemyStatus.ModifyStatus("hp", -playerD);
+
+        if (enemyD > 0)
+            StartCoroutine(Shake(playerSprite));
+        if (playerD > 0)
+            StartCoroutine (Shake(enemySprite));
     }
 
     private IEnumerator RollDiceForDuration(float duration)
@@ -358,7 +363,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    private IEnumerator Shake(Image targetImage, float duration, int shakeMagnitude)
+    private IEnumerator Shake(Image targetImage, float duration = 0.8f, int shakeMagnitude = 10)
     {
         Vector3 originalPosition = targetImage.rectTransform.localPosition;
         float elapsedTime = 0f;
