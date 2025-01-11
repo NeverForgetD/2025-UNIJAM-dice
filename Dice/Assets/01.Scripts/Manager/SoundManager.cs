@@ -66,13 +66,13 @@ public class SoundManager : MonoBehaviour
         SoundData bgm = FindSound(soundDB.bgmList, bgmName); // �˻�
 
         if (isBGMPlaying){
-            if(bgm.soundName == "BGM1"){
-                StartCoroutine(FadeVolume(bgmSource2, 0, 1f));
-                StartCoroutine(FadeVolume(bgmSource, bgm.volume, 1f));
+            if(bgm.soundName == "BGM3"){
+                StartCoroutine(FadeVolume(bgmSource2, 0, 0.5f));
+                StartCoroutine(FadeVolume(bgmSource, bgm.volume, 0.5f));
             }
-            else if(bgm.soundName == "BGM2"){
-                StartCoroutine(FadeVolume(bgmSource, 0, 1f));
-                StartCoroutine(FadeVolume(bgmSource2, bgm.volume, 1f));
+            else if(bgm.soundName == "BGM4"){
+                StartCoroutine(FadeVolume(bgmSource, 0, 0.5f));
+                StartCoroutine(FadeVolume(bgmSource2, bgm.volume, 0.5f));
             }
             else return;
         }
@@ -80,15 +80,15 @@ public class SoundManager : MonoBehaviour
         
         else if (bgm != null)
         {
-            if(bgm.soundName == "BGM1"){
+            if(bgm.soundName == "BGM3"){
                 bgmSource.clip = bgm.audioClip;
                 bgmSource.volume = bgm.volume;
                 bgmSource.Play();
-                bgmSource2.clip = FindSound(soundDB.bgmList, "BGM2").audioClip;
+                bgmSource2.clip = FindSound(soundDB.bgmList, "BGM4").audioClip;
                 bgmSource2.volume = 0;
                 bgmSource2.Play();
             }
-            /*else if(bgm.soundName == "BGM2"){
+            /*else if(bgm.soundName == "BGM4"){
                 bgmSource.clip = bgm.audioClip;
                 bgmSource.volume = bgm.volume;
                 bgmSource.Play();
