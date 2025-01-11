@@ -49,6 +49,12 @@ public class DiceGenerator
         Debug.Log($"{eyes[0]}, {eyes[1]}, {eyes[2]}, {eyes[3]}, {eyes[4]}, {eyes[5]}");
         return eyes;
     }
+    
+    public static List<int> GenerateD111111()
+    {
+        InitD111111();
+        return eyes;
+    }
 
     private static int RoundChange(int round)
     {

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      reinforce_glow_0: -1654213251011269035
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

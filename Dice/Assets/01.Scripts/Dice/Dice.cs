@@ -14,12 +14,17 @@ public class Dice
     public Type type;
 
     public void Init(int round = 0){
-        eyes = DiceGenerator.Generate();
+        eyes = DiceGenerator.Generate(round);
         eyes.Sort();
         type = DiceGenerator.type;
     }
 
-    
+    public void PlayerInit()
+    {
+        eyes = DiceGenerator.GenerateD111111();
+        eyes.Sort();
+        type = DiceGenerator.type;
+    }
 
     public int GetEye(){
         return eyes[Random.Range(0,eyes.Count)];

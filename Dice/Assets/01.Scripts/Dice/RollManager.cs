@@ -202,6 +202,8 @@ public class RollManager : MonoBehaviour
         CheckAllClicked();
         if (!isRolling && rollCount<3 && !allClicked) // can Roll
         {
+            actualDiceNum = new List<int>();
+            actualDiceNum.Clear();
             for (int i = 0; i < combinationImage.Length; i++)
             {
                 combinationImage[i].enabled = false;
