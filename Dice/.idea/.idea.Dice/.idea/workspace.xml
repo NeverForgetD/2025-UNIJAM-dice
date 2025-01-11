@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/Dice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/Dice.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/DiceButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/DiceButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/Roll.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/Roll.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1736499535382</updated>
       <workItem from="1736499537347" duration="7827000" />
+      <workItem from="1736559150563" duration="3812000" />
     </task>
     <servers />
   </component>
@@ -102,9 +107,11 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
     <option name="unityProject" value="true" />
     <option name="unityProjectFolder" value="true" />
   </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

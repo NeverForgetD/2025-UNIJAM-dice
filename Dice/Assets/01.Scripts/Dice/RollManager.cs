@@ -114,10 +114,7 @@ public class RollManager : MonoBehaviour
                     }
                 }
             }
-            for (int i = 0; i < diceNum.Count; i++)
-            {
-                Debug.Log("Dice: "+diceNum[i]);
-            }
+            Debug.Log($"Dice: {diceNum[0]}, {diceNum[1]}, {diceNum[2]}, {diceNum[3]}, {diceNum[4]}");
             diceCombinations=CheckCombinations(diceNum);
             for (int i = 0; i < diceCombinations.Count; i++)
             {
@@ -177,13 +174,19 @@ public class RollManager : MonoBehaviour
         diceNum.Clear();
         for (int i = 0; i < curDice.Length; i++)
         {
-            curDice[i].sprite = diceImages[i];
+            diceState[i].eyes = PlayerManager.Instance.dices[i].GetEyes();
+            diceState[i].type = PlayerManager.Instance.dices[i].GetType();
+            curDice[i].sprite = diceImages[diceState[i].eyes[0]-1];
         }
     }
     
 
     void Update()
     {
-        
+        for (int i = 0; i < curDice.Length; i++)
+        {
+            diceState[i].eyes = PlayerManager.Instance.dices[i].GetEyes();
+            diceState[i].type = PlayerManager.Instance.dices[i].GetType();
+        }
     }
 }

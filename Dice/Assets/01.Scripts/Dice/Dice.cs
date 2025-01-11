@@ -15,6 +15,7 @@ public class Dice
 
     public void Init(int round = 0){
         eyes = DiceGenerator.Generate();
+        eyes.Sort();
         type = DiceGenerator.type;
 
         Debug.Log(eyes[0].ToString()+
@@ -31,5 +32,15 @@ public class Dice
 
     public int GetEye(){
         return eyes[Random.Range(0,eyes.Count)];
+    }
+
+    public List<int> GetEyes()
+    {
+        return eyes;
+    }
+
+    public Type GetType()
+    {
+        return type;
     }
 }
