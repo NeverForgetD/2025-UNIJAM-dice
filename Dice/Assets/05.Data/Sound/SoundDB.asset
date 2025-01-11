@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a876518676abc53488bcc95ee460ed98, type: 3}
   m_Name: SoundDB
   m_EditorClassIdentifier: 
-  bgmList: []
+  bgmList:
+  - {fileID: 11400000, guid: 6047215177be24dddaf19df875a67fbc, type: 2}
+  - {fileID: 11400000, guid: 144d7c4fd2ea94a00808f1ff1f586da7, type: 2}
   sfxList:
   - {fileID: 11400000, guid: d710d1339f524c54e80733d26a4844a7, type: 2}
