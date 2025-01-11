@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      reinforce_board_0: -4394490801693564089
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
