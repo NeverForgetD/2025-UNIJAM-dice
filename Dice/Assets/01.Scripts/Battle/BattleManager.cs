@@ -160,6 +160,7 @@ public class BattleManager : MonoBehaviour
         playerCharge = 0;
         enemyCharge = 0;
         isActing = false;
+        playerSprite.color = Color.white;
 
         DeactivateAllCharges(playerCharges);
         DeactivateAllCharges(enemyCharges);
@@ -169,6 +170,7 @@ public class BattleManager : MonoBehaviour
     public void OnPlayerMove(int playerIndex) // ��ư Ŭ������ �ߵ�
     {
         if(isActing) return;
+        if(playerIndex == 2 && playerCharge == 5) return;
         isActing = true;
         ResetEnemytable();
         StartCoroutine(ExecuteBattle(playerIndex));
@@ -184,10 +186,10 @@ public class BattleManager : MonoBehaviour
 
     public void DetermineResult(int index) // index�� �÷��̾�
     {
-        int pAtk = StatusManager.Instance.playerStatus._atk + playerCharge*StatusManager.Instance.playerStatus._pot;
+        int pAtk = StatusManager.Instance.playerStatus._atk + playerCharge * StatusManager.Instance.playerStatus._pot;
         int pDef = StatusManager.Instance.playerStatus._def;
 
-        int eAtk = StatusManager.Instance.enemyStatus._atk + enemyCharge* StatusManager.Instance.enemyStatus._pot;
+        int eAtk = StatusManager.Instance.enemyStatus._atk + enemyCharge * StatusManager.Instance.enemyStatus._pot;
         int eDef = StatusManager.Instance.enemyStatus._def;
 
 
@@ -233,6 +235,8 @@ public class BattleManager : MonoBehaviour
             {
                 StartCoroutine(EnemySpriteChange(3));
                 ApplyBattleDamage(0, 0);
+                enemyCharge++;
+                ActivateCharges(enemyCharges, enemyCharge);
             }
             else
             {
@@ -258,6 +262,8 @@ public class BattleManager : MonoBehaviour
             {
                 StartCoroutine(EnemySpriteChange(3));
                 ApplyBattleDamage(0, 0);
+                enemyCharge++;
+                ActivateCharges(enemyCharges, enemyCharge);
             }
             else
             {
@@ -286,6 +292,9 @@ public class BattleManager : MonoBehaviour
     private IEnumerator PlayerSpriteChange(int spriteType){
         playerSprite.sprite = playerSpriteContainer[spriteType];
         yield return new WaitForSeconds(1f);
+
+        if(StatusManager.Instance.playerStatus._hp < 0)
+            playerSprite.color = Color.clear;
         playerSprite.sprite = playerSpriteContainer[0];
         isActing = false;
     }
