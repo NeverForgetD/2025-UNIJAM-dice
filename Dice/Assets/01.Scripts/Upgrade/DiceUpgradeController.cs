@@ -1,17 +1,36 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
 
 public class DiceUpgradeController : MonoBehaviour
 {
     #region privates
     Dice[] diceOptions;
+    private bool anyClicked;
+    private bool upgradeClicked;
+    
     #endregion
 
     #region Unity LifeCycle
+
+    private void Update()
+    {
+        
+    }
+
     private void OnEnable()
     {
         GenerateDiceOption();
+        for (int i = 0; i < curDice.Length; i++)
+        {
+            diceState[i].eyes = PlayerManager.Instance.dices[i].GetEyes();
+            curDice[i].sprite = diceImages[diceState[i].eyes[0] - 1];
+        }
+
+        anyClicked = false;
+        upgradeClicked = false;
     }
 
     private void OnDisable()
@@ -30,6 +49,16 @@ public class DiceUpgradeController : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI text3;
 
     [SerializeField] TextMeshProUGUI[] texts;
+    [SerializeField] TextMeshProUGUI[] combinationText;
+    [SerializeField] public Sprite[] diceImages;
+    [SerializeField] public Sprite[] diceImages10;
+    [SerializeField] public Sprite[] diceImages20;
+    [SerializeField] public Sprite[] diceImages30;
+    [SerializeField] public Sprite[] diceImages40;
+    [SerializeField] public Sprite[] diceImages50;
+    [SerializeField] Image[] curDice;
+    [SerializeField] DiceButtonUpgrade[] diceState;
+    [SerializeField] UpdrageButton[] upgradeState;
     #endregion
 
     #region Generate Options
@@ -49,10 +78,73 @@ public class DiceUpgradeController : MonoBehaviour
         }
     }
 
-    private void OnDiceOptionSelected()
+    private void Change()
     {
-        // 선택된 버튼에 따라 해당 dice 덱에 추가
+        if (anyClicked && upgradeClicked)
+        {
+            for (int i = 0; i < diceState.Length; i++)
+            {
+                if (diceState[i].clicked)
+                {
+                    for (int j = 0; j < upgradeState.Length; j++)
+                    {
+                        if (upgradeState[j].clicked)
+                        {
+                            PlayerManager.Instance.dices[i] = diceOptions[j];
+                        }
+                    }
+                }
+            }
+            StateManager.Instance.AdvanceToNextState();
+        }
     }
     #endregion
+
+    public void CheckClicked()
+    {
+        for (int i = 0; i < diceState.Length; i++)
+        {
+            if (diceState[i].clicked)
+            {
+                anyClicked = true;
+                break;
+            }
+            else
+            {
+                anyClicked = false;
+            }
+        }
+    }
+
+    public void CheckUpgradeClicked()
+    {
+        for (int i = 0; i < texts.Length; i++)
+        {
+            if (upgradeState[i].clicked)
+            {
+                upgradeClicked = true;
+                break;
+            }
+            else
+            {
+                upgradeClicked = false;
+            }
+        }
+    }
+
+    public bool GetClicked()
+    {
+        return anyClicked;
+    }
+
+    public bool GetUpgradeClicked()
+    {
+        return upgradeClicked;
+    }
+    
+    public void Skip()
+    {
+        StateManager.Instance.AdvanceToNextState();
+    }
 
 }
