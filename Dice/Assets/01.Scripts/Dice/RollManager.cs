@@ -94,40 +94,61 @@ public class RollManager : MonoBehaviour
     public DiceButton[] diceState;
     public bool isRolling;
     public int rollCount;
+    public bool allClicked;
 
-    public void OnRollButton()
+    public void CheckAllClicked()
     {
-        if (!isRolling && rollCount<3) // can Roll
+        for (int i = 0; i < curDice.Length; i++)
         {
-            if (rollCount == 0)
+            if (!diceState[i].clicked)
             {
-                for (int i = 0; i < 5; i++)
-                {
-                    diceNum.Add(PlayerManager.Instance.dices[i].GetEye());
-                }
+                allClicked = false;
+                break;
             }
             else
             {
-                for (int i = 0; i < 5; i++)
+                allClicked = true;
+            }
+        }
+    }
+    public void OnRollButton()
+    {
+        CheckAllClicked();
+        if (!isRolling && rollCount<3 && !allClicked) // can Roll
+        {
+            SetDice();
+            rollBtnText.text = $"ReRoll {3-rollCount} / 2";
+        }
+    }
+
+    public void SetDice()
+    {
+        if (rollCount == 0)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                diceNum.Add(PlayerManager.Instance.dices[i].GetEye());
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (!diceState[i].clicked)
                 {
-                    if (!diceState[i].clicked)
-                    {
-                        diceNum[i]=PlayerManager.Instance.dices[i].GetEye();
-                    }
+                    diceNum[i]=PlayerManager.Instance.dices[i].GetEye();
                 }
             }
-            Debug.Log($"Dice: {diceNum[0]}, {diceNum[1]}, {diceNum[2]}, {diceNum[3]}, {diceNum[4]}");
-            diceCombinations=CheckCombinations(diceNum);
-            for (int i = 0; i < diceCombinations.Count; i++)
-            {
-                Debug.Log(diceCombinations[i]);
-            }
-            Debug.Log(GetScore(diceNum, diceCombinations));
-            StartCoroutine(Roll());
-            rollCount += 1;
-
-            rollBtnText.text = $"Roll {3-rollCount} / 3";
         }
+        Debug.Log($"Dice: {diceNum[0]}, {diceNum[1]}, {diceNum[2]}, {diceNum[3]}, {diceNum[4]}");
+        diceCombinations=CheckCombinations(diceNum);
+        for (int i = 0; i < diceCombinations.Count; i++)
+        {
+            Debug.Log(diceCombinations[i]);
+        }
+        Debug.Log(GetScore(diceNum, diceCombinations));
+        StartCoroutine(Roll());
+        rollCount += 1;
     }
     
     public IEnumerator Roll()
@@ -169,6 +190,7 @@ public class RollManager : MonoBehaviour
     
     private void OnEnable()
     {
+        allClicked = false;
         rollCount=0;
         isRolling = false;
         diceNum = new List<int>();
@@ -181,6 +203,7 @@ public class RollManager : MonoBehaviour
             diceState[i].type = PlayerManager.Instance.dices[i].GetType();
             curDice[i].sprite = diceImages[diceState[i].eyes[0]-1];
         }
+        SetDice();
     }
     
 
