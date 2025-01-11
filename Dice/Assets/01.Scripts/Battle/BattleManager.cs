@@ -351,6 +351,50 @@ public class BattleManager : MonoBehaviour
             yield return null; // ���� �����ӱ��� ���
         }
     }
+
+    private IEnumerator Shake(Image targetImage, float duration, int shakeMagnitude)
+    {
+        Vector3 originalPosition = targetImage.rectTransform.localPosition;
+        float elapsedTime = 0f;
+        bool moveRight = true; // 방향 제어 변수
+
+        while (elapsedTime < duration)
+        {
+            // 왼쪽 또는 오른쪽으로 이동
+            float offsetX = moveRight ? shakeMagnitude : -shakeMagnitude;
+            targetImage.rectTransform.localPosition = new Vector3(originalPosition.x + offsetX, originalPosition.y, originalPosition.z);
+
+            // 방향 전환
+            moveRight = !moveRight;
+
+            elapsedTime += 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        // 흔들림 종료 후 원래 위치로 복귀
+        targetImage.rectTransform.localPosition = originalPosition;
+    }
+
+    /*
+    private IEnumerator ShakeMad(Image targetImage, float duration, int shakeMagnitude)
+    {
+        Vector3 originalPosition = targetImage.rectTransform.localPosition;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            // X축으로 흔들림 계산
+            float offsetX = Random.Range(-shakeMagnitude, shakeMagnitude);
+            targetImage.rectTransform.localPosition = new Vector3(originalPosition.x + offsetX, originalPosition.y, originalPosition.z);
+
+            elapsedTime += Time.deltaTime;
+            yield return null; // 다음 프레임까지 대기
+        }
+
+        // 흔들림 종료 후 원래 위치로 복귀
+        targetImage.rectTransform.localPosition = originalPosition;
+    }
+    */
     #endregion
 
     #region Unity LifeCycle
