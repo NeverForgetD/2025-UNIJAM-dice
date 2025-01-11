@@ -85,6 +85,7 @@ public class StateManager : MonoBehaviour
 
     IEnumerator TaskStateUpGradeDice()
     {
+        SoundManager.Instance.PlayBGM("BGM2");
         PoolManager.Instance.ActivateObject("Upgradedice");
         yield return StartCoroutine(WaitForStateCompletion());
         PoolManager.Instance.DeactivateAllObjects();

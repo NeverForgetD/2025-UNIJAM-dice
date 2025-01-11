@@ -30,7 +30,7 @@ public class DiceGenerator
     public static List<int> eyes;
     public static Type type;
 
-    public static List<int> Generate(int round = 0){
+    public static List<int> Generate(int round = 16){
         Type type = (Type)Random.Range(0, 7);
         switch(type){
             case Type.D111111: InitD111111(); break;
@@ -41,8 +41,68 @@ public class DiceGenerator
             case Type.D123: InitD123(); break;
             case Type.D6: InitD6(); break;
         }
-
+        int add=RoundChange(round);
+        for (int i = 0; i < eyes.Count; i++)
+        {
+            eyes[i] += add;
+        }
+        Debug.Log($"{eyes[0]}, {eyes[1]}, {eyes[2]}, {eyes[3]}, {eyes[4]}, {eyes[5]}");
         return eyes;
+    }
+
+    private static int RoundChange(int round)
+    {
+        int prob = Random.Range(0, 3);
+        if (round < 6)
+        {
+            return 0;
+        }
+        else if (round < 11)
+        {
+            if (prob == 0)
+                return 10;
+            else
+                return 0;
+        }else if (round < 16)
+        {
+            return 10;
+        }else if (round < 21)
+        {
+            if (prob == 0)
+                return 20;
+            else
+                return 10;
+        }else if (round < 26)
+        {
+            return 20;
+        }else if (round < 31)
+        {
+            if (prob == 0)
+                return 30;
+            else
+                return 20;
+        }else if (round < 36)
+        {
+            return 30;
+        }else if (round < 41)
+        {
+            if (prob == 0)
+                return 40;
+            else
+                return 30;
+        }else if (round < 46)
+        {
+            return 40;
+        }else if (round < 51)
+        {
+            if (prob == 0)
+                return 50;
+            else
+                return 40;
+        }else
+        {
+            return 50;
+        }
     }
 
     private static void InitD111111(){

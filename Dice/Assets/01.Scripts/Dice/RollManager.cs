@@ -79,8 +79,11 @@ public class RollManager : MonoBehaviour
         int score = 0;
         int sum = 0;
         for (int i = 0; i < dice.Count; i++)
+        {
             score += dice[i];
+        }
         sum = score;
+        Debug.Log(score);
         if (combinations.Contains("YZ"))
             score *= PlayerManager.Instance.handsLevel["YZ"];
         else if (combinations.Contains("LS"))
@@ -229,7 +232,11 @@ public class RollManager : MonoBehaviour
                 }
             }
         }
-        actualDiceNum = diceNum;
+
+        for (int i = 0; i < 5; i++)
+        {
+            actualDiceNum.Add(diceNum[i]);
+        }
         diceCombinations=CheckCombinations(diceNum);
         StartCoroutine(Roll());
     }
@@ -254,7 +261,27 @@ public class RollManager : MonoBehaviour
         isRolling = false; // 굴리기 종료
         for (int i = 0; i < curDice.Length; i++)
         {
-            curDice[i].sprite = diceImages[diceNum[i] - 1];
+            switch (actualDiceNum[i]/10)
+            {
+                case 0:
+                    curDice[i].sprite = diceImages[actualDiceNum[i]-1];
+                    break;
+                case 1:
+                    curDice[i].sprite = diceImages10[actualDiceNum[i]-11];
+                    break;
+                case 2:
+                    curDice[i].sprite = diceImages20[actualDiceNum[i]-21];
+                    break;
+                case 3:
+                    curDice[i].sprite = diceImages30[actualDiceNum[i]-31];
+                    break;
+                case 4:
+                    curDice[i].sprite = diceImages40[actualDiceNum[i]-41];
+                    break;
+                case 5:
+                    curDice[i].sprite = diceImages50[actualDiceNum[i]-51];
+                    break;
+            }
         }
         score = GetScore(actualDiceNum, diceCombinations);
         ShowCombination(diceCombinations);
@@ -323,6 +350,8 @@ public class RollManager : MonoBehaviour
         diceCombinations = new List<string>();
         diceCombinations.Clear();
         diceNum.Clear();
+        actualDiceNum = new List<int>();
+        actualDiceNum.Clear();
         for (int i = 0; i < curDice.Length; i++)
         {
             curDice[i].sprite = randomDice;
