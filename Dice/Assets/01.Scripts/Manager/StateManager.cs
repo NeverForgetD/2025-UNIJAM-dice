@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class StateManager : MonoBehaviour
@@ -43,6 +44,10 @@ public class StateManager : MonoBehaviour
     public int Round { get { return round; } }
     #endregion
 
+    #region SerializeField
+    [SerializeField] private TextMeshProUGUI roundText;
+    #endregion
+
     #region State Management
     public void StartGame()
     {
@@ -80,7 +85,9 @@ public class StateManager : MonoBehaviour
 
         //PoolManager.Instance.DeactivateObject("Battle");
         PoolManager.Instance.DeactivateAllObjects();
-        round++; // 0���忡�� ����, �̱�� ���� �ѹ� +1
+        round++;
+        roundText.text = (round+1).ToString();
+        
         RunNextState();
     }
 
