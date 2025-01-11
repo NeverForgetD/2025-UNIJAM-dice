@@ -59,47 +59,47 @@ public class DiceGenerator
     private static int RoundChange(int round)
     {
         int prob = Random.Range(0, 3);
-        if (round < 6)
+        if (round < 4)
         {
             return 0;
         }
-        else if (round < 11)
+        else if (round < 7)
         {
             if (prob == 0)
                 return 10;
             else
                 return 0;
-        }else if (round < 16)
+        }else if (round < 10)
         {
             return 10;
-        }else if (round < 21)
+        }else if (round < 13)
         {
             if (prob == 0)
                 return 20;
             else
                 return 10;
-        }else if (round < 26)
+        }else if (round < 16)
         {
             return 20;
-        }else if (round < 31)
+        }else if (round < 19)
         {
             if (prob == 0)
                 return 30;
             else
                 return 20;
-        }else if (round < 36)
+        }else if (round < 22)
         {
             return 30;
-        }else if (round < 41)
+        }else if (round < 25)
         {
             if (prob == 0)
                 return 40;
             else
                 return 30;
-        }else if (round < 46)
+        }else if (round < 28)
         {
             return 40;
-        }else if (round < 51)
+        }else if (round < 31)
         {
             if (prob == 0)
                 return 50;
