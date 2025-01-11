@@ -51,10 +51,6 @@ public class UpgradeController : MonoBehaviour
     #endregion
 
     #region Generate Options
-    public void OnButton()
-    {
-        GenerateOption();
-    }
 
     private void GenerateOption()
     {
@@ -119,52 +115,52 @@ public class UpgradeController : MonoBehaviour
 
     private string GetOption(int choice)
     {
-        string option = "";
+        string combination = "";
         switch (choice)
         {
             case 0:
-                option = "YZ";
+                combination = "YZ";
                 break;
             case 1:
-                option = "LS";
+                combination = "LS";
                 break;
             case 2:
-                option = "SS";
+                combination = "SS";
                 break;
             case 3:
-                option = "FK";
+                combination = "FK";
                 break;
             case 4:
-                option = "FH";
+                combination = "FH";
                 break;
             case 5:
-                option = "TP";
+                combination = "TP";
                 break;
             case 6:
-                option = "T";
+                combination = "T";
                 break;
             case 7:
-                option = "P";
+                combination = "P";
                 break;
             case 8:
-                option = "O";
+                combination = "O";
                 break;
             case 9:
-                option = "N";
+                combination = "N";
                 break;
         }
-        return option;
+        return combination;
     }
 
     public void Upgrade()
     {
         if (upgradeClicked)
         {
-            for (int j = 0; j < upgradeState.Length; j++)
+            for (int j = 0; j < 3; j++)
             {
                 if (upgradeState[j].clicked)
                 {
-                    Debug.Log(options[j]);
+                    Debug.Log(options.Count);
                     PlayerManager.Instance.handsLevel[options[j]] += 1;
                 }
             }

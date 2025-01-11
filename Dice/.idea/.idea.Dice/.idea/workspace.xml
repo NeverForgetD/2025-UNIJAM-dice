@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="" />
+    <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/UpgradeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Upgrade/UpgradeController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
