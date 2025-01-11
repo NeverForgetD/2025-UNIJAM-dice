@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 41f79c2da23414545b6c77bd8ec6e94e
+guid: c578e5d23dcd1bb459304aa2528bb8b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1943590309146544258
-    second: YDboardgreen_0
+      213: 1475559663570510788
+    second: YDBoardGreen (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: YDboardgreen_0
+      name: YDBoardGreen (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 4005
-        height: 1053
+        height: 1110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 288429da61509fa10800000000000000
-      internalID: 1943590309146544258
+      spriteID: 4c3e30832bd3a7410800000000000000
+      internalID: 1475559663570510788
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      YDboardgreen_0: 1943590309146544258
+      YDBoardGreen (1)_0: 1475559663570510788
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
