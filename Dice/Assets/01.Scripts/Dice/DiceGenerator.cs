@@ -46,7 +46,6 @@ public class DiceGenerator
         {
             eyes[i] += add;
         }
-        Debug.Log($"{eyes[0]}, {eyes[1]}, {eyes[2]}, {eyes[3]}, {eyes[4]}, {eyes[5]}");
         return eyes;
     }
     
