@@ -10,6 +10,8 @@ using Random = UnityEngine.Random;
 
 public class RollManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI rollBtnText;
+
     public List<string> CheckCombinations(List<int> dice)
     {
         for (int i = 0; i < dice.Count; i++)
@@ -95,7 +97,7 @@ public class RollManager : MonoBehaviour
 
     public void OnRollButton()
     {
-        if (!isRolling && rollCount<3)
+        if (!isRolling && rollCount<3) // can Roll
         {
             if (rollCount == 0)
             {
@@ -123,7 +125,8 @@ public class RollManager : MonoBehaviour
             Debug.Log(GetScore(diceNum, diceCombinations));
             StartCoroutine(Roll());
             rollCount += 1;
-            
+
+            rollBtnText.text = $"Roll {3-rollCount} / 3";
         }
     }
     

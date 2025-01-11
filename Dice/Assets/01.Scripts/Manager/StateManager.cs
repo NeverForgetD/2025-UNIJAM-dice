@@ -60,7 +60,8 @@ public class StateManager : MonoBehaviour
 
         yield return StartCoroutine(WaitForStateCompletion());
 
-        PoolManager.Instance.DeactivateObject("Roll");
+        //PoolManager.Instance.DeactivateObject("Roll");
+        PoolManager.Instance.DeactivateAllObjects();
         RunNextState();
     }
 
@@ -72,7 +73,8 @@ public class StateManager : MonoBehaviour
 
         yield return StartCoroutine(WaitForStateCompletion());
 
-        PoolManager.Instance.DeactivateObject("Battle");
+        //PoolManager.Instance.DeactivateObject("Battle");
+        PoolManager.Instance.DeactivateAllObjects();
         round++;
         RunNextState();
     }
@@ -81,6 +83,7 @@ public class StateManager : MonoBehaviour
     {
         PoolManager.Instance.ActivateObject("Upgradedice");
         yield return StartCoroutine(WaitForStateCompletion());
+        PoolManager.Instance.DeactivateAllObjects();
         RunNextState();
     }
 

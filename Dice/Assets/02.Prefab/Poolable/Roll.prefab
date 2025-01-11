@@ -779,6 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d462cab836c8b249a1495c61354a249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rollBtnText: {fileID: 2849507208900153335}
   diceNum: 
   diceImages:
   - {fileID: -5191096547196297412, guid: 032c389f82e0a084e94a4459086e693a, type: 3}
@@ -1540,7 +1541,7 @@ GameObject:
   - component: {fileID: 3560058464153357624}
   - component: {fileID: 7564772936733359425}
   m_Layer: 0
-  m_Name: Roll
+  m_Name: Roll Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2075,7 +2076,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Roll
+  m_text: 'Roll 3 / 3
 
 '
   m_isRightToLeft: 0
