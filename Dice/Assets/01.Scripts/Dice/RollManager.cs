@@ -89,7 +89,13 @@ public class RollManager : MonoBehaviour
     public List<int> diceNum;
     private int[] dice = {1, 2, 3, 4, 5, 6};
     private List<string> diceCombinations;
+    public Sprite randomDice;
     public Sprite[] diceImages;
+    public Sprite[] diceImages10;
+    public Sprite[] diceImages20;
+    public Sprite[] diceImages30;
+    public Sprite[] diceImages40;
+    public Sprite[] diceImages50;
     public Image[] curDice;
     public DiceButton[] diceState;
     public bool isRolling;
@@ -118,7 +124,8 @@ public class RollManager : MonoBehaviour
         {
             SoundManager.Instance.PlaySFX_RandomPitch("DiceRoll01", 0.6f, 1.4f);
             SetDice();
-            rollBtnText.text = $"ReRoll {3-rollCount} / 2";
+            rollCount += 1;
+            rollBtnText.text = $"Roll {3-rollCount} / 3";
         }
     }
 
@@ -141,15 +148,8 @@ public class RollManager : MonoBehaviour
                 }
             }
         }
-        Debug.Log($"Dice: {diceNum[0]}, {diceNum[1]}, {diceNum[2]}, {diceNum[3]}, {diceNum[4]}");
         diceCombinations=CheckCombinations(diceNum);
-        for (int i = 0; i < diceCombinations.Count; i++)
-        {
-            Debug.Log(diceCombinations[i]);
-        }
-        Debug.Log(GetScore(diceNum, diceCombinations));
         StartCoroutine(Roll());
-        rollCount += 1;
     }
     
     public IEnumerator Roll()
@@ -201,9 +201,9 @@ public class RollManager : MonoBehaviour
         {
             diceState[i].eyes = PlayerManager.Instance.dices[i].GetEyes();
             diceState[i].type = PlayerManager.Instance.dices[i].GetType();
-            curDice[i].sprite = diceImages[diceState[i].eyes[0]-1];
+            curDice[i].sprite = randomDice;
         }
-        SetDice();
+        rollBtnText.text = "Roll 3 / 3";
     }
     
 
