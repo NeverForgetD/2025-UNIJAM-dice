@@ -304,15 +304,6 @@ public class BattleManager : MonoBehaviour
         StartBattle();
     }
     #endregion
-
-    #region Test
-    public void Update()
-    {
-        
-    }
-    #endregion
-
-
 }
 
 
