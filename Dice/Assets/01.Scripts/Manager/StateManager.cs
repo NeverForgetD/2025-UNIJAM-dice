@@ -157,8 +157,10 @@ public class StateManager : MonoBehaviour
     public void StartNewGame()
     {
         PoolManager.Instance.DeactivateAllObjects();
+
+        SceneManager.LoadScene(1);
         StartGame();
-        Debug.Log("new Game Start");
+        //Debug.Log("new Game Start");
     }
     #endregion
 

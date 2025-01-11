@@ -24,6 +24,12 @@ public class BattleManager : MonoBehaviour
     [SerializeField] Image enemySprite;
     [SerializeField] Sprite[] playerSpriteContainer;
     [SerializeField] Sprite[] enemySpriteContainer;
+
+    [SerializeField] GameObject playerDamage;
+    [SerializeField] GameObject enemyDamage;
+
+    [SerializeField] TextMeshProUGUI playerDamageText;
+    [SerializeField] TextMeshProUGUI enemyDamageText;
     #endregion
 
     #region Properties
@@ -344,9 +350,26 @@ public class BattleManager : MonoBehaviour
         StatusManager.Instance.enemyStatus.ModifyStatus("hp", -playerD);
 
         if (enemyD > 0)
+        {
             StartCoroutine(Shake(playerSprite));
+            StartCoroutine(ActivateThenDeactivate(playerDamage));
+            playerDamageText.text = enemyD.ToString();
+        }
         if (playerD > 0)
+        {
             StartCoroutine (Shake(enemySprite));
+            StartCoroutine(ActivateThenDeactivate(enemyDamage));
+            enemyDamageText.text = playerD.ToString();
+        }
+    }
+
+    private System.Collections.IEnumerator ActivateThenDeactivate(GameObject targetObject, float duration = 0.8f)
+    {
+        if (targetObject == null) yield break;
+
+        targetObject.SetActive(true); // 활성화
+        yield return new WaitForSeconds(duration); // 지정된 시간 대기
+        targetObject.SetActive(false); // 비활성화
     }
 
     private IEnumerator RollDiceForDuration(float duration)
