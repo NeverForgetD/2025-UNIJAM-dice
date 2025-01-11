@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -27,13 +29,19 @@ public class SoundManager : MonoBehaviour
             bgmSource.loop = true;
         }
 
+        if (bgmSource2 == null)
+        {
+            bgmSource2 = gameObject.AddComponent<AudioSource>();
+            bgmSource2.loop = true;
+        }
+
         if (sfxSource == null)
             sfxSource = gameObject.AddComponent<AudioSource>();
     }
     #endregion
 
     #region Privates
-    AudioSource bgmSource;
+    AudioSource bgmSource, bgmSource2;
     AudioSource sfxSource;
 
     bool isBGMPlaying = false;
@@ -46,29 +54,56 @@ public class SoundManager : MonoBehaviour
 
     #region Sound Play Util
     // MP3 Player   -> AudioSource
-    // MP3 À½¿ø   -> AudioClip
-    // °ü°´(±Í)    -> AudioListner
+    // MP3 ï¿½ï¿½ï¿½ï¿½   -> AudioClip
+    // ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½)    -> AudioListner
 
     /// <summary>
-    /// BGM Àç»ı
+    /// BGM ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="bgmName"></param>
     public void PlayBGM(string bgmName)
     {
-        if (isBGMPlaying)
-            return;
+        SoundData bgm = FindSound(soundDB.bgmList, bgmName); // ï¿½Ë»ï¿½
 
-        SoundData bgm = FindSound(soundDB.bgmList, bgmName); // °Ë»ö
-        if (bgm != null)
+        if (isBGMPlaying){
+            if(bgm.soundName == "BGM1"){
+                StartCoroutine(FadeVolume(bgmSource2, 0, 1f));
+                StartCoroutine(FadeVolume(bgmSource, bgm.volume, 1f));
+            }
+            else if(bgm.soundName == "BGM2"){
+                StartCoroutine(FadeVolume(bgmSource, 0, 1f));
+                StartCoroutine(FadeVolume(bgmSource2, bgm.volume, 1f));
+            }
+            else return;
+        }
+
+        
+        else if (bgm != null)
         {
-            bgmSource.clip = bgm.audioClip;
-            bgmSource.volume = bgm.volume;
-            bgmSource.Play();
+            if(bgm.soundName == "BGM1"){
+                bgmSource.clip = bgm.audioClip;
+                bgmSource.volume = bgm.volume;
+                bgmSource.Play();
+                bgmSource2.clip = FindSound(soundDB.bgmList, "BGM2").audioClip;
+                bgmSource2.volume = 0;
+                bgmSource2.Play();
+            }
+            /*else if(bgm.soundName == "BGM2"){
+                bgmSource.clip = bgm.audioClip;
+                bgmSource.volume = bgm.volume;
+                bgmSource.Play();
+            }*/
+            else{
+                bgmSource.clip = bgm.audioClip;
+                bgmSource.volume = bgm.volume;
+                bgmSource.Play();
+            }
         }
         else
         {
             Debug.Log($"Failed to find sound data_BGM : {bgmName}");
         }
+        Debug.Log(bgm.soundName);
         isBGMPlaying = true;
     }
 
@@ -78,16 +113,17 @@ public class SoundManager : MonoBehaviour
         if (!isBGMPlaying)
             return;
         bgmSource.Stop();
+        bgmSource2.Stop();
         isBGMPlaying = false;
     }
 
     /// <summary>
-    /// SFX Àç»ı
+    /// SFX ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="sfxName"></param>
     public void PlaySFX(string sfxName)
     {
-        SoundData sfx = FindSound(soundDB.sfxList, sfxName); // °Ë»ö
+        SoundData sfx = FindSound(soundDB.sfxList, sfxName); // ï¿½Ë»ï¿½
         if (sfx == null)
         {
             Debug.Log($"Failed to find sound data_SFX : {sfxName}");
@@ -102,7 +138,7 @@ public class SoundManager : MonoBehaviour
     }
     public void PlaySFX_RandomPitch(string sfxName, float minPitch, float maxPitch)
     {
-        SoundData sfx = FindSound(soundDB.sfxList, sfxName); // °Ë»ö
+        SoundData sfx = FindSound(soundDB.sfxList, sfxName); // ï¿½Ë»ï¿½
         if (sfx == null)
         {
             Debug.Log($"Failed to find sound data_SFX : {sfxName}");
@@ -117,7 +153,7 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// SoundData ¹è¿­¿¡¼­ ÇØ´ç ÀÌ¸§ÀÇ sound data¸¦ °Ë»ö
+    /// SoundData ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ sound dataï¿½ï¿½ ï¿½Ë»ï¿½
     /// </summary>
     /// <param name="soundList"></param>
     /// <param name="soundName"></param>
@@ -126,7 +162,7 @@ public class SoundManager : MonoBehaviour
     {
         foreach (SoundData sound in soundList)
         {
-            if (sound.soundName == soundName) // ÀÌ¸§ ºñ±³
+            if (sound.soundName == soundName) // ï¿½Ì¸ï¿½ ï¿½ï¿½
             {
                 return sound;
             }
@@ -136,7 +172,7 @@ public class SoundManager : MonoBehaviour
 
     /*
     /// <summary>
-    /// SFX Àç»ı ³¡³¯ ¶§±îÁö ´ë½Ã
+    /// SFX ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     /// </summary>
     /// <returns></returns>
     public async Task WaitForSfxEnd()
@@ -147,5 +183,37 @@ public class SoundManager : MonoBehaviour
         }
     }
     */
+
+    /// <summary>
+    /// AudioSourceì˜ ë³¼ë¥¨ì„ ì„œì„œíˆ ë³€ê²½
+    /// </summary>
+    /// <param name="audioSource">ë³€ê²½í•  AudioSource</param>
+    /// <param name="targetVolume">ëª©í‘œ ë³¼ë¥¨ (0.0 ~ 1.0)</param>
+    /// <param name="duration">ë³¼ë¥¨ ë³€ê²½ì— ê±¸ë¦¬ëŠ” ì‹œê°„ (ì´ˆ)</param>
+    /// <returns>ì½”ë£¨í‹´</returns>
+    public IEnumerator FadeVolume(AudioSource audioSource, float targetVolume, float duration)
+    {
+        if (audioSource == null)
+        {
+            Debug.LogWarning("AudioSourceê°€ nullì…ë‹ˆë‹¤.");
+            yield break;
+        }
+
+        float startVolume = audioSource.volume;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            // ì‹œê°„ì— ë”°ë¼ ë³¼ë¥¨ì„ ì„ í˜•ì ìœ¼ë¡œ ë³€í™”
+            audioSource.volume = Mathf.Lerp(startVolume, targetVolume, elapsedTime / duration);
+
+            elapsedTime += Time.deltaTime;
+            yield return null; // ë‹¤ìŒ í”„ë ˆì„ê¹Œì§€ ëŒ€ê¸°
+        }
+
+        // ìµœì¢… ë³¼ë¥¨ ì„¤ì •
+        audioSource.volume = targetVolume;
+    }
+
     #endregion
 }

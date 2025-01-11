@@ -11,7 +11,7 @@ public class StateManager : MonoBehaviour
         // ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿?ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            Destroy(gameObject); // ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½?ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             return;
         }
 
@@ -56,6 +56,7 @@ public class StateManager : MonoBehaviour
     {
         Debug.Log("roll");
         
+        SoundManager.Instance.PlayBGM("BGM1");
         StatusManager.Instance.UpdateCurrentEnemyStatus();
         PoolManager.Instance.ActivateObject("Roll");
 
@@ -70,13 +71,14 @@ public class StateManager : MonoBehaviour
     {
         Debug.Log("battle");
 
+        SoundManager.Instance.PlayBGM("BGM2");
         PoolManager.Instance.ActivateObject("Battle");
 
         yield return StartCoroutine(WaitForStateCompletion());
 
         //PoolManager.Instance.DeactivateObject("Battle");
         PoolManager.Instance.DeactivateAllObjects();
-        round++; // 0¶ó¿îµå¿¡¼­ ½ÃÀÛ, ÀÌ±â¸é ¶ó¿îµå ³Ñ¹ö +1
+        round++; // 0ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ì±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ +1
         RunNextState();
     }
 
@@ -110,7 +112,7 @@ public class StateManager : MonoBehaviour
     private void RunNextState()
     {
         currentState = (GameState)(((int)currentState + 1) % System.Enum.GetValues(typeof(GameState)).Length);
-        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½: {currentState}");
+        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½: {currentState}");
 
         switch (currentState)
         {

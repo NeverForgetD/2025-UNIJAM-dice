@@ -4,26 +4,28 @@ using UnityEngine;
 public class SoundData : ScriptableObject
 {
     /// <summary>
-    /// »ç¿îµå ÀÌ¸§
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
     /// </summary>
-    [HideInInspector] public string soundName;
+    public string soundName{
+        get => this.name;
+    }
 
     /// <summary>
-    /// Àç»ýÇÒ AudioClip
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ AudioClip
     /// </summary>
     public AudioClip audioClip;
 
     /// <summary>
-    /// º¼·ý (0-1)
+    /// ï¿½ï¿½ï¿½ï¿½ (0-1)
     /// </summary>
     [Range(0f, 2f)] public float volume = 1f;
 
     /// <summary>
-    /// ÇÇÄ¡
+    /// ï¿½ï¿½Ä¡
     /// </summary>
     [Range(0f, 2f)] public float pitch = 1f;
 
-    private void OnValidate() // ¿¡µðÅÍ¿¡¼­ soundNameÀ» ÆÄÀÏ ÀÌ¸§À¸·Î ÁöÁ¤ (ÆíÀÇ¼º)
+    /*private void OnValidate() // ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ soundNameï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½Ç¼ï¿½)
     {
         if (string.IsNullOrEmpty(soundName))
         {
@@ -38,6 +40,6 @@ public class SoundData : ScriptableObject
         {
             soundName = name;
         }
-    }
+    }*/
     
 }
