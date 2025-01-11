@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/DiceButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/DiceButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/Roll.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/Roll.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +17,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/01.Scripts/Dice/Dice.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
