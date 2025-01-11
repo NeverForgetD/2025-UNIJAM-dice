@@ -14,77 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyStats:
   - med: 30
-    hp: 60
-    atk: 30
-    def: 30
-    pot: 30
   - med: 50
-    hp: 100
-    atk: 50
-    def: 50
-    pot: 50
   - med: 70
-    hp: 140
-    atk: 70
-    def: 70
-    pot: 70
-  - med: 100
-    hp: 180
-    atk: 90
-    def: 90
-    pot: 90
-  - med: 130
-    hp: 220
-    atk: 110
-    def: 110
-    pot: 110
-  - med: 160
-    hp: 260
-    atk: 130
-    def: 130
-    pot: 130
-  - med: 190
-    hp: 300
-    atk: 150
-    def: 150
-    pot: 150
+  - med: 120
+  - med: 170
   - med: 220
-    hp: 0
-    atk: 0
-    def: 0
-    pot: 0
-  - med: 250
-    hp: 0
-    atk: 0
-    def: 0
-    pot: 0
-  - med: 280
-    hp: 0
-    atk: 0
-    def: 0
-    pot: 0
-  - med: 310
-    hp: 0
-    atk: 0
-    def: 0
-    pot: 0
-  - med: 340
-    hp: 0
-    atk: 0
-    def: 0
-    pot: 0
-  - med: 370
-    hp: 0
-    atk: 0
-    def: 0
-    pot: 0
-  - med: 400
-    hp: 0
-    atk: 0
-    def: 0
-    pot: 0
-  - med: 430
-    hp: 0
-    atk: 0
-    def: 0
-    pot: 0
+  - med: 300
+  - med: 380
+  - med: 460
+  - med: 570
+  - med: 680
+  - med: 790
+  - med: 930
+  - med: 1070
+  - med: 1310
