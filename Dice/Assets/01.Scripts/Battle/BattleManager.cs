@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -17,11 +18,17 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] Image[] playerCharges;
     [SerializeField] Image[] enemyCharges;
+
+    [SerializeField] Image playerSprite;
+    [SerializeField] Image enemySprite;
+    [SerializeField] Sprite[] playerSpriteContainer;
+    [SerializeField] Sprite[] enemySpriteContainer;
     #endregion
 
     #region Properties
     public int playerCharge { get; private set; }
     public int enemyCharge {  get; private set; }
+    public int enemyNum {  get; private set; }
     #endregion
 
     #region Charge Visulaize
@@ -29,30 +36,30 @@ public class BattleManager : MonoBehaviour
     {
         for (int i = 0; i < charges.Length; i++)
         {
-            charges[i].gameObject.SetActive(i < count); // ÁöÁ¤µÈ °³¼ö¸¸ È°¼ºÈ­
+            charges[i].gameObject.SetActive(i < count); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         }
     }
     private void DeactivateAllCharges(Image[] charges)
     {
         foreach (var charge in charges)
         {
-            charge.gameObject.SetActive(false); // ¸ðµç charge ºñÈ°¼ºÈ­
+            charge.gameObject.SetActive(false); // ï¿½ï¿½ï¿½ charge ï¿½ï¿½È°ï¿½ï¿½È­
         }
     }
     #endregion
 
     #region Enemy Dice Visualize
     /// <summary>
-    /// ¼ýÀÚ¸¦ ·£´ýÇÏ°Ô ÄÁÅ×ÀÌ³Ê¿¡ ¹èÁ¤ÇÏ°í ³ª¸ÓÁö´Â ºñÈ°¼ºÈ­.
+    /// ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­.
     /// </summary>
     public void ResetEnemytable()
     {
-        ResetContainers(); // ½ÇÇà ½Ã ÄÁÅ×ÀÌ³Ê ÃÊ±âÈ­
+        ResetContainers(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½Ê±ï¿½È­
 
-        // 1ºÎÅÍ 6±îÁöÀÇ ¼ýÀÚ »ý¼º
+        // 1ï¿½ï¿½ï¿½ï¿½ 6ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         int[] numbers = { 1, 2, 3, 4, 5, 6 };
 
-        // °¢ ¼ýÀÚ¸¦ ·£´ýÇÏ°Ô ÇÏ³ªÀÇ ÄÁÅ×ÀÌ³Ê¿¡ ¹èÁ¤On
+        // ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½On
         foreach (int number in numbers)
         {
             AssignToRandomContainer(number);
@@ -60,7 +67,7 @@ public class BattleManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸ðµç ÄÁÅ×ÀÌ³Ê¸¦ ÃÊ±âÈ­(ºñÈ°¼ºÈ­).
+    /// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³Ê¸ï¿½ ï¿½Ê±ï¿½È­(ï¿½ï¿½È°ï¿½ï¿½È­).
     /// </summary>
     private void ResetContainers()
     {
@@ -70,20 +77,20 @@ public class BattleManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Æ¯Á¤ ÄÁÅ×ÀÌ³ÊÀÇ ¸ðµç ÀÌ¹ÌÁö¸¦ ÃÊ±âÈ­(ºñÈ°¼ºÈ­).
+    /// Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­(ï¿½ï¿½È°ï¿½ï¿½È­).
     /// </summary>
     private void ResetContainer(Image[] container)
     {
         foreach (Image image in container)
         {
-            image.sprite = null; // Sprite ÃÊ±âÈ­
-            image.gameObject.SetActive(false); // ºñÈ°¼ºÈ­
+            image.sprite = null; // Sprite ï¿½Ê±ï¿½È­
+            image.gameObject.SetActive(false); // ï¿½ï¿½È°ï¿½ï¿½È­
         }
     }
 
 
     /// <summary>
-    /// ¼ýÀÚ¸¦ ·£´ýÇÑ ÄÁÅ×ÀÌ³Ê¿¡ ¹èÁ¤.
+    /// ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½.
     /// </summary>
     private void AssignToRandomContainer(int number)
     {
@@ -96,13 +103,13 @@ public class BattleManager : MonoBehaviour
             _ => null
         };
 
-        // ºñ¾î ÀÖ´Â ½½·ÔÀ» Ã£¾Æ Sprite ¹èÁ¤
+        // ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ Sprite ï¿½ï¿½ï¿½ï¿½
         foreach (Image image in targetContainer)
         {
-            if (image.sprite == null) // Sprite°¡ ºñ¾î ÀÖ´Â ½½·Ô
+            if (image.sprite == null) // Spriteï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
             {
-                image.sprite = enemyDiceSprite[number - 1]; // 1~6¿¡ ¸Â´Â Sprite ¼³Á¤
-                image.gameObject.SetActive(true); // È°¼ºÈ­
+                image.sprite = enemyDiceSprite[number - 1]; // 1~6ï¿½ï¿½ ï¿½Â´ï¿½ Sprite ï¿½ï¿½ï¿½ï¿½
+                image.gameObject.SetActive(true); // È°ï¿½ï¿½È­
                 return;
             }
         }
@@ -113,7 +120,7 @@ public class BattleManager : MonoBehaviour
     int enemyIndex;
     public void EnemyRoll()
     {
-        int enemyDiceIndex = Random.Range(0, 6);
+        int enemyDiceIndex = UnityEngine.Random.Range(0, 6);
         enemyIndex = GetContainerForNumber(enemyDiceIndex);
 
         enemyDice.sprite = enemyDiceSprite[enemyDiceIndex];
@@ -121,20 +128,20 @@ public class BattleManager : MonoBehaviour
 
     private int GetContainerForNumber(int number)
     {
-        // ¼ýÀÚ¿¡ ÇØ´çÇÏ´Â Sprite °¡Á®¿À±â
+        // ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ Sprite ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Sprite targetSprite = enemyDiceSprite[number];
 
-        // °¢ ÄÁÅ×ÀÌ³Ê¿¡¼­ ÇØ´ç Sprite¸¦ °Ë»ö
+        // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³Ê¿ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ Spriteï¿½ï¿½ ï¿½Ë»ï¿½
         if (ContainsSprite(attackContainer, targetSprite)) return 0; // attack
         if (ContainsSprite(defenceContainer, targetSprite)) return 1; // defence
         if (ContainsSprite(chargeContainer, targetSprite)) return 2; // charge
 
-        // ÇØ´ç ¼ýÀÚ°¡ ¾î´À ÄÁÅ×ÀÌ³Ê¿¡µµ ¾ø´Â °æ¿ì
+        // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         return -1; // not found
     }
 
     /// <summary>
-    /// ÄÁÅ×ÀÌ³Ê°¡ Æ¯Á¤ Sprite¸¦ Æ÷ÇÔÇÏ°í ÀÖ´ÂÁö È®ÀÎ.
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½Ì³Ê°ï¿½ Æ¯ï¿½ï¿½ Spriteï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½.
     /// </summary>
     private bool ContainsSprite(Image[] container, Sprite sprite)
     {
@@ -151,26 +158,27 @@ public class BattleManager : MonoBehaviour
     {
         playerCharge = 0;
         enemyCharge = 0;
+
         DeactivateAllCharges(playerCharges);
         DeactivateAllCharges(enemyCharges);
         ResetEnemytable();
     }
 
-    public void OnPlayerMove(int playerIndex) // ¹öÆ° Å¬¸¯À¸·Î ¹ßµ¿
+    public void OnPlayerMove(int playerIndex) // ï¿½ï¿½Æ° Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßµï¿½
     {
         ResetEnemytable();
         StartCoroutine(ExecuteBattle(playerIndex));
     }
     public IEnumerator ExecuteBattle(int playerIndex)
     {
-        yield return StartCoroutine(RollDiceForDuration(0.6f)); // 0.6ÃÊ µ¿¾È ÁÖ»çÀ§¸¦ ±¼¸²
-        EnemyRoll(); // enemyÀÇ Index °áÁ¤ ¹× ½ºÇÁ¶óÀÌÆ® ÁöÁ¤
+        yield return StartCoroutine(RollDiceForDuration(0.6f)); // 0.6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        EnemyRoll(); // enemyï¿½ï¿½ Index ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
         DetermineResult(playerIndex);
         StartCoroutine(CheckBattleEnd());
     }
 
-    public void DetermineResult(int index) // index´Â ÇÃ·¹ÀÌ¾î
+    public void DetermineResult(int index) // indexï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½
     {
         int pAtk = StatusManager.Instance.playerStatus._atk + playerCharge*StatusManager.Instance.playerStatus._pot;
         int pDef = StatusManager.Instance.playerStatus._def;
@@ -179,70 +187,82 @@ public class BattleManager : MonoBehaviour
         int eDef = StatusManager.Instance.enemyStatus._def;
 
 
-        if (index == 0) // ÇÃ·¹ÀÌ¾î °ø°Ý
+        if (index == 0) // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
+            StartCoroutine(PlayerSpriteChange(1));
             if (enemyIndex == 0)
             {
+                StartCoroutine(EnemySpriteChange(1));
                 ApplyBattleDamage(pAtk, eAtk);
             }
             else if (enemyIndex == 1)
             {
+                StartCoroutine(EnemySpriteChange(2));
                 ApplyBattleDamage(Mathf.Max(0, pAtk - eDef), 0);
             }
             else if (enemyIndex == 2)
             {
+                StartCoroutine(EnemySpriteChange(3));
                 ApplyBattleDamage(pAtk, 0);
                 enemyCharge++;
                 ActivateCharges(enemyCharges, enemyCharge);
             }
             else
             {
-                Debug.Log($"ÀûÀÇ ÀÎµ¦½º°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù. {enemyIndex}");
+                Debug.Log($"ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¹Ù¸ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. {enemyIndex}");
             }
         }
-        else if (index == 1) // ÇÃ·¹ÀÌ¾î ¹æ¾î
+        else if (index == 1) // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½
         {
+            StartCoroutine(PlayerSpriteChange(2));
             if (enemyIndex == 0)
             {
+                StartCoroutine(EnemySpriteChange(1));
                 ApplyBattleDamage(0, Mathf.Max(0, eAtk -pDef));
             }
             else if (enemyIndex == 1)
             {
+                StartCoroutine(EnemySpriteChange(2));
                 ApplyBattleDamage(0, 0);
             }
             else if (enemyIndex == 2)
             {
+                StartCoroutine(EnemySpriteChange(3));
                 ApplyBattleDamage(0, 0);
             }
             else
             {
-                Debug.Log($"ÀûÀÇ ÀÎµ¦½º°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù. {enemyIndex}");
+                Debug.Log($"ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¹Ù¸ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. {enemyIndex}");
             }
         }
-        else if (index == 2) // ÇÃ·¹ÀÌ¾î ÃæÀü
+        else if (index == 2) // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
+            StartCoroutine(PlayerSpriteChange(3));
             playerCharge++;
             ActivateCharges(playerCharges, playerCharge);
             if (enemyIndex == 0)
             {
+                StartCoroutine(EnemySpriteChange(1));
                 ApplyBattleDamage(0, eAtk);
             }
             else if (enemyIndex == 1)
             {
+                StartCoroutine(EnemySpriteChange(2));
                 ApplyBattleDamage(0, 0);
             }
             else if (enemyIndex == 2)
             {
+                StartCoroutine(EnemySpriteChange(3));
                 ApplyBattleDamage(0, 0);
             }
             else
             {
-                Debug.Log($"ÀûÀÇ ÀÎµ¦½º°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù. {enemyIndex}");
+                Debug.Log($"ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¹Ù¸ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. {enemyIndex}");
             }
         }
         else
         {
-            Debug.Log($"ÇÃ·¹ÀÌ¾îÀÇ ÀÎµ¦½º°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù. {index}");
+            Debug.Log($"ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¹Ù¸ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. {index}");
         }
 
         if (playerCharge > 0 && index == 0)
@@ -259,6 +279,18 @@ public class BattleManager : MonoBehaviour
         
     }
 
+    private IEnumerator PlayerSpriteChange(int spriteType){
+        playerSprite.sprite = playerSpriteContainer[spriteType];
+        yield return new WaitForSeconds(1f);
+        playerSprite.sprite = playerSpriteContainer[0];
+    }
+
+    private IEnumerator EnemySpriteChange(int spriteType){
+        enemySprite.sprite = enemySpriteContainer[enemyNum * 4 + spriteType];
+        yield return new WaitForSeconds(1f);
+        enemySprite.sprite = enemySpriteContainer[enemyNum * 4];
+    }
+
     private IEnumerator CheckBattleEnd()
     {
         if (StatusManager.Instance.playerStatus._hp < 0)
@@ -267,10 +299,12 @@ public class BattleManager : MonoBehaviour
         }
         else if (StatusManager.Instance.enemyStatus._hp < 0)
         {
-            yield return new WaitForSeconds(2f); // 2ÃÊ ´ë±â
+            yield return new WaitForSeconds(2f); // 2ï¿½ï¿½ ï¿½ï¿½ï¿½
+            enemyNum = (enemyNum + 1) % 3;
+            enemySprite.sprite = enemySpriteContainer[enemyNum * 4];
+
             Debug.Log("have to stop every button until go to next");
             StateManager.Instance.AdvanceToNextState();
-
         }
     }
 
@@ -291,9 +325,9 @@ public class BattleManager : MonoBehaviour
         {
             enemyDice.sprite = enemyDiceSprite[i % enemyDiceSprite.Length];
             i++;
-            elapsedTime += Time.deltaTime; // °æ°ú ½Ã°£ ¾÷µ¥ÀÌÆ®
+            elapsedTime += Time.deltaTime; // ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
             //yield return new WaitForSeconds(0.02f);
-            yield return null; // ´ÙÀ½ ÇÁ·¹ÀÓ±îÁö ´ë±â
+            yield return null; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         }
     }
     #endregion
@@ -427,7 +461,7 @@ public class BattleManager : MonoBehaviour
     public void CheckDead(){
         if (Player.hp <= 0)
         {
-            // °ÔÀÓÁ¾·á
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             StateManager.Instance.EndGame();
             Debug.Log("Player Dead");
         }

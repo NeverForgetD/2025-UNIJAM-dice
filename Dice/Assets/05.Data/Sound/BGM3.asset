@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa64f42bdb7afd46a2a1437f09901d2, type: 3}
   m_Name: BGM3
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 486722fec14644af8bd2a31a8b914c89, type: 3}
+  audioClip: {fileID: 8300000, guid: 22d548af873084570be37edc316cec8c, type: 3}
   volume: 1
   pitch: 1
