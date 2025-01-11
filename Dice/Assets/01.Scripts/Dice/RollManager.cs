@@ -153,6 +153,10 @@ public class RollManager : MonoBehaviour
     public int rollCount;
     public bool allClicked;
     public TextMeshProUGUI scoreText;
+    public GameObject diceControlSet;
+    public GameObject statControlSet;
+    public int score;
+    public StatButton[] statButtons;
     
 
     public void CheckAllClicked()
@@ -232,7 +236,7 @@ public class RollManager : MonoBehaviour
         {
             curDice[i].sprite = diceImages[diceNum[i] - 1];
         }
-        GetScore(actualDiceNum, diceCombinations);
+        score = GetScore(actualDiceNum, diceCombinations);
         ShowCombination(diceCombinations);
     }
 
@@ -247,26 +251,29 @@ public class RollManager : MonoBehaviour
             }
         }
     }
+
+    public void Choose()
+    {
+        if (!isRolling && rollCount>0)
+        {
+            rollCount = 0;
+            rollBtnText.text = "Roll 3 / 3";
+            Init();
+            diceControlSet.SetActive(false);
+            statControlSet.SetActive(true);
+            for (int i = 0; i < statButtons.Length; i++)
+            {
+                statButtons[i].score = score;
+            }
+        }
+    }
     
     private void OnEnable()
     {
-        allClicked = false;
-        rollCount=0;
-        isRolling = false;
-        diceNum = new List<int>();
-        diceCombinations = new List<string>();
-        diceCombinations.Clear();
-        diceNum.Clear();
         for (int i = 0; i < curDice.Length; i++)
         {
             diceState[i].eyes = PlayerManager.Instance.dices[i].GetEyes();
             diceState[i].type = PlayerManager.Instance.dices[i].GetType();
-            curDice[i].sprite = randomDice;
-        }
-        rollBtnText.text = "Roll 3 / 3";
-        for (int i = 0; i < combinationImage.Length; i++)
-        {
-            combinationImage[i].enabled = false;
         }
         combinationText[0].text="x"+PlayerManager.Instance.handsLevel["YZ"].ToString();
         combinationText[1].text="x"+PlayerManager.Instance.handsLevel["LS"].ToString();
@@ -278,7 +285,34 @@ public class RollManager : MonoBehaviour
         combinationText[7].text="x"+PlayerManager.Instance.handsLevel["P"].ToString();
         combinationText[8].text="x"+PlayerManager.Instance.handsLevel["O"].ToString();
         combinationText[9].text="x"+PlayerManager.Instance.handsLevel["N"].ToString();
+        for (int i = 0; i < statButtons.Length; i++)
+        {
+            statButtons[i].isClicked = false;
+        }
+        Init();
+    }
+
+    void Init()
+    {
+        allClicked = false;
+        rollCount=0;
+        isRolling = false;
+        diceNum = new List<int>();
+        diceCombinations = new List<string>();
+        diceCombinations.Clear();
+        diceNum.Clear();
+        for (int i = 0; i < curDice.Length; i++)
+        {
+            curDice[i].sprite = randomDice;
+        }
+        rollBtnText.text = "Roll 3 / 3";
+        for (int i = 0; i < combinationImage.Length; i++)
+        {
+            combinationImage[i].enabled = false;
+        }
         scoreText.text = "";
+        diceControlSet.SetActive(true);
+        statControlSet.SetActive(false);
     }
     
 

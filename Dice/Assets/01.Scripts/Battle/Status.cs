@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Status : MonoBehaviour
+public class Status// : MonoBehaviour
 {
     #region properties
     private int hp;
@@ -33,17 +33,43 @@ public class Status : MonoBehaviour
         switch (stat)
         {
             case ("hp"):
-                hp = ++value; break;
+                hp += value; break;
             case ("atk"):
-                atk = ++value; break;
+                atk += value; break;
             case ("def"):
-                def = ++value; break;
+                def += value; break;
             case ("pot"):
-                pot = ++value; break;
+                pot += value; break;
             default:
                 Debug.Log($"{stat} wrong name : hp, atk, def, pot");
                 break;
         }
+    }
+
+    public void PrintStatus(string stat)
+    {
+        switch (stat)
+        {
+            case ("hp"):
+                Debug.Log("hp: "+hp);
+                break;
+            case ("atk"):
+                Debug.Log("atk: "+atk);
+                break;
+            case ("def"):
+                Debug.Log("def: "+def);
+                break;
+            case ("pot"):
+                Debug.Log("pot: "+pot);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void PrintAllStstus()
+    {
+        Debug.Log($"hp: {hp}, atk: {atk}, def, {def}, pot, {pot}");
     }
     #endregion
 
