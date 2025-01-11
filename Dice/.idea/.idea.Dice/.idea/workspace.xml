@@ -5,49 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_3.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/Dice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/Dice.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/DiceInfoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/DiceInfoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Dice/RollManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Manager/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Manager/PlayerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/Roll.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/Roll.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Battle/attack.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Battle/attack.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Battle/defense.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Battle/defense.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Battle/enemy_potential.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Battle/enemy_potential.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Battle/energeypa.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Battle/energeypa.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_4-22.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_4-22.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus10/plus10_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus20/plus20_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus30/plus30_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus40/plus40_6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_6(1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_6(1).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/plus50/plus50_6.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04.Images/Dice/unknowndice.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04.Images/Dice/unknowndice.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
