@@ -49,12 +49,12 @@ public class StateManager : MonoBehaviour
         round = 0;
         currentState = GameState.Roll;
         isGameOver = false;
-        StatusManager.Instance.InitPlayer();
         StartCoroutine(TaskStateRoll());
     }
     
     IEnumerator TaskStateRoll()
     {
+        StatusManager.Instance.InitPlayer();
         Debug.Log("roll");
         
         SoundManager.Instance.PlayBGM("BGM3");

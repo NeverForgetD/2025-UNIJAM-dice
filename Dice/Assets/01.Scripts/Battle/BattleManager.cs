@@ -42,10 +42,21 @@ public class BattleManager : MonoBehaviour
     #endregion
 
     #region Enemy Dice Visualize
-    private void Start()
+    /// <summary>
+    /// 숫자를 랜덤하게 컨테이너에 배정하고 나머지는 비활성화.
+    /// </summary>
+    public void ResetEnemytable()
     {
-        ResetContainers(); // 컨테이너 초기화
-        AssignDiceToContainers(); // 주사위 배치
+        ResetContainers(); // 실행 시 컨테이너 초기화
+
+        // 1부터 6까지의 숫자 생성
+        int[] numbers = { 1, 2, 3, 4, 5, 6 };
+
+        // 각 숫자를 랜덤하게 하나의 컨테이너에 배정On
+        foreach (int number in numbers)
+        {
+            AssignToRandomContainer(number);
+        }
     }
 
     /// <summary>
@@ -70,22 +81,6 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 숫자를 랜덤하게 컨테이너에 배정하고 나머지는 비활성화.
-    /// </summary>
-    public void AssignDiceToContainers()
-    {
-        ResetContainers(); // 실행 시 컨테이너 초기화
-
-        // 1부터 6까지의 숫자 생성
-        int[] numbers = { 1, 2, 3, 4, 5, 6 };
-
-        // 각 숫자를 랜덤하게 하나의 컨테이너에 배정
-        foreach (int number in numbers)
-        {
-            AssignToRandomContainer(number);
-        }
-    }
 
     /// <summary>
     /// 숫자를 랜덤한 컨테이너에 배정.
@@ -158,15 +153,13 @@ public class BattleManager : MonoBehaviour
         enemyCharge = 0;
         DeactivateAllCharges(playerCharges);
         DeactivateAllCharges(enemyCharges);
-        ResetContainers(); // 컨테이너 초기화
-        AssignDiceToContainers(); // 주사위 배치
+        ResetEnemytable();
     }
 
     public void OnPlayerMove(int playerIndex) // 버튼 클릭으로 발동
     {
+        ResetEnemytable();
         StartCoroutine(ExecuteBattle(playerIndex));
-
-
     }
     public IEnumerator ExecuteBattle(int playerIndex)
     {
