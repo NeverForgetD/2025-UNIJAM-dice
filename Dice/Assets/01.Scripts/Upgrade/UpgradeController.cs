@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class UpgradeController : MonoBehaviour
 {
+    public List<string> options;
     #region privates
-    private List<string> options;
+    
     private bool upgradeClicked;
     private int[] probability = { 10, 8, 12, 10, 12, 13, 11, 10, 4, 10 };
     
@@ -21,7 +22,6 @@ public class UpgradeController : MonoBehaviour
 
     private void OnEnable()
     {
-        GenerateOption();
         combinationText[0].text="x"+PlayerManager.Instance.handsLevel["YZ"].ToString();
         combinationText[1].text="x"+PlayerManager.Instance.handsLevel["LS"].ToString();
         combinationText[2].text="x"+PlayerManager.Instance.handsLevel["SS"].ToString();
@@ -34,6 +34,8 @@ public class UpgradeController : MonoBehaviour
         combinationText[9].text="x"+PlayerManager.Instance.handsLevel["N"].ToString(); 
         upgradeClicked = false;
         options = new List<string>();
+        options.Clear();
+        GenerateOption();
     }
 
     private void OnDisable()
@@ -54,13 +56,12 @@ public class UpgradeController : MonoBehaviour
 
     private void GenerateOption()
     {
-        options = new List<string> { "", "", "" };
         int a = GetRandomNum(probability);
         int b = GetRandomNum(probability, a);
         int c = GetRandomNum(probability, a, b);
-        options[0] = GetOption(a);
-        options[1] = GetOption(b);
-        options[2] = GetOption(c);
+        options.Add(GetOption(a));
+        options.Add(GetOption(b));
+        options.Add(GetOption(c));
         for (int i = 0; i < options.Count; i++)
         {
             switch (options[i])
@@ -160,7 +161,6 @@ public class UpgradeController : MonoBehaviour
             {
                 if (upgradeState[j].clicked)
                 {
-                    Debug.Log(options.Count);
                     PlayerManager.Instance.handsLevel[options[j]] += 1;
                 }
             }
