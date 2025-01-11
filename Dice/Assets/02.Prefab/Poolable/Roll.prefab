@@ -1051,9 +1051,6 @@ MonoBehaviour:
   type: 0
   infoSet: {fileID: 5104056914265015506}
   info: {fileID: 6120653656370739882}
-  scoreBoard: {fileID: 1172463027499757544}
-  combinationL: {fileID: 2574858769615483745}
-  combinationR: {fileID: 4947695455355823741}
 --- !u!114 &8372932276562919165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1409,9 +1406,6 @@ MonoBehaviour:
   type: 0
   infoSet: {fileID: 5104056914265015506}
   info: {fileID: 6120653656370739882}
-  scoreBoard: {fileID: 1172463027499757544}
-  combinationL: {fileID: 2574858769615483745}
-  combinationR: {fileID: 4947695455355823741}
 --- !u!114 &6146989424846780535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3212,9 +3206,6 @@ MonoBehaviour:
   type: 0
   infoSet: {fileID: 5104056914265015506}
   info: {fileID: 6120653656370739882}
-  scoreBoard: {fileID: 1172463027499757544}
-  combinationL: {fileID: 2574858769615483745}
-  combinationR: {fileID: 4947695455355823741}
 --- !u!114 &6035245035804337244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3575,9 +3566,6 @@ MonoBehaviour:
   type: 0
   infoSet: {fileID: 5104056914265015506}
   info: {fileID: 6120653656370739882}
-  scoreBoard: {fileID: 1172463027499757544}
-  combinationL: {fileID: 2574858769615483745}
-  combinationR: {fileID: 4947695455355823741}
 --- !u!114 &1558187479153350224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5309,9 +5297,6 @@ MonoBehaviour:
   type: 0
   infoSet: {fileID: 5104056914265015506}
   info: {fileID: 6120653656370739882}
-  scoreBoard: {fileID: 1172463027499757544}
-  combinationL: {fileID: 2574858769615483745}
-  combinationR: {fileID: 4947695455355823741}
 --- !u!114 &4999205463893786800
 MonoBehaviour:
   m_ObjectHideFlags: 0
