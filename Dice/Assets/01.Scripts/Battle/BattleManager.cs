@@ -15,6 +15,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] Image[] chargeContainer;
 
     [SerializeField] Image enemyDice;
+    [SerializeField] Sprite enemyQuestionDiceSprite;
 
     [SerializeField] Image[] playerCharges;
     [SerializeField] Image[] enemyCharges;
@@ -161,6 +162,7 @@ public class BattleManager : MonoBehaviour
         enemyCharge = 0;
         isActing = false;
         playerSprite.color = Color.white;
+        enemyDice.sprite = enemyQuestionDiceSprite;
 
         DeactivateAllCharges(playerCharges);
         DeactivateAllCharges(enemyCharges);
@@ -172,7 +174,6 @@ public class BattleManager : MonoBehaviour
         if(isActing) return;
         if(playerIndex == 2 && playerCharge == 5) return;
         isActing = true;
-        ResetEnemytable();
         StartCoroutine(ExecuteBattle(playerIndex));
     }
     public IEnumerator ExecuteBattle(int playerIndex)
@@ -294,11 +295,12 @@ public class BattleManager : MonoBehaviour
     private IEnumerator PlayerSpriteChange(int spriteType){
         playerSprite.sprite = playerSpriteContainer[spriteType];
         yield return new WaitForSeconds(1f);
+        isActing = false;
 
         if(StatusManager.Instance.playerStatus._hp < 0)
             playerSprite.color = Color.clear;
         playerSprite.sprite = playerSpriteContainer[0];
-        isActing = false;
+        
     }
 
     private IEnumerator EnemySpriteChange(int spriteType){
@@ -308,10 +310,15 @@ public class BattleManager : MonoBehaviour
         if(StatusManager.Instance.enemyStatus._hp < 0){
             enemySprite.color = Color.clear;
             enemyNum = (enemyNum + 1) % 3;
+            isActing = true;
+        }
+        else{
+            isActing = false;
+            ResetEnemytable();
         }
   
         enemySprite.sprite = enemySpriteContainer[enemyNum * 4];
-        isActing = false;
+        
     }
 
     private IEnumerator CheckBattleEnd()
@@ -322,7 +329,6 @@ public class BattleManager : MonoBehaviour
         }
         else if (StatusManager.Instance.enemyStatus._hp < 0)
         {
-            isActing = true;
             yield return new WaitForSeconds(2f); // 2�� ���
 
             StateManager.Instance.AdvanceToNextState();
