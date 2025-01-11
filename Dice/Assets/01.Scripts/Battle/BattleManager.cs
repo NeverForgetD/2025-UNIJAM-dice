@@ -89,18 +89,14 @@ public class BattleManager : MonoBehaviour
     #endregion
 
     #region Enemy Dice Roll
-
-
-
+    int enemyIndex;
     public void EnemyRoll()
     {
         int enemyDiceIndex = Random.Range(0, 6);
-        int enemyMoveIndex = GetContainerForNumber(enemyDiceIndex);
+        enemyIndex = GetContainerForNumber(enemyDiceIndex);
 
         enemyDice.sprite = enemyDiceSprite[enemyDiceIndex];
-        Debug.Log($"{enemyMoveIndex}");
     }
-
 
     private int GetContainerForNumber(int number)
     {
@@ -153,7 +149,14 @@ public class BattleManager : MonoBehaviour
     {
         if (index == 0)
         {
-
+            if (enemyIndex == 1)
+            {
+                // 적에게 데미지 -방어력
+            }
+            else
+            {
+                // 적에게 순수 데미지
+            }
         }
     }
 
