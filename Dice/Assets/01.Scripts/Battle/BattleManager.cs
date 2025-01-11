@@ -15,6 +15,14 @@ public class BattleManager : MonoBehaviour
     [SerializeField] Image enemyDice;
     #endregion
 
+    #region Properties
+    public int playerCharge { get; private set; }
+    public int enemyCharge {  get; private set; }
+    #endregion
+
+    #region Charge Visulaize
+
+    #endregion
 
     #region Enemy Dice Visualize
     private void Start()
@@ -129,6 +137,9 @@ public class BattleManager : MonoBehaviour
     #region Battle Loop
     public void OnBattleStart()
     {
+        playerCharge = 0;
+        enemyCharge = 0;
+        // 차지 게이지 초기화
         ResetContainers(); // 컨테이너 초기화
         AssignDiceToContainers(); // 주사위 배치
     }
@@ -149,28 +160,88 @@ public class BattleManager : MonoBehaviour
         // enemy나 player 죽는거 확인
     }
 
-    public void DetermineResult(int index)
+    public void DetermineResult(int index) // index는 플레이어
     {
-        Debug.Log($"{index}, {enemyIndex}");
-        if (index == 0)
-        {
+        int pAtk = StatusManager.Instance.playerStatus._atk + playerCharge*StatusManager.Instance.playerStatus._pot;
+        int pDef = StatusManager.Instance.playerStatus._def;
 
-            if (enemyIndex == 1)
+        int eAtk = StatusManager.Instance.enemyStatus._atk + enemyCharge* StatusManager.Instance.enemyStatus._pot;
+        int eDef = StatusManager.Instance.enemyStatus._def;
+
+        if (index == 0) // 플레이어 공격
+        {
+            if (enemyIndex == 0)
             {
-                // 적에게 데미지 -방어력
-                //예시
-                StatusManager.Instance.playerStatus.ModifyStatusAtOnce(0, 0, 0, 0);
+                ApplyBattleDamage(pAtk, eAtk);
+            }
+            else if (enemyIndex == 1)
+            {
+                ApplyBattleDamage(pAtk-eDef, 0);
+            }
+            else if (enemyIndex == 2)
+            {
+                ApplyBattleDamage(pAtk, 0);
+                //enemyCharge++;
             }
             else
             {
-                // 적에게 순수 데미지
+                Debug.Log($"적의 인덱스가 올바르지 않습니다. {enemyIndex}");
             }
+        }
+        else if (index == 1) // 플레이어 방어
+        {
+            if (enemyIndex == 0)
+            {
+                ApplyBattleDamage(0, eAtk-pDef);
+            }
+            else if (enemyIndex == 1)
+            {
+                ApplyBattleDamage(0, 0);
+            }
+            else if (enemyIndex == 2)
+            {
+                ApplyBattleDamage(0, 0);
+            }
+            else
+            {
+                Debug.Log($"적의 인덱스가 올바르지 않습니다. {enemyIndex}");
+            }
+        }
+        else if (index == 2) // 플레이어 충전
+        {
+            //playerCharge++;
+            if (enemyIndex == 0)
+            {
+                ApplyBattleDamage(0, eAtk);
+            }
+            else if (enemyIndex == 1)
+            {
+                ApplyBattleDamage(0, 0);
+            }
+            else if (enemyIndex == 2)
+            {
+                ApplyBattleDamage(0, 0);
+            }
+            else
+            {
+                Debug.Log($"적의 인덱스가 올바르지 않습니다. {enemyIndex}");
+            }
+        }
+        else
+        {
+            Debug.Log($"플레이어의 인덱스가 올바르지 않습니다. {index}");
         }
     }
 
     #endregion
 
     #region Util
+    private void ApplyBattleDamage(int playerD, int enemyD)
+    {
+        StatusManager.Instance.playerStatus.ModifyStatus("hp", enemyD);
+        StatusManager.Instance.enemyStatus.ModifyStatus("hp", playerD);
+    }
+
     private IEnumerator RollDiceForDuration(float duration)
     {
         float elapsedTime = 0f;

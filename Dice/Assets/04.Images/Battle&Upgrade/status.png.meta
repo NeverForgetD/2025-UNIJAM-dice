@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c2e57ef3f6f88544588071a557fc4d11
+guid: 1b4e227e6b20c3a4f8cb7d7c8fe806fd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7034707608577801408
-    second: Zzin_Final_YDvaluetable_0
+      213: -1183179350086764136
+    second: status_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Zzin_Final_YDvaluetable_0
+      name: status_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1273
-        height: 817
+        width: 322
+        height: 322
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0cc740c6c4d40a160800000000000000
-      internalID: 7034707608577801408
+      spriteID: 899308c56a0849fe0800000000000000
+      internalID: -1183179350086764136
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Zzin_Final_YDvaluetable_0: 7034707608577801408
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
