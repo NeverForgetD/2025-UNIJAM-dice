@@ -116,6 +116,7 @@ public class RollManager : MonoBehaviour
         CheckAllClicked();
         if (!isRolling && rollCount<3 && !allClicked) // can Roll
         {
+            SoundManager.Instance.PlaySFX_RandomPitch("DiceRoll01", 0.6f, 1.4f);
             SetDice();
             rollBtnText.text = $"ReRoll {3-rollCount} / 2";
         }
@@ -153,7 +154,6 @@ public class RollManager : MonoBehaviour
     
     public IEnumerator Roll()
     {
-        SoundManager.Instance.PlaySFX_RandomPitch("DiceRoll01", 0.8f, 1.3f);
         yield return StartCoroutine(RollDiceForDuration(0.6f)); // 0.6초 동안 주사위를 굴림
     }
     
