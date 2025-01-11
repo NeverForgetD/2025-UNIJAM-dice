@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      YDboardgreen_0: 1943590309146544258
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
