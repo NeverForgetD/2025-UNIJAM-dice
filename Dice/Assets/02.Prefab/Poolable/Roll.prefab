@@ -4028,6 +4028,7 @@ GameObject:
   - component: {fileID: 8393462509028520929}
   - component: {fileID: 114555934189702495}
   - component: {fileID: 5482084271968018369}
+  - component: {fileID: 1083199412931827846}
   m_Layer: 0
   m_Name: Choose Button
   m_TagString: Untagged
@@ -4149,6 +4150,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &1083199412931827846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617434168540850465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde65fff2eb823b41933430566cafa74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleFactor: 1.05
+  animationDuration: 0.1
 --- !u!1 &5640508764432486151
 GameObject:
   m_ObjectHideFlags: 0
@@ -4409,6 +4424,7 @@ GameObject:
   - component: {fileID: 2539359894083003836}
   - component: {fileID: 3560058464153357624}
   - component: {fileID: 7564772936733359425}
+  - component: {fileID: 6073125925793257587}
   m_Layer: 0
   m_Name: Roll Button
   m_TagString: Untagged
@@ -4530,6 +4546,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6073125925793257587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6056371978693452383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde65fff2eb823b41933430566cafa74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleFactor: 1.1
+  animationDuration: 0.08
 --- !u!1 &6102091526735660088
 GameObject:
   m_ObjectHideFlags: 0
