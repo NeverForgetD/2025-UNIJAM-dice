@@ -94,6 +94,7 @@ public class UpgradeController : MonoBehaviour
         int a = GetRandomNum(probability);
         int b = GetRandomNum(probability, a);
         int c = GetRandomNum(probability, a, b);
+        Debug.Log($"{a},{b},{c}");
         options.Add(GetOption(a));
         options.Add(GetOption(b));
         options.Add(GetOption(c));
@@ -134,19 +135,33 @@ public class UpgradeController : MonoBehaviour
             }
         }
     }
-    private int GetRandomNum(int[] arr, int a = 0, int b = 0){
-        int ret = 0;
-        do {
-            float rand = Random.Range(0f,100f);
-            for(int i=0;i<10;i++){
-                if(rand < arr[i]) {
-                    ret = i + 1;
+    private int GetRandomNum(int[] arr, int a = -1, int b = -1)
+    {
+        float rand = Random.Range(0f, 100f);
+        int ret = -1;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (rand < arr[i])
+            {
+                ret = i;
+                break;
+            }
+            rand -= arr[i];
+        }
+        while (ret == a || ret == b)
+        {
+            rand = Random.Range(0f, 100f);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (rand < arr[i])
+                {
+                    ret = i;
                     break;
                 }
                 rand -= arr[i];
             }
-        } while (ret==a || ret==b);
-        return ret-1;
+        }
+        return ret;
     }
 
     private string GetOption(int choice)
