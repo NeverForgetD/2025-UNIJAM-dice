@@ -62,32 +62,37 @@ public class RollManager : MonoBehaviour
             score += dice[i];
         //배율은 나중에 수정
         if (combinations.Contains("YZ"))
-            score *= 7;
+            score *= PlayerManager.Instance.handsLevel["YZ"];
         else if (combinations.Contains("LS"))
-            score *= 6;
+            score *= PlayerManager.Instance.handsLevel["LS"];
         else if (combinations.Contains("SS"))
-            score *= 5;
+            score *= PlayerManager.Instance.handsLevel["SS"];
         else if (combinations.Contains("FK"))
-            score *= 5;
+            score *= PlayerManager.Instance.handsLevel["FK"];
         else if (combinations.Contains("FH"))
-            score *= 4;
+            score *= PlayerManager.Instance.handsLevel["FH"];
         else if (combinations.Contains("TP"))
-            score *= 3;
+            score *= PlayerManager.Instance.handsLevel["TP"];
         else if (combinations.Contains("T"))
-            score *= 3;
+            score *= PlayerManager.Instance.handsLevel["T"];
         else if (combinations.Contains("P"))
-            score *= 2;
+            score *= PlayerManager.Instance.handsLevel["P"];
         else if (combinations.Contains("N"))
-            score *= 1;
+            score *= PlayerManager.Instance.handsLevel["N"];
         if (combinations.Contains("O"))
-            score *= 2;
+            score *= PlayerManager.Instance.handsLevel["O"];
         if (combinations.Contains("E"))
-            score *= 2;
+            score *= PlayerManager.Instance.handsLevel["E"];
         return score;
     }
 
+    public void ShowCombination(List<string> combinations)
+    {
+        
+    }
+
     public List<int> diceNum;
-    private int[] dice = {1, 2, 3, 4, 5, 6};
+    public List<int> actualDiceNum;
     private List<string> diceCombinations;
     public Sprite randomDice;
     public Sprite[] diceImages;
@@ -101,6 +106,7 @@ public class RollManager : MonoBehaviour
     public bool isRolling;
     public int rollCount;
     public bool allClicked;
+    
 
     public void CheckAllClicked()
     {
@@ -148,6 +154,7 @@ public class RollManager : MonoBehaviour
                 }
             }
         }
+        actualDiceNum = diceNum;
         diceCombinations=CheckCombinations(diceNum);
         StartCoroutine(Roll());
     }
@@ -174,6 +181,7 @@ public class RollManager : MonoBehaviour
         {
             curDice[i].sprite = diceImages[diceNum[i] - 1];
         }
+        GetScore(actualDiceNum, diceCombinations);
     }
 
     private void RollDice()

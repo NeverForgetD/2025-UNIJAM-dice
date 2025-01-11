@@ -392,11 +392,6 @@ Transform:
   - {fileID: 471079241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &239549696 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1172463027499757544, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
-  m_PrefabInstance: {fileID: 682798211810699817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &394747638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1297,7 +1292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1356297187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1540,29 +1535,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2891318201259937717, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
-      propertyPath: scoreBoard
-      value: 
-      objectReference: {fileID: 239549696}
-    - target: {fileID: 3122290639189480070, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
-      propertyPath: scoreBoard
-      value: 
-      objectReference: {fileID: 239549696}
-    - target: {fileID: 3996913661418336444, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
-      propertyPath: scoreBoard
-      value: 
-      objectReference: {fileID: 239549696}
-    - target: {fileID: 4182575787157574249, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
-      propertyPath: scoreBoard
-      value: 
-      objectReference: {fileID: 239549696}
     - target: {fileID: 4970123854363699841, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
       propertyPath: m_Name
       value: Roll
-      objectReference: {fileID: 0}
-    - target: {fileID: 4970123854363699841, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5404048429062593790, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1604,10 +1579,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8600223174125046000, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
-      propertyPath: scoreBoard
-      value: 
-      objectReference: {fileID: 239549696}
+    - target: {fileID: 8300938614371782366, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300938614371782366, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300938614371782366, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300938614371782366, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162168173085788463, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162168173085788463, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162168173085788463, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162168173085788463, guid: e48ae1ed15c894c62888b5fb728f77da, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
