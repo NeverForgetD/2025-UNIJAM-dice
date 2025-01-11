@@ -25,12 +25,6 @@ public class SoundManager : MonoBehaviour
         {
             bgmSource = gameObject.AddComponent<AudioSource>();
             bgmSource.loop = true;
-
-            bgmSource1 = gameObject.AddComponent<AudioSource>();
-            bgmSource1.loop = true;
-
-            bgmSource2 = gameObject.AddComponent<AudioSource>();
-            bgmSource2.loop = true;
         }
 
         if (sfxSource == null)
@@ -40,9 +34,6 @@ public class SoundManager : MonoBehaviour
 
     #region Privates
     AudioSource bgmSource;
-    AudioSource bgmSource1;
-    AudioSource bgmSource2;
-
     AudioSource sfxSource;
 
     bool isBGMPlaying = false;
@@ -81,36 +72,12 @@ public class SoundManager : MonoBehaviour
         isBGMPlaying = true;
     }
 
-    // 테스트 용 여러 BGM, 리팩토링 필수
-    public void PlayBGM1(string bgmName)
-    {
-        SoundData bgm = FindSound(soundDB.bgmList, bgmName); // 검색
-        if (bgm != null)
-        {
-            bgmSource1.clip = bgm.audioClip;
-            bgmSource1.volume = bgm.volume;
-            bgmSource1.Play();
-        }
-    }
-    public void playBGM2(string bgmName)
-    {
-        SoundData bgm = FindSound(soundDB.bgmList, bgmName); // 검색
-        if (bgm != null)
-        {
-            bgmSource.clip = bgm.audioClip;
-            bgmSource.volume = bgm.volume;
-            bgmSource.Play();
-        }
-    }
-
 
     public void StopBGM()
     {
         if (!isBGMPlaying)
             return;
         bgmSource.Stop();
-        bgmSource1.Stop();
-        bgmSource2.Stop();
         isBGMPlaying = false;
     }
 
