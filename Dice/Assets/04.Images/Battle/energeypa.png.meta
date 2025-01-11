@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      energeypa_0: 7806125944132358954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
