@@ -289,6 +289,7 @@ public class RollManager : MonoBehaviour
         {
             statButtons[i].isClicked = false;
         }
+        scoreText.text = "";
         Init();
     }
 
@@ -310,7 +311,6 @@ public class RollManager : MonoBehaviour
         {
             combinationImage[i].enabled = false;
         }
-        scoreText.text = "";
         diceControlSet.SetActive(true);
         statControlSet.SetActive(false);
     }
