@@ -14,13 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyStats:
   - hp: 100
-    atk: 10
-    def: 10
-    pot: 10
-  - hp: 150
     atk: 50
-    def: 80
+    def: 50
     pot: 50
+  - hp: 140
+    atk: 70
+    def: 70
+    pot: 70
+  - hp: 180
+    atk: 90
+    def: 90
+    pot: 90
+  - hp: 220
+    atk: 110
+    def: 110
+    pot: 110
+  - hp: 260
+    atk: 130
+    def: 130
+    pot: 130
+  - hp: 300
+    atk: 150
+    def: 150
+    pot: 150
+  - hp: 340
+    atk: 170
+    def: 170
+    pot: 170
   - hp: 0
     atk: 0
     def: 0
