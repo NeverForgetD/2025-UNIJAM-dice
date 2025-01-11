@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: EnemyData
   m_EditorClassIdentifier: 
   EnemyStats:
+  - hp: 60
+    atk: 30
+    def: 30
+    pot: 30
   - hp: 100
     atk: 50
     def: 50
@@ -37,10 +41,6 @@ MonoBehaviour:
     atk: 150
     def: 150
     pot: 150
-  - hp: 340
-    atk: 170
-    def: 170
-    pot: 170
   - hp: 0
     atk: 0
     def: 0
