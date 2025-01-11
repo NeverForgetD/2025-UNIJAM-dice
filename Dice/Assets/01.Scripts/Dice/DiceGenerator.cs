@@ -30,7 +30,7 @@ public class DiceGenerator
     public static List<int> eyes;
     public static Type type;
 
-    public static List<int> Generate(int round = 16){
+    public static List<int> Generate(int round = 0){
         Type type = (Type)Random.Range(0, 7);
         switch(type){
             case Type.D111111: InitD111111(); break;
