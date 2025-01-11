@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class StatButton : MonoBehaviour
     public UIButtonEffect effect;
     public GameObject diceSet;
     public GameObject statSet;
+    public TextMeshProUGUI scoreText;
 
     public void OnClick()
     {
@@ -21,6 +23,7 @@ public class StatButton : MonoBehaviour
             PlayerManager.Instance.playerStat.UpdateStatus(stat, score);
             PlayerManager.Instance.playerStat.PrintStatus(stat);
             isClicked = true;
+            scoreText.text = "";
         }
     }
 
