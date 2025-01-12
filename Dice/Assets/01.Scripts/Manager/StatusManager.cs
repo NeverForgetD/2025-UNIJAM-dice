@@ -45,16 +45,23 @@ public class StatusManager : MonoBehaviour
     {
 
         float baseValue = 0;
-
+        
         currentRound = StateManager.Instance.Round;
+
+
+
         if (currentRound == 0)
         {
             
             baseValue = 30;
         }
+        else if (currentRound<3)
+        {
+            baseValue = (playerStatus._atk + playerStatus._def + playerStatus._pot) / 3 * 1.3f;
+        }
         else 
         { 
-            baseValue = (playerStatus._atk + playerStatus._def + playerStatus._pot) / 3 * 1.5f;
+            baseValue = (playerStatus._atk + playerStatus._def + playerStatus._pot) / 3 *1.5f ;
         }
         
 
