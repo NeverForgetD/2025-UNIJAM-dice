@@ -1235,7 +1235,7 @@ PrefabInstance:
     - target: {fileID: 3291849891109864025, guid: bab32ec47fc888141afa2b49e2ee5688, type: 3}
       propertyPath: 'playerSpriteContainer.Array.data[3]'
       value: 
-      objectReference: {fileID: -1198257674694902199, guid: 3746d90ac8f852040885fbd765312531, type: 3}
+      objectReference: {fileID: 21300000, guid: 3746d90ac8f852040885fbd765312531, type: 3}
     - target: {fileID: 4119318761447792431, guid: bab32ec47fc888141afa2b49e2ee5688, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
