@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BattleManager : MonoBehaviour
 {
@@ -218,6 +219,12 @@ public class BattleManager : MonoBehaviour
                 SoundManager.Instance.PlaySFX_RandomPitch("Defence", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(2));
                 ApplyBattleDamage(Mathf.Max(0, pAtk - eDef), 0);
+                //추가
+                if (pAtk < eDef)
+                {
+                    StartCoroutine(ActivateThenDeactivate(enemyDamage));
+                    enemyDamageText.text = 0.ToString();
+                }
             }
             else if (enemyIndex == 2)
             {
@@ -241,6 +248,12 @@ public class BattleManager : MonoBehaviour
                 SoundManager.Instance.PlaySFX_RandomPitch("Attack", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(1));
                 ApplyBattleDamage(0, Mathf.Max(0, eAtk -pDef));
+                //추가
+                if (eAtk < pDef)
+                {
+                    StartCoroutine(ActivateThenDeactivate(playerDamage));
+                    playerDamageText.text = 0.ToString();
+                }
             }
             else if (enemyIndex == 1)
             {
