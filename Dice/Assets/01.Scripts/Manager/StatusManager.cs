@@ -81,7 +81,6 @@ public class StatusManager : MonoBehaviour
         enemyText[1].text = enemyStatus._atk.ToString();
         enemyText[2].text = enemyStatus._def.ToString();
         enemyText[3].text = enemyStatus._pot.ToString();
-
     }
 
 }
