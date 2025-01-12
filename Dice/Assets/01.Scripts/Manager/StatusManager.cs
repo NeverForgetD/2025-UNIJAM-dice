@@ -44,10 +44,12 @@ public class StatusManager : MonoBehaviour
     public void UpdateCurrentEnemyStatus()
     {
 
-        float baseValue = 0;
+        
+
         
         currentRound = StateManager.Instance.Round;
-
+        float baseValue = enemyData.EnemyStats[currentRound].med;
+        /*
 
 
         if (currentRound == 0)
@@ -63,7 +65,7 @@ public class StatusManager : MonoBehaviour
         { 
             baseValue = (playerStatus._atk + playerStatus._def + playerStatus._pot) / 3 *1.5f ;
         }
-        
+        */
 
         int enemy_hp = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f) * 2);
         int enemy_atk = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f));

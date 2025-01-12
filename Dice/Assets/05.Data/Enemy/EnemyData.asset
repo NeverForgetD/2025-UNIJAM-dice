@@ -16,15 +16,15 @@ MonoBehaviour:
   - med: 30
   - med: 50
   - med: 70
-  - med: 120
-  - med: 170
+  - med: 100
+  - med: 130
+  - med: 160
+  - med: 190
   - med: 220
-  - med: 300
+  - med: 250
+  - med: 280
+  - med: 310
+  - med: 340
+  - med: 350
   - med: 380
-  - med: 460
-  - med: 560
-  - med: 660
-  - med: 760
-  - med: 880
-  - med: 1000
-  - med: 1120
+  - med: 410
