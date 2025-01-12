@@ -56,6 +56,7 @@ public class StateManager : MonoBehaviour
     public void StartGame()
     {
         round = 0;
+        roundText.text = (round+1).ToString();
         PlayerManager.Instance.Init();
         playerSprite.color = Color.white; // 급한 불 끄기
         currentState = GameState.Roll;
