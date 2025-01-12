@@ -9,7 +9,7 @@ public class UpgradeController : MonoBehaviour
     #region privates
     
     private bool upgradeClicked;
-    private int[] probability = { 8, 10, 12, 10, 13, 13, 12, 13, 1, 8  };
+    private int[] probability = { 7, 12, 12, 12, 11, 13, 12, 13, 1, 7};
     
     #endregion
 
