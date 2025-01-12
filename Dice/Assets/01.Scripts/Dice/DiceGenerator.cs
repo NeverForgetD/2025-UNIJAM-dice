@@ -57,7 +57,7 @@ public class DiceGenerator
 
     private static int RoundChange(int round)
     {
-        int prob = Random.Range(0, 3);
+        int prob = Random.Range(0, 2);
         if (round < 4)
         {
             return 0;

@@ -199,8 +199,8 @@ public class BattleManager : MonoBehaviour
         int eAtk = StatusManager.Instance.enemyStatus._atk + enemyCharge * StatusManager.Instance.enemyStatus._pot;
         int eDef = StatusManager.Instance.enemyStatus._def;
 
-        pAtk -= eDef;
-        eAtk -= pAtk;
+        //pAtk -= eDef;
+        //eAtk -= pAtk;
 
         if (index == 0) // �÷��̾� ����
         {
@@ -213,7 +213,7 @@ public class BattleManager : MonoBehaviour
             else if (enemyIndex == 1)
             {
                 StartCoroutine(EnemySpriteChange(2));
-                //ApplyBattleDamage(Mathf.Max(0, pAtk - eDef), 0);
+                ApplyBattleDamage(Mathf.Max(0, pAtk - eDef), 0);
             }
             else if (enemyIndex == 2)
             {
@@ -233,7 +233,7 @@ public class BattleManager : MonoBehaviour
             if (enemyIndex == 0)
             {
                 StartCoroutine(EnemySpriteChange(1));
-                //ApplyBattleDamage(0, Mathf.Max(0, eAtk -pDef));
+                ApplyBattleDamage(0, Mathf.Max(0, eAtk -pDef));
             }
             else if (enemyIndex == 1)
             {

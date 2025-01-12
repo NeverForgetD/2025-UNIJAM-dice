@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class BonusButton : MonoBehaviour
     public bool clicked;
     public bool upgradeClicked;
     public Image image;
+    public TextMeshProUGUI text;
     
     void OnEnable()
     {
@@ -14,6 +16,7 @@ public class BonusButton : MonoBehaviour
         clicked = false;
         upgradeClicked = false;
         image.color = new Color(1, 1, 1, 1);
+        text.color = new Color(1, 1, 1, 1);
     }
     
     private void Update()
@@ -22,10 +25,12 @@ public class BonusButton : MonoBehaviour
         if (clicked)
         {
             image.color = new Color(1, 1, 1, 0.5f);
+            text.color = new Color(1, 1, 1, 0.5f);
         }
         else
         {
             image.color = new Color(1, 1, 1, 1);
+            text.color = new Color(1, 1, 1, 1);
         }
     }
     
@@ -37,11 +42,13 @@ public class BonusButton : MonoBehaviour
             {
                 clicked = false;
                 image.color = new Color(1, 1, 1, 1);
+                text.color = new Color(1, 1, 1, 1);
             }
             else
             {
                 clicked = true;
                 image.color = new Color(1, 1, 1, 0.5f);
+                text.color = new Color(1, 1, 1, 0.5f);
             }
         }
         else
