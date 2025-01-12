@@ -179,6 +179,7 @@ public class BattleManager : MonoBehaviour
     {
         if(isActing) return;
         if(playerIndex == 2 && playerCharge == 5) return;
+        SoundManager.Instance.PlaySFX_RandomPitch("Dice", 0.6f, 1.4f);
         isActing = true;
         StartCoroutine(ExecuteBattle(playerIndex));
     }
@@ -204,19 +205,23 @@ public class BattleManager : MonoBehaviour
 
         if (index == 0) // �÷��̾� ����
         {
+            SoundManager.Instance.PlaySFX_RandomPitch("Attack", 0.8f, 1.2f);
             StartCoroutine(PlayerSpriteChange(1));
             if (enemyIndex == 0)
             {
+                SoundManager.Instance.PlaySFX_RandomPitch("Attack", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(1));
                 ApplyBattleDamage(pAtk, eAtk);
             }
             else if (enemyIndex == 1)
             {
+                SoundManager.Instance.PlaySFX_RandomPitch("Defence", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(2));
                 ApplyBattleDamage(Mathf.Max(0, pAtk - eDef), 0);
             }
             else if (enemyIndex == 2)
             {
+                SoundManager.Instance.PlaySFX_RandomPitch("Charge", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(3));
                 ApplyBattleDamage(pAtk, 0);
                 enemyCharge++;
@@ -229,19 +234,23 @@ public class BattleManager : MonoBehaviour
         }
         else if (index == 1) // �÷��̾� ���
         {
+            SoundManager.Instance.PlaySFX_RandomPitch("Defence", 0.8f, 1.2f);
             StartCoroutine(PlayerSpriteChange(2));
             if (enemyIndex == 0)
             {
+                SoundManager.Instance.PlaySFX_RandomPitch("Attack", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(1));
                 ApplyBattleDamage(0, Mathf.Max(0, eAtk -pDef));
             }
             else if (enemyIndex == 1)
             {
+                SoundManager.Instance.PlaySFX_RandomPitch("Defence", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(2));
                 ApplyBattleDamage(0, 0);
             }
             else if (enemyIndex == 2)
             {
+                SoundManager.Instance.PlaySFX_RandomPitch("Charge", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(3));
                 ApplyBattleDamage(0, 0);
                 enemyCharge++;
@@ -254,21 +263,25 @@ public class BattleManager : MonoBehaviour
         }
         else if (index == 2) // �÷��̾� ����
         {
+            SoundManager.Instance.PlaySFX_RandomPitch("Charge", 0.8f, 1.2f);
             StartCoroutine(PlayerSpriteChange(3));
             playerCharge++;
             ActivateCharges(playerCharges, playerCharge);
             if (enemyIndex == 0)
             {
+                SoundManager.Instance.PlaySFX_RandomPitch("Attack", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(1));
                 ApplyBattleDamage(0, eAtk);
             }
             else if (enemyIndex == 1)
             {
+                SoundManager.Instance.PlaySFX_RandomPitch("Defence", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(2));
                 ApplyBattleDamage(0, 0);
             }
             else if (enemyIndex == 2)
             {
+                SoundManager.Instance.PlaySFX_RandomPitch("Charge", 0.8f, 1.2f);
                 StartCoroutine(EnemySpriteChange(3));
                 ApplyBattleDamage(0, 0);
                 enemyCharge++;
