@@ -208,7 +208,7 @@ public class RollManager : MonoBehaviour
             {
                 combinationImage[i].enabled = false;
             }
-            SoundManager.Instance.PlaySFX_RandomPitch("DiceRoll01", 0.6f, 1.4f);
+            SoundManager.Instance.PlaySFX_RandomPitch("Dice", 0.6f, 1.4f);
             SetDice();
             rollCount += 1;
             rollBtnText.text = $"Roll {3-rollCount} / 3";
@@ -353,7 +353,6 @@ public class RollManager : MonoBehaviour
         diceNum.Clear();
         actualDiceNum = new List<int> {0,0,0,0,0};
         enemySprite.color = Color.white;
-        
         for (int i = 0; i < curDice.Length; i++)
         {
             curDice[i].sprite = randomDice;

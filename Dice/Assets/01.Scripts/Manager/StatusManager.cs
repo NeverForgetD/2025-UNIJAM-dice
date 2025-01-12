@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 
@@ -42,8 +43,20 @@ public class StatusManager : MonoBehaviour
     #region Status
     public void UpdateCurrentEnemyStatus()
     {
+
+        float baseValue = 0;
+
         currentRound = StateManager.Instance.Round;
-        float baseValue = enemyData.EnemyStats[currentRound].med;
+        if (currentRound == 0)
+        {
+            
+            baseValue = 30;
+        }
+        else 
+        { 
+            baseValue = (playerStatus._atk + playerStatus._def + playerStatus._pot) / 3 * 1.5f;
+        }
+        
 
         int enemy_hp = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f) * 2);
         int enemy_atk = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f));
