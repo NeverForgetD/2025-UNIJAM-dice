@@ -905,6 +905,10 @@ PrefabInstance:
       propertyPath: roundText
       value: 
       objectReference: {fileID: 1121541196}
+    - target: {fileID: 3309585807637830848, guid: 24ef598290887d64c9df37dd5b65e86e, type: 3}
+      propertyPath: playerSprite
+      value: 
+      objectReference: {fileID: 2054270066}
     - target: {fileID: 3572081976425198207, guid: 24ef598290887d64c9df37dd5b65e86e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2027,6 +2031,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b83071a5774be4f008ff3b5255db3c11, type: 3}
+    - target: {fileID: 4880649729543526984, guid: 18b007b877c3abd4e906a8148216f158, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6186958591291299955, guid: 18b007b877c3abd4e906a8148216f158, type: 3}
       propertyPath: m_Name
       value: PlayerStatus
