@@ -1,13 +1,12 @@
+using System.Collections;
 using System.Threading;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Splash : MonoBehaviour
 {
-    [SerializeField] GameObject text;
-    private float timer = 0f;
-    [SerializeField] private float blinkInterval = 0.5f;
-
     private void Update()
     {
         // 아무 키나 눌렀을 때
@@ -15,14 +14,73 @@ public class Splash : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+    }
 
-        timer += Time.deltaTime;
+    [SerializeField] private TextMeshProUGUI targetText;
+    [SerializeField] private float fadeDuration = 1f; // 페이드 인/아웃 지속 시간
+    [SerializeField] private float pauseDuration = 0.5f; // 페이드 사이의 대기 시간
 
-        // 주기적으로 활성화/비활성 토글
-        if (timer >= blinkInterval)
+    private Coroutine fadeCoroutine;
+
+    private void Start()
+    {
+        if (targetText != null)
         {
-            text.SetActive(!text.activeSelf); // 활성/비활성 전환
-            timer = 0f; // 타이머 초기화
+            StartFadeLoop(); // 스크립트 시작 시 페이드 효과 시작
         }
+    }
+
+    /// <summary>
+    /// 페이드 효과를 루프로 시작
+    /// </summary>
+    public void StartFadeLoop()
+    {
+        if (fadeCoroutine == null)
+        {
+            fadeCoroutine = StartCoroutine(FadeLoop());
+        }
+    }
+
+    /// <summary>
+    /// 페이드 효과를 중지
+    /// </summary>
+    public void StopFadeLoop()
+    {
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+            fadeCoroutine = null;
+        }
+    }
+
+    private IEnumerator FadeLoop()
+    {
+        while (true)
+        {
+            // Fade Out
+            yield return StartCoroutine(FadeTextAlpha(1f, 0f));
+            yield return new WaitForSeconds(pauseDuration); // 페이드 아웃 후 대기
+
+            // Fade In
+            yield return StartCoroutine(FadeTextAlpha(0f, 1f));
+            yield return new WaitForSeconds(pauseDuration); // 페이드 인 후 대기
+        }
+    }
+
+    private IEnumerator FadeTextAlpha(float startAlpha, float endAlpha)
+    {
+        float elapsedTime = 0f;
+        Color textColor = targetText.color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / fadeDuration);
+            targetText.color = new Color(textColor.r, textColor.g, textColor.b, alpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 최종 알파값 보정
+        targetText.color = new Color(textColor.r, textColor.g, textColor.b, endAlpha);
     }
 }
