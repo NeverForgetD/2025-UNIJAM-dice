@@ -28,6 +28,8 @@ public class Splash : MonoBehaviour
         {
             StartFadeLoop(); // 스크립트 시작 시 페이드 효과 시작
         }
+        StartCoroutine(ExecuteAfterDelay());
+
     }
 
     /// <summary>
@@ -82,5 +84,11 @@ public class Splash : MonoBehaviour
 
         // 최종 알파값 보정
         targetText.color = new Color(textColor.r, textColor.g, textColor.b, endAlpha);
+    }
+
+    private IEnumerator ExecuteAfterDelay()
+    {
+        yield return new WaitForSeconds(0.2f); // 1초 대기
+        SoundManager.Instance.PlayBGM("BGM1");
     }
 }
