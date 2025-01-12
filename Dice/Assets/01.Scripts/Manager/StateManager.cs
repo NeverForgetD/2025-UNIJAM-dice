@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class StateManager : MonoBehaviour
 {
     #region Singleton Init
@@ -42,16 +43,21 @@ public class StateManager : MonoBehaviour
 
     private int round;
     public int Round { get { return round; } }
+
+    
     #endregion
 
     #region SerializeField
     [SerializeField] private TextMeshProUGUI roundText;
+    [SerializeField] private Image playerSprite; // 급한 불 끄기
     #endregion
 
     #region State Management
     public void StartGame()
     {
         round = 0;
+        PlayerManager.Instance.Init();
+        playerSprite.color = Color.white; // 급한 불 끄기
         currentState = GameState.Roll;
         isGameOver = false;
         StartCoroutine(TaskStateRoll());
@@ -158,9 +164,8 @@ public class StateManager : MonoBehaviour
     {
         PoolManager.Instance.DeactivateAllObjects();
 
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
         StartGame();
-        //Debug.Log("new Game Start");
     }
     #endregion
 

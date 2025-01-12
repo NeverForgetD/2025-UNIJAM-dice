@@ -307,6 +307,7 @@ public class BattleManager : MonoBehaviour
             playerSprite.color = Color.clear;
         playerSprite.sprite = playerSpriteContainer[0];
         
+
     }
 
     private IEnumerator EnemySpriteChange(int spriteType){
@@ -326,7 +327,6 @@ public class BattleManager : MonoBehaviour
         enemySprite.sprite = enemySpriteContainer[enemyNum * 4];
         
     }
-
     private IEnumerator CheckBattleEnd()
     {
         if (StatusManager.Instance.playerStatus._hp < 0)
