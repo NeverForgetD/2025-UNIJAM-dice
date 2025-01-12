@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      round_agencyFB-84_0: 8331264374155006075
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
