@@ -91,8 +91,6 @@ public class StateManager : MonoBehaviour
 
         //PoolManager.Instance.DeactivateObject("Battle");
         PoolManager.Instance.DeactivateAllObjects();
-        round++;
-        roundText.text = (round+1).ToString();
         
         RunNextState();
     }
@@ -111,6 +109,8 @@ public class StateManager : MonoBehaviour
         PoolManager.Instance.ActivateObject("UpgradeBonus");
         yield return StartCoroutine(WaitForStateCompletion());
         PoolManager.Instance.DeactivateAllObjects();
+        round++;
+        roundText.text = (round+1).ToString();
         RunNextState();
     }
 
