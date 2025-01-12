@@ -19,12 +19,12 @@ MonoBehaviour:
   - med: 120
   - med: 170
   - med: 220
-  - med: 320
-  - med: 420
-  - med: 590
+  - med: 300
+  - med: 380
+  - med: 460
+  - med: 560
+  - med: 660
   - med: 760
-  - med: 930
-  - med: 1170
-  - med: 1310
-  - med: 1550
-  - med: 1660
+  - med: 880
+  - med: 1000
+  - med: 1120
