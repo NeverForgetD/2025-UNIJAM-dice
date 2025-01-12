@@ -349,15 +349,17 @@ public class BattleManager : MonoBehaviour
         StatusManager.Instance.playerStatus.ModifyStatus("hp", -enemyD);
         StatusManager.Instance.enemyStatus.ModifyStatus("hp", -playerD);
 
-        if (enemyD > 0)
+        if (enemyD >= 0)
         {
-            StartCoroutine(Shake(playerSprite));
+            if (enemyD > 0)
+                StartCoroutine(Shake(playerSprite));
             StartCoroutine(ActivateThenDeactivate(playerDamage));
             playerDamageText.text = enemyD.ToString();
         }
-        if (playerD > 0)
+        if (playerD >= 0)
         {
-            StartCoroutine (Shake(enemySprite));
+            if (playerD > 0)
+                StartCoroutine (Shake(enemySprite));
             StartCoroutine(ActivateThenDeactivate(enemyDamage));
             enemyDamageText.text = playerD.ToString();
         }
