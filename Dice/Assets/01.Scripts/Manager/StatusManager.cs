@@ -59,7 +59,9 @@ public class StatusManager : MonoBehaviour
 
     public void InitPlayer()
     {
-        playerStatus.ChangeStatusAtOnce(playerStatus._hp, 0, 0, 0);
+
+        playerStatus.ChangeStatusAtOnce(0, 0, 0, 0);
+        //playerStatus.ChangeStatusAtOnce(playerStatus._hp, 0, 0, 0);
     }
     #endregion
 
