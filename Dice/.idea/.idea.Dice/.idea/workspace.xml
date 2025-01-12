@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="" />
+    <list default="true" id="79df4b9d-f5af-4da9-837a-de47998ead30" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dice/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00.Scenes/01.Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01.Scripts/Manager/StateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01.Scripts/Manager/StateManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/Battle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02.Prefab/Poolable/Battle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02.Prefab/UpperView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02.Prefab/UpperView.prefab" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +104,7 @@
       <workItem from="1736499537347" duration="7827000" />
       <workItem from="1736559150563" duration="3812000" />
       <workItem from="1736592513649" duration="5920000" />
-      <workItem from="1736646131623" duration="1037000" />
+      <workItem from="1736646131623" duration="3363000" />
     </task>
     <servers />
   </component>

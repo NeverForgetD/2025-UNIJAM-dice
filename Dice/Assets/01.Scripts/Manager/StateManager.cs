@@ -48,7 +48,7 @@ public class StateManager : MonoBehaviour
     #endregion
 
     #region SerializeField
-    [SerializeField] private TextMeshProUGUI roundText;
+    [SerializeField] private TextMeshProUGUI[] roundText;
     [SerializeField] private Image playerSprite; // 급한 불 끄기
     #endregion
 
@@ -56,7 +56,8 @@ public class StateManager : MonoBehaviour
     public void StartGame()
     {
         round = 0;
-        roundText.text = (round+1).ToString();
+        roundText[0].text = ((round+1)/10).ToString();
+        roundText[1].text = ((round+1) % 10).ToString();
         PlayerManager.Instance.Init();
         playerSprite.color = Color.white; // 급한 불 끄기
         currentState = GameState.Roll;
@@ -112,7 +113,8 @@ public class StateManager : MonoBehaviour
         yield return StartCoroutine(WaitForStateCompletion());
         PoolManager.Instance.DeactivateAllObjects();
         round++;
-        roundText.text = (round+1).ToString();
+        roundText[0].text = ((round+1)/10).ToString();
+        roundText[1].text = ((round+1) % 10).ToString();
         RunNextState();
     }
 
