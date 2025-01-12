@@ -47,8 +47,9 @@ public class StatusManager : MonoBehaviour
         float baseValue = 0;
 
         currentRound = StateManager.Instance.Round;
-        if (currentRound == 1)
+        if (currentRound == 0)
         {
+            
             baseValue = 30;
         }
         else 

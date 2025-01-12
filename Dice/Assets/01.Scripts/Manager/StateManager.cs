@@ -67,11 +67,12 @@ public class StateManager : MonoBehaviour
     
     IEnumerator TaskStateRoll()
     {
-        StatusManager.Instance.InitPlayer();
+        
         Debug.Log("roll");
         
         SoundManager.Instance.PlayBGM("BGM3");
         StatusManager.Instance.UpdateCurrentEnemyStatus();
+        StatusManager.Instance.InitPlayer();
         PoolManager.Instance.ActivateObject("Roll");
 
         yield return StartCoroutine(WaitForStateCompletion());
