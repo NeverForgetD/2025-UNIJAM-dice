@@ -214,7 +214,7 @@ public class SoundManager : MonoBehaviour
     /// <returns>코루틴</returns>
     public IEnumerator FadeVolume(AudioSource audioSource, float targetVolume)
     {
-        float duration = 0.5f;
+        float duration = 1f;
         
         if (audioSource == null)
         {

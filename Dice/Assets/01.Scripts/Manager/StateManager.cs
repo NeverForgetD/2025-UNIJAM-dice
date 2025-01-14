@@ -160,7 +160,9 @@ public class StateManager : MonoBehaviour
 
     public void EndGame()
     {
+        SoundManager.Instance.PlayBGM("BGM1");
         isGameOver = true;
+
         PoolManager.Instance.ActivateObject("Gameover");
     }
 
@@ -168,7 +170,6 @@ public class StateManager : MonoBehaviour
     {
         PoolManager.Instance.DeactivateAllObjects();
 
-        //SceneManager.LoadScene(1);
         StartGame();
     }
     #endregion

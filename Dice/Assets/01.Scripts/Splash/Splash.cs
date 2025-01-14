@@ -7,18 +7,30 @@ using UnityEngine.SceneManagement;
 
 public class Splash : MonoBehaviour
 {
-    private void Update()
-    {
-        // ¾Æ¹« Å°³ª ´­·¶À» ¶§
-        if (Input.anyKeyDown)
-        {
-            SceneManager.LoadScene(1);
-        }
+    public void OnStartClick(){
+        SceneManager.LoadScene(1);
+    }
+
+
+    [SerializeField] private GameObject howtoplayGameObject; 
+
+    public void OnHowToPlayClick(){
+        howtoplayGameObject.SetActive(true);
+    }
+
+    public void OnNextClick(int num){
+        howtoplayGameObject.transform.GetChild(num - 1).gameObject.SetActive(false);
+        howtoplayGameObject.transform.GetChild(num).gameObject.SetActive(true);
+    }
+
+    public void OnPrevClick(int num){
+        howtoplayGameObject.transform.GetChild(num - 1).gameObject.SetActive(false);
+        howtoplayGameObject.transform.GetChild(num - 2).gameObject.SetActive(true);
     }
 
     [SerializeField] private TextMeshProUGUI targetText;
-    [SerializeField] private float fadeDuration = 1f; // ÆäÀÌµå ÀÎ/¾Æ¿ô Áö¼Ó ½Ã°£
-    [SerializeField] private float pauseDuration = 0.5f; // ÆäÀÌµå »çÀÌÀÇ ´ë±â ½Ã°£
+    [SerializeField] private float fadeDuration = 1f; // ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½/ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+    [SerializeField] private float pauseDuration = 0.5f; // ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
     private Coroutine fadeCoroutine;
 
@@ -26,14 +38,14 @@ public class Splash : MonoBehaviour
     {
         if (targetText != null)
         {
-            StartFadeLoop(); // ½ºÅ©¸³Æ® ½ÃÀÛ ½Ã ÆäÀÌµå È¿°ú ½ÃÀÛ
+            StartFadeLoop(); // ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
         StartCoroutine(ExecuteAfterDelay());
 
     }
 
     /// <summary>
-    /// ÆäÀÌµå È¿°ú¸¦ ·çÇÁ·Î ½ÃÀÛ
+    /// ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public void StartFadeLoop()
     {
@@ -44,7 +56,7 @@ public class Splash : MonoBehaviour
     }
 
     /// <summary>
-    /// ÆäÀÌµå È¿°ú¸¦ ÁßÁö
+    /// ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public void StopFadeLoop()
     {
@@ -61,11 +73,11 @@ public class Splash : MonoBehaviour
         {
             // Fade Out
             yield return StartCoroutine(FadeTextAlpha(1f, 0f));
-            yield return new WaitForSeconds(pauseDuration); // ÆäÀÌµå ¾Æ¿ô ÈÄ ´ë±â
+            yield return new WaitForSeconds(pauseDuration); // ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Æ¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 
             // Fade In
             yield return StartCoroutine(FadeTextAlpha(0f, 1f));
-            yield return new WaitForSeconds(pauseDuration); // ÆäÀÌµå ÀÎ ÈÄ ´ë±â
+            yield return new WaitForSeconds(pauseDuration); // ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
         }
     }
 
@@ -82,13 +94,13 @@ public class Splash : MonoBehaviour
             yield return null;
         }
 
-        // ÃÖÁ¾ ¾ËÆÄ°ª º¸Á¤
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ ï¿½ï¿½ï¿½ï¿½
         targetText.color = new Color(textColor.r, textColor.g, textColor.b, endAlpha);
     }
 
     private IEnumerator ExecuteAfterDelay()
     {
-        yield return new WaitForSeconds(0.2f); // 1ÃÊ ´ë±â
+        yield return new WaitForSeconds(0.2f); // 1ï¿½ï¿½ ï¿½ï¿½ï¿½
         SoundManager.Instance.PlayBGM("BGM1");
     }
 }

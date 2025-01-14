@@ -30,6 +30,9 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI playerDamageText;
     [SerializeField] TextMeshProUGUI enemyDamageText;
+
+    [SerializeField] Transform playerTransform;
+    [SerializeField] Transform enemyTransform;
     #endregion
 
     #region Properties
@@ -325,7 +328,9 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator PlayerSpriteChange(int spriteType){
         playerSprite.sprite = playerSpriteContainer[spriteType];
+        playerTransform.GetChild(spriteType - 1).gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
+        playerTransform.GetChild(spriteType - 1).gameObject.SetActive(false);
         isActing = false;
 
         if(StatusManager.Instance.playerStatus._hp < 0)
@@ -337,7 +342,9 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator EnemySpriteChange(int spriteType){
         enemySprite.sprite = enemySpriteContainer[enemyNum * 4 + spriteType];
+        enemyTransform.GetChild(spriteType - 1).gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
+        enemyTransform.GetChild(spriteType - 1).gameObject.SetActive(false);
 
         if(StatusManager.Instance.enemyStatus._hp < 0){
             enemySprite.color = Color.clear;
