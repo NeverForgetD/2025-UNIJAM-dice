@@ -77,13 +77,19 @@ public class SoundManager : MonoBehaviour
             else if(bgm.soundName == "BGM3"){
                 StartCoroutine(FadeVolume(bgmSource3, bgm.volume));
                 StartCoroutine(FadeVolume(bgmSource1, 0));
+                StartCoroutine(FadeVolume(bgmSource2, 0));
+                StartCoroutine(FadeVolume(bgmSource4, 0));
             }
             else if(bgm.soundName == "BGM4"){
                 StartCoroutine(FadeVolume(bgmSource4, bgm.volume));
+                StartCoroutine(FadeVolume(bgmSource1, 0));
+                StartCoroutine(FadeVolume(bgmSource2, 0));
                 StartCoroutine(FadeVolume(bgmSource3, 0));
             }
             else if(bgm.soundName == "BGM2"){
                 StartCoroutine(FadeVolume(bgmSource2, bgm.volume));
+                StartCoroutine(FadeVolume(bgmSource1, 0));
+                StartCoroutine(FadeVolume(bgmSource3, 0));
                 StartCoroutine(FadeVolume(bgmSource4, 0));
             }
             else return;

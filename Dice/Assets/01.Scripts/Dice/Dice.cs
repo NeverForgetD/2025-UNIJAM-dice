@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,6 +15,7 @@ public class Dice
     public void Init(int round = 0){
         eyes = DiceGenerator.Generate(round);
         eyes.Sort();
+        eyes.Reverse();
         type = DiceGenerator.type;
     }
 
@@ -21,6 +23,7 @@ public class Dice
     {
         eyes = DiceGenerator.GenerateD111111();
         eyes.Sort();
+        eyes.Reverse();
         type = DiceGenerator.type;
     }
 

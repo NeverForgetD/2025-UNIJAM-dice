@@ -41,10 +41,10 @@ public class DiceGenerator
             case Type.D123: InitD123(); break;
             case Type.D6: InitD6(); break;
         }
-        int add=RoundChange(round);
+        int[] add = RoundChange(round);
         for (int i = 0; i < eyes.Count; i++)
         {
-            eyes[i] += add;
+            eyes[i] += (add[i] * 10);
         }
         return eyes;
     }
@@ -55,59 +55,28 @@ public class DiceGenerator
         return eyes;
     }
 
-    private static int RoundChange(int round)
+    private static int[] RoundChange(int round)
     {
-        int prob = Random.Range(0, 2);
-        if (round < 4)
+        if (round >= 30)
         {
-            return 0;
+            int[] ret30 = new int[] { 5, 5, 5, 5, 5, 5 };
+            return ret30;
         }
-        else if (round < 7)
+
+        int[] ret = new int[] { 0, 0, 0, 0, 0, 0 };
+
+        for(int t = 0; t < round; t++)
         {
-            if (prob == 0)
-                return 10;
-            else
-                return 0;
-        }else if (round < 10)
-        {
-            return 10;
-        }else if (round < 13)
-        {
-            if (prob == 0)
-                return 20;
-            else
-                return 10;
-        }else if (round < 16)
-        {
-            return 20;
-        }else if (round < 19)
-        {
-            if (prob == 0)
-                return 30;
-            else
-                return 20;
-        }else if (round < 22)
-        {
-            return 30;
-        }else if (round < 25)
-        {
-            if (prob == 0)
-                return 40;
-            else
-                return 30;
-        }else if (round < 28)
-        {
-            return 40;
-        }else if (round < 31)
-        {
-            if (prob == 0)
-                return 50;
-            else
-                return 40;
-        }else
-        {
-            return 50;
+            int i;
+            do
+            {
+                i = Random.Range(0, 6);
+            } while (ret[i] >= 5);
+            
+            ret[i]++;
         }
+
+        return ret;
     }
 
     private static void InitD111111(){

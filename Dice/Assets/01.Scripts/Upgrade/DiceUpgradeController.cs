@@ -201,7 +201,7 @@ public class DiceUpgradeController : MonoBehaviour
             }
         }
     }
-
+    
     private void Change()
     {
         if (anyClicked && upgradeClicked)

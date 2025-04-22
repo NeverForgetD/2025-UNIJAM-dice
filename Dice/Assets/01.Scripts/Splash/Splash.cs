@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Threading;
 using TMPro;
@@ -16,6 +17,13 @@ public class Splash : MonoBehaviour
 
     public void OnHowToPlayClick(){
         howtoplayGameObject.SetActive(true);
+    }
+
+    public void OnHowToPlayClose()
+    {
+        howtoplayGameObject.transform.GetChild(4).gameObject.SetActive(false);
+        howtoplayGameObject.transform.GetChild(0).gameObject.SetActive(true);
+        howtoplayGameObject.SetActive(false);
     }
 
     public void OnNextClick(int num){

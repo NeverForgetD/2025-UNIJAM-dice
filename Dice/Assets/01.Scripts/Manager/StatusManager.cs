@@ -24,7 +24,6 @@ public class StatusManager : MonoBehaviour
     #endregion
 
     #region SerializedField
-    [SerializeField] EnemyData enemyData;
 
     [SerializeField] TextMeshProUGUI[] playerText;
     [SerializeField] TextMeshProUGUI[] enemyText;
@@ -43,12 +42,8 @@ public class StatusManager : MonoBehaviour
     #region Status
     public void UpdateCurrentEnemyStatus()
     {
-
         
-
-        
-        currentRound = StateManager.Instance.Round;
-        float baseValue = enemyData.EnemyStats[currentRound].med;
+        currentRound = StateManager.Instance.Round + 1;
         /*
 
 
@@ -67,10 +62,16 @@ public class StatusManager : MonoBehaviour
         }
         */
 
-        int enemy_hp = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f) * 2);
-        int enemy_atk = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f));
-        int enemy_def = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f));
-        int enemy_pot = Mathf.RoundToInt(baseValue * Random.Range(0.5f, 1.5f));
+        int doubleValue = Random.Range(1, 5);
+
+        int enemy_hp = Mathf.RoundToInt(15 + 30f * currentRound *
+            (doubleValue == 1 ? 2 : 1) * Random.Range(0.8f, 1.2f));
+        int enemy_atk = Mathf.RoundToInt(15 + 15f * currentRound *
+            (doubleValue == 2 ? 2 : 1) * Random.Range(0.8f, 1.2f));
+        int enemy_def = Mathf.RoundToInt(15 + 15f * currentRound *
+            (doubleValue == 3 ? 2 : 1) * Random.Range(0.8f, 1.2f));
+        int enemy_pot = Mathf.RoundToInt(15 + 15f * currentRound *
+            (doubleValue == 4 ? 2 : 1) * Random.Range(0.8f, 1.2f));
 
 
         enemyStatus.ChangeStatus("hp", enemy_hp);

@@ -9,7 +9,7 @@ public class UpgradeController : MonoBehaviour
     #region privates
     
     private bool upgradeClicked;
-    private int[] probability = { 7, 12, 12, 12, 11, 13, 12, 13, 1, 7};
+    private int[] probability = { 5, 15, 15, 15, 15, 15, 10, 10, 0, 0};
     
     #endregion
 
@@ -38,7 +38,7 @@ public class UpgradeController : MonoBehaviour
         eyes.Clear();
         for (int i = 0; i < curDice.Length; i++)
         {
-            eyes.Add(PlayerManager.Instance.dices[i].GetEyes()[i]);
+            eyes.Add(PlayerManager.Instance.dices[i].GetEyes()[0]);
             switch (eyes[i]/10)
             {
                 case 0:
