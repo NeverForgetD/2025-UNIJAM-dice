@@ -198,10 +198,10 @@ public class BattleManager : MonoBehaviour
     public void DetermineResult(int index) // index�� �÷��̾�
     {
         int pAtk = StatusManager.Instance.playerStatus._atk + playerCharge * StatusManager.Instance.playerStatus._pot;
-        int pDef = StatusManager.Instance.playerStatus._def;
+        int pDef = StatusManager.Instance.playerStatus._def + playerCharge * StatusManager.Instance.playerStatus._pot;
 
         int eAtk = StatusManager.Instance.enemyStatus._atk + enemyCharge * StatusManager.Instance.enemyStatus._pot;
-        int eDef = StatusManager.Instance.enemyStatus._def;
+        int eDef = StatusManager.Instance.enemyStatus._def + enemyCharge * StatusManager.Instance.enemyStatus._pot;
 
         //pAtk -= eDef;
         //eAtk -= pAtk;
@@ -312,12 +312,12 @@ public class BattleManager : MonoBehaviour
             Debug.Log($"�÷��̾��� �ε����� �ùٸ��� �ʽ��ϴ�. {index}");
         }
 
-        if (playerCharge > 0 && index == 0)
+        if (playerCharge > 0 && (index == 0 || index == 1))
         {
             playerCharge = 0;
             DeactivateAllCharges(playerCharges); 
         }
-        if (enemyCharge > 0 && enemyIndex == 0)
+        if (enemyCharge > 0 && (enemyIndex == 0 || enemyIndex == 1))
         {
             enemyCharge = 0;
             DeactivateAllCharges(enemyCharges);
@@ -333,7 +333,7 @@ public class BattleManager : MonoBehaviour
         playerTransform.GetChild(spriteType - 1).gameObject.SetActive(false);
         isActing = false;
 
-        if(StatusManager.Instance.playerStatus._hp < 0)
+        if(StatusManager.Instance.playerStatus._hp <= 0)
             playerSprite.color = Color.clear;
         playerSprite.sprite = playerSpriteContainer[0];
         
@@ -346,7 +346,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         enemyTransform.GetChild(spriteType - 1).gameObject.SetActive(false);
 
-        if(StatusManager.Instance.enemyStatus._hp < 0){
+        if(StatusManager.Instance.enemyStatus._hp <= 0){
             enemySprite.color = Color.clear;
             enemyNum = (enemyNum + 1) % 3;
             isActing = true;
@@ -361,11 +361,11 @@ public class BattleManager : MonoBehaviour
     }
     private IEnumerator CheckBattleEnd()
     {
-        if (StatusManager.Instance.playerStatus._hp < 0)
+        if (StatusManager.Instance.playerStatus._hp <= 0)
         {
             StateManager.Instance.EndGame();
         }
-        else if (StatusManager.Instance.enemyStatus._hp < 0)
+        else if (StatusManager.Instance.enemyStatus._hp <= 0)
         {
             yield return new WaitForSeconds(2f); // 2�� ���
 
@@ -378,6 +378,8 @@ public class BattleManager : MonoBehaviour
     #region Util
     private void ApplyBattleDamage(int playerD, int enemyD)
     {
+        if (playerCharge == 5 && playerD > 0) playerD = 9999999;
+        if (enemyCharge == 5 && enemyD > 0) enemyD = 9999999; //instant death easteregg
         StatusManager.Instance.playerStatus.ModifyStatus("hp", -enemyD);
         StatusManager.Instance.enemyStatus.ModifyStatus("hp", -playerD);
 

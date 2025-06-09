@@ -26,7 +26,7 @@ public class Status// : MonoBehaviour
         switch (stat)
         {
             case ("hp"):
-                hp += value; break;
+                hp = Mathf.Max(0, hp + value); break;
             case ("atk"):
                 atk += value; break;
             case ("def"):

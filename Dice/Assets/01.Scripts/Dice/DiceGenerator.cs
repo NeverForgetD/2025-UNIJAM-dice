@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public enum Type{
-    D111111,D222,D33,D24,D15,D123,D6
+    D111111,D222,D33,D24,D123,
 }
 public class DiceGenerator
 {
@@ -18,28 +18,21 @@ public class DiceGenerator
     private static readonly int[] D24_1 = {5,10,15,20,30,20};
     private static readonly int[] D24_2 = {20,20,30,15,10,5};
 
-    private static readonly int[] D15_1 = {5,10,15,20,20,30};
-    private static readonly int[] D15_2 = {30,20,20,15,10,5};
-
-    private static readonly int[] D123_1 = {5,5,5,20,25,40};
+    private static readonly int[] D123_1 = {5,5,15,20,25,30};
     private static readonly int[] D123_2 = {5,15,20,30,20,10};
     private static readonly int[] D123_3 = {30,20,20,15,10,5};
-
-    private static readonly int[] D6 = {30,20,20,15,10,5};
 
     public static List<int> eyes;
     public static Type type;
 
     public static List<int> Generate(int round = 0){
-        Type type = (Type)Random.Range(0, 7);
+        Type type = (Type)Random.Range(0, 5);
         switch(type){
             case Type.D111111: InitD111111(); break;
             case Type.D222: InitD222(); break;
             case Type.D33: InitD33(); break;
             case Type.D24: InitD24(); break;
-            case Type.D15: InitD15(); break;
             case Type.D123: InitD123(); break;
-            case Type.D6: InitD6(); break;
         }
         int[] add = RoundChange(round);
         for (int i = 0; i < eyes.Count; i++)
@@ -109,13 +102,6 @@ public class DiceGenerator
         type = Type.D24;
     }
 
-    private static void InitD15(){
-        int a = GetRandomEye(D15_1);
-        int b = GetRandomEye(D15_2, a);
-
-        eyes = new List<int>(){a,b,b,b,b,b};
-        type = Type.D15;
-    }
 
     private static void InitD123(){
         int a = GetRandomEye(D123_1);
@@ -126,12 +112,6 @@ public class DiceGenerator
         type = Type.D123;
     }
 
-    private static void InitD6(){
-        int a = GetRandomEye(D6);
-
-        eyes = new List<int>(){a,a,a,a,a,a};
-        type = Type.D6;
-    }
 
     private static int GetRandomEye(int[] arr, int a = 0, int b = 0){
         int ret = 0;

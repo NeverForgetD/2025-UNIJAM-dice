@@ -62,16 +62,20 @@ public class StatusManager : MonoBehaviour
         }
         */
 
-        int doubleValue = Random.Range(1, 5);
+        float[,] weight = new float[8, 4]
+        { { 3, 1, 1, 1 }, { 2, 2, 1, 1 }, { 2, 1, 2, 1 }, { 2, 1, 1, 2 },
+        { 2, 1.5f, 1.5f, 1 }, { 2, 1.5f, 1, 1.5f }, { 2, 1, 1.5f, 1.5f }, { 2, 1.3f, 1.3f, 1.3f },};
 
-        int enemy_hp = Mathf.RoundToInt(15 + 30f * currentRound *
-            (doubleValue == 1 ? 2 : 1) * Random.Range(0.8f, 1.2f));
-        int enemy_atk = Mathf.RoundToInt(15 + 15f * currentRound *
-            (doubleValue == 2 ? 2 : 1) * Random.Range(0.8f, 1.2f));
-        int enemy_def = Mathf.RoundToInt(15 + 15f * currentRound *
-            (doubleValue == 3 ? 2 : 1) * Random.Range(0.8f, 1.2f));
-        int enemy_pot = Mathf.RoundToInt(15 + 15f * currentRound *
-            (doubleValue == 4 ? 2 : 1) * Random.Range(0.8f, 1.2f));
+        int weightNum = Random.Range(0, 8);
+
+        int enemy_hp = Mathf.RoundToInt(10 + 15f * Mathf.Pow(currentRound, 1.1f) *
+            weight[weightNum, 0] * Random.Range(0.8f, 1.2f));
+        int enemy_atk = Mathf.RoundToInt(10 + 15f * Mathf.Pow(currentRound, 1.1f) *
+            weight[weightNum, 1] * Random.Range(0.8f, 1.2f));
+        int enemy_def = Mathf.RoundToInt(10 + 15f * Mathf.Pow(currentRound, 1.1f) *
+            weight[weightNum, 2] * Random.Range(0.8f, 1.2f));
+        int enemy_pot = Mathf.RoundToInt(10 + 15f * Mathf.Pow(currentRound, 1.1f) *
+            weight[weightNum, 3] * Random.Range(0.8f, 1.2f));
 
 
         enemyStatus.ChangeStatus("hp", enemy_hp);
